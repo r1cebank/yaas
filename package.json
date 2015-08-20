@@ -4,9 +4,9 @@
   "description": "Awesome Asset Server",
   "main": "build/index.js",
   "scripts": {
-    "start": "./node_modules/.bin/gulp && node .",
-    "test": "./node_modules/.bin/gulp server && ./node_modules/.bin/mocha",
-    "posttest": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec"
+    "start": "gulp && node .",
+    "test": "gulp server && ./node_modules/.bin/mocha",
+    "posttest": "istanbul cover ./node_modules/.bin/_mocha -- -R spec"
   },
   "repository": {
     "type": "git",
@@ -27,13 +27,18 @@
   },
   "dependencies": {
     "bluebird": "^2.9.34",
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
     "localeval": "^15.2.3",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "multer": "^1.0.3",
+    "node-info": "^1.0.2",
+    "source-map-support": "^0.3.2",
+    "winston": "^1.0.1"
   },
   "author": "Siyuan Gao",
   "license": "MIT",
   "directories": {
-    "doc": "docs",
     "test": "test"
   }
 }
