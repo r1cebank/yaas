@@ -14,6 +14,7 @@ import AppSingleton     from './util/appsingleton';
 import Bootstrap        from './util/bootstrap';
 import Startup          from './util/startup';
 import NodeInfo         from 'node-info';
+import Config           from './config/config';
 
 //  Log TAG
 var TAG = "index";
@@ -35,10 +36,15 @@ if (sourcemaps) { require(sourcemaps).install(); }
  */
 let app = Express();
 
+//  Upload instance
+let upload = Multer(Config.server.storage);
+
 /*!
- *  Pass the express app instance to appsingleton
+ *  Pass the express app + multer instance to appsingleton
  */
 sharedInstance.app = app;
+sharedInstance.upload = upload;
+
 
 /*!
  *  Use global express middleware here.

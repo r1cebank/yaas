@@ -19,6 +19,10 @@ function startup() {
     var sharedInstance = AppSingleton.getInstance();
 
     return new Promise((resolve) => {
+        sharedInstance.app.post('/upload', sharedInstance.upload.single('file'), function(req, res, next) {
+            console.log(req.file);
+            res.send(req.file);
+        });
         resolve({ });
     });
 
