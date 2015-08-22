@@ -9,6 +9,7 @@
 
 import AppSingleton     from './appsingleton';
 import Promise          from 'bluebird';
+import Routes           from '../routes/routes';
 
 function startup() {
 
@@ -19,9 +20,21 @@ function startup() {
     var sharedInstance = AppSingleton.getInstance();
 
     return new Promise((resolve) => {
-        sharedInstance.app.post('/upload', sharedInstance.upload.single('file'), function(req, res, next) {
-            console.log(req.file);
-            res.send(req.file);
+
+        //  Setup routes for app
+
+        //  Setup upload
+        sharedInstance.app.post('/bucket/:bucket/upload', sharedInstance.upload.single('file'), function(req, res) {
+            Routes.upload(req, res).then().catch().done();
+        });
+        //  Bucket creation path
+        sharedInstance.app.post('/bucket', function (req, res) {
+            Routes.bucket(req, res).then().catch().done();
+        });
+        //  Get uploaded file
+        sharedInstance.app.get('/:bucket/:filename', function (req, res) {
+            Routes.getfile(req, res).then().catch().done();
+
         });
         resolve({ });
     });

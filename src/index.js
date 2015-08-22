@@ -20,7 +20,7 @@ import Config           from './config/config';
 var TAG = "index";
 
 //  Grab the port number or get from deploy environment
-let PORT = process.env.PORT || 3939;
+let PORT = process.env.PORT || Config.server.port;
 
 //  AppSingleton Instance
 var sharedInstance = AppSingleton.getInstance();
@@ -40,10 +40,11 @@ let app = Express();
 let upload = Multer(Config.server.storage);
 
 /*!
- *  Pass the express app + multer instance to appsingleton
+ *  Pass the express app + multer + config instance to appsingleton
  */
 sharedInstance.app = app;
 sharedInstance.upload = upload;
+sharedInstance.config = Config;
 
 
 /*!

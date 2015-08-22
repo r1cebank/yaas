@@ -4,6 +4,8 @@
 
 import AppSingleton     from './appsingleton';
 import Winston          from 'winston';
+import Promise          from 'bluebird';
+import NeDB             from 'nedb';
 
 function bootstrap () {
 
@@ -26,6 +28,15 @@ function bootstrap () {
         error   :   (tag, log) => {sharedInstance.Log.error(`[${tag}] : ${log}`);},
         warn    :   (tag, log) => {sharedInstance.Log.warn(`[${tag}] : ${log}`);}
     };
+
+    //  Setup local master db connection here
+    sharedInstance.buckets = new NeDB({filename: sharedInstance.config.server.index, autoload: true});
+    sharedInstance.L.info(TAG, `${sharedInstance.config.server.buckets} is loaded`);
+
+    //  Promisify functions
+    sharedInstance.findBucket = Promise.promisify(sharedInstance.buckets.find, sharedInstance.buckets);
+    sharedInstance.insertBucket = Promise.promisify(sharedInstance.buckets.insert, sharedInstance.buckets);
+
 
 
     sharedInstance.L.info(TAG, "Bootstrap complete!");
