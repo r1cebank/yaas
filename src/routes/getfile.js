@@ -21,17 +21,26 @@ function getfile (req, res) {
     return new Promise((resolve) => {
         // Get this bucket
         sharedInstance.findBucket({name: req.params.bucket}).then((docs, err) => {
-            if(docs.length < 1) res.status(400).send({error: `bucket ${req.body.name} not found`});
+            if(docs.length < 1) res.status(404).send({error: `bucket ${req.body.name} not found`});
             else {
                 var bucket = new NeDB({filename: Path.join(sharedInstance.config.server.buckets,
                     req.params.bucket), autoload: true});
                 bucket.find({originalname: req.params.filename}, function (err, docs) {
                     if(docs.length < 1) {
-                        res.status(400).send({error: `file ${req.file.originalname} not found.`});
+                        res.status(404).send({error: `file ${req.params.filename} not found.`});
                     }
                     else {
-                        res.type(docs[0].mimetype);
-                        res.sendFile(Path.join(process.cwd(), docs[0].path));
+                        // Try to see if there is a get param for version
+                        var version = docs[0].latestversion;
+                        if(req.query.v) version = req.query.v;
+
+                        //  Check if version exists
+                        if(!docs[0].versions[version])  {
+                            res.status(404).send({error: `version ${version} not found`});
+                        } else {
+                            res.type(docs[0].mimetype);
+                            res.sendFile(Path.join(process.cwd(), docs[0].versions[version]));
+                        }
                     }
                 });
                 resolve({ });

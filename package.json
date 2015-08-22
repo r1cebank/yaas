@@ -28,6 +28,7 @@
   "dependencies": {
     "bluebird": "^2.9.34",
     "body-parser": "^1.13.3",
+    "checksum": "^0.1.1",
     "express": "^4.13.3",
     "localeval": "^15.2.3",
     "lodash": "^3.10.1",
