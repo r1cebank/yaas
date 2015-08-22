@@ -30,6 +30,7 @@ function getfile (req, res) {
                         res.status(400).send({error: `file ${req.file.originalname} not found.`});
                     }
                     else {
+                        res.type(docs[0].mimetype);
                         res.sendFile(Path.join(process.cwd(), docs[0].path));
                     }
                 });
