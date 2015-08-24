@@ -1,5 +1,5 @@
 /**
- * Created by r1cebank on 8/21/15.
+ * Created by r1cebank on 8/22/15.
  */
 
 import AppSingleton     from '../util/appsingleton';
@@ -9,9 +9,8 @@ import NeDB             from 'nedb';
 import Path             from 'path';
 import UrlJoin          from 'url-join';
 import _                from 'lodash';
-import Transform        from '../transform/transform';
 
-function getfile (req, res) {
+function listversion (req, res) {
 
     //  Log tag
     let TAG = "route:upload";
@@ -31,24 +30,13 @@ function getfile (req, res) {
                         res.status(404).send({error: `file ${req.params.filename} not found.`});
                     }
                     else {
-                        // Try to see if there is a get param for version
-                        var version = docs[0].latestversion;
-                        if(req.query.v) version = req.query.v;
-
-                        //  Check if version exists
-                        if(!docs[0].versions[version])  {
-                            res.status(404).send({error: `version ${version} not found`});
-                        } else {
-                            //  check other parameters and process them if supported
-                            res.type(docs[0].mimetype);
-                            let v = _.clone(req.query.v);
-
-                            //  Needs to delete to avoid issues when deciding if processing is needed
-                            delete req.query.v;
-                            Transform.transform(res, docs[0].mimetype,
-                                req.query, Path.join(process.cwd(),
-                                docs[0].versions[version]), v);
+                        //  List all versions
+                        var urls = [ ];
+                        for(var key of Object.keys(docs[0].versions)) {
+                            urls.push(UrlJoin(sharedInstance.config.server.host,
+                                req.params.bucket, req.params.filename, `?v=${key}`));
                         }
+                        res.send(urls);
                     }
                 });
                 resolve({ });
@@ -58,4 +46,4 @@ function getfile (req, res) {
 
 }
 
-export default getfile;
+export default listversion;

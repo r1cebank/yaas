@@ -5,11 +5,12 @@
 var config = {
     server: {
         storage: {
-            dest: 'storage/'
+            dest: 'storage/',
+            processed: 'processed/'
         },
         index:      'db/index',
         buckets:    'db/bucket/',
-        host:       'http://localhost',
+        host:       'http://localhost:3939',
         port:       3939
     },
     secret: 'c9cba3d805ff526866d27b5504005766',

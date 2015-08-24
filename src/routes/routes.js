@@ -5,10 +5,16 @@
 import bucket       from    './bucket';
 import upload       from    './upload';
 import getfile      from    './getfile';
+import listfile     from    './listfile';
+import listbucket   from    './listbucket';
+import listversion  from    './listversion';
 
 
 export default {
     bucket,
     upload,
-    getfile
+    getfile,
+    listfile,
+    listbucket,
+    listversion
 };

@@ -15,6 +15,7 @@ import Bootstrap        from './util/bootstrap';
 import Startup          from './util/startup';
 import NodeInfo         from 'node-info';
 import Config           from './config/config';
+import Shortid          from 'shortid';
 
 //  Log TAG
 var TAG = "index";
@@ -37,7 +38,15 @@ if (sourcemaps) { require(sourcemaps).install(); }
 let app = Express();
 
 //  Upload instance
-let upload = Multer(Config.server.storage);
+var storage = Multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, Config.server.storage.dest);
+    },
+    filename: function (req, file, cb) {
+        cb(null, Shortid.generate() + `.${file.mimetype.split('/')[1]}`);
+    }
+});
+let upload = Multer({storage});
 
 /*!
  *  Pass the express app + multer + config instance to appsingleton

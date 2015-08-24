@@ -31,6 +31,18 @@ function startup() {
         sharedInstance.app.post('/bucket', function (req, res) {
             Routes.bucket(req, res).then().catch().done();
         });
+        //  LIst all buckets
+        sharedInstance.app.get('/list', function (req, res) {
+            Routes.listbucket(req, res).then().catch().done();
+        });
+        //  List all files in bucket
+        sharedInstance.app.get('/:bucket/list', function (req, res) {
+            Routes.listfile(req, res).then().catch().done();
+        });
+        //  List all versions for file
+        sharedInstance.app.get('/:bucket/:filename/list', function (req, res) {
+            Routes.listversion(req, res).then().catch().done();
+        });
         //  Get uploaded file
         sharedInstance.app.get('/:bucket/:filename', function (req, res) {
             Routes.getfile(req, res).then().catch().done();
