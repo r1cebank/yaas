@@ -18,9 +18,9 @@ AAS is a complete ready-to-use asset server that support file versioning as well
 ##### Example `http://localhost:3939/rai/261671.jpeg?scale=0.5&crop=[200,200]`
 (this will get the jpeg named `261671` and apply 0.5 scale and crop 200x200 pixels from the center)
 
-**There are no external runtime development**, you don't need to install anything extra to use this.
+**There are no external runtime dependencies**, you don't need to install anything extra to use this.
 
-**This module is actively developed.**
+**This module is actively developed by Siyuan Gao.**
 
 ### Installation
 
