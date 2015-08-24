@@ -228,6 +228,22 @@ Its a JSON array including all version urls for a file, if only one file exist, 
 
 ### Supported actions
 
+* image/jpeg
+	* scale
+	* crop (from center or specify x,y)
+	* rotate (degrees, fill color is white)
+	* blur (glaussan blur)
+	* sharken (sharpen the image)
+	* mirror (flip the image around an axis)
+	* saturate (adjust saturation)
+	* lighten (increase brightness)
+	* darken (decrease brightness)
+	* hue (adjust hue)
+
+### Supported files
+
+* image/jpeg
+
 ## Customization
 
 ##### File transformation
@@ -242,6 +258,22 @@ This is a tough part, to modify the transformation for a specific file, first I 
 You might have seen, the transformation files are stored according to their mimetype. For example, the `text/javascript` mimetype will be stored under `./src/transform/text/javascript/transform.js`
 
 **Note:** For any transformation you define, make sure it returns a **Promise** and resolve the transformed file path.
+
+## Who am I?
+
+I am Siyuan Gao, a Mobile application developer, full-stack developer, designer from Vancouver, BC. I creates projects all the time for fun, or just because I want to bring a tool to life. To contact me, please email me at: `siyuangao at gmail d0t c0m`
+
+## Todo list
+
+0. Make the project more stuctured, (no more big source files)
+1. Make adding transformation easier
+2. Allow user to config authentication
+3. HTTPS support
+4. Better manage disk space
+5. More Mocha tests (**sorry, need to write more tests)
+
+***
+If you want to help out, feel free to fork and send me a pull request.
 
 ## Copyright
 

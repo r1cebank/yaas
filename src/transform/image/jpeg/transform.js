@@ -48,7 +48,7 @@ function transform(req, file, version) {
                             switch(key) {
                                 case "scale":
                                     //  Scale the image
-                                    if(!isNaN(req[key], 10)) {
+                                    if(!isNaN(req[key])) {
                                         batch = batch.scale(Number(req[key]));
                                     }
                                     break;
@@ -61,6 +61,47 @@ function transform(req, file, version) {
                                         } else if(array.length == 4) {
                                             batch = batch.crop(array[0], array[1], array[2], array[3]);
                                         }
+                                    }
+                                    break;
+                                case "rotate":
+                                    if(!isNaN(req[key])) {
+                                        batch = batch.rotate(Number(req[key]), 'white');
+                                    }
+                                    break;
+                                case "blur":
+                                    if(!isNaN(req[key])) {
+                                        batch = batch.blur(Number(req[key]));
+                                    }
+                                    break;
+                                case "sharpen":
+                                    if(!isNaN(req[key])) {
+                                        batch = batch.sharpen(Number(req[key]));
+                                    }
+                                    break;
+                                case "mirror":
+                                    let actions = ['x', 'y', 'xy'];
+                                    if(_.includes(actions, req[key])) {
+                                        batch = batch.mirror(req[key]);
+                                    }
+                                    break;
+                                case "saturate":
+                                    if(!isNaN(req[key])) {
+                                        batch = batch.saturate(Number(req[key]));
+                                    }
+                                    break;
+                                case "lighten":
+                                    if(!isNaN(req[key])) {
+                                        batch = batch.lighten(Number(req[key]));
+                                    }
+                                    break;
+                                case "darken":
+                                    if(!isNaN(req[key])) {
+                                        batch = batch.darken(Number(req[key]));
+                                    }
+                                    break;
+                                case "hue":
+                                    if(!isNaN(req[key])) {
+                                        batch = batch.hue(Number(req[key]));
                                     }
                                     break;
                                 default:

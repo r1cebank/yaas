@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/transform/image/jpeg/transform.js" afterPath="$PROJECT_DIR$/src/transform/image/jpeg/transform.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aas.iws" />
@@ -76,16 +77,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66129035">
-              <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="getfile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/getfile.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -106,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="transform.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="transform.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/transform/image/jpeg/transform.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
+            <state vertical-scroll-proportion="-0.5769231">
+              <caret line="86" column="46" selection-start-line="86" selection-start-column="38" selection-end-line="86" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -155,13 +146,13 @@
         <option value="$PROJECT_DIR$/src/transform/transform.js" />
         <option value="$PROJECT_DIR$/src/util/bootstrap.js" />
         <option value="$PROJECT_DIR$/src/config/config.js" />
-        <option value="$PROJECT_DIR$/src/transform/image/jpeg/transform.js" />
         <option value="$PROJECT_DIR$/src/routes/getfile.js" />
         <option value="$PROJECT_DIR$/src/routes/bucket.js" />
         <option value="$PROJECT_DIR$/src/routes/upload.js" />
         <option value="$PROJECT_DIR$/src/routes/listfile.js" />
         <option value="$PROJECT_DIR$/src/routes/listversion.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/transform/image/jpeg/transform.js" />
       </list>
     </option>
   </component>
@@ -518,16 +509,22 @@
       <option name="project" value="LOCAL" />
       <updated>1440387257292</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Updated copyright">
+      <created>1440387730713</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1440387730713</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="37" y="23" width="1401" height="789" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5074627" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32761088" sideWeight="0.5231884" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32761088" sideWeight="0.5231884" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -569,7 +566,8 @@
     <MESSAGE value="Readme.md and file modifications working for png" />
     <MESSAGE value="Bug fix and updated readme.md" />
     <MESSAGE value="Cloned from git.motindex.com to github.com" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cloned from git.motindex.com to github.com" />
+    <MESSAGE value="Updated copyright" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated copyright" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -605,7 +603,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -665,7 +663,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -675,7 +673,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="63" selection-start-line="43" selection-start-column="63" selection-end-line="43" selection-end-column="63" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -726,7 +724,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -736,7 +734,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="63" selection-start-line="43" selection-start-column="63" selection-end-line="43" selection-end-column="63" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -787,7 +785,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="30" selection-start-line="1" selection-start-column="30" selection-end-line="1" selection-end-column="30" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -797,7 +795,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -892,7 +890,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="63" selection-start-line="43" selection-start-column="63" selection-end-line="43" selection-end-column="63" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -902,16 +900,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="41" column="32" selection-start-line="41" selection-start-column="32" selection-end-line="41" selection-end-column="32" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/transform/image/jpeg/transform.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="41" selection-start-line="40" selection-start-column="41" selection-end-line="40" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -981,6 +971,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66129035">
+          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/listversion.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -989,10 +987,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/transform/image/jpeg/transform.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66129035">
-          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+        <state vertical-scroll-proportion="-0.5769231">
+          <caret line="86" column="46" selection-start-line="86" selection-start-column="38" selection-end-line="86" selection-end-column="46" />
           <folding />
         </state>
       </provider>
