@@ -21,7 +21,7 @@ function listversion (req, res) {
     return new Promise((resolve) => {
         // Get this bucket
         sharedInstance.findBucket({name: req.params.bucket}).then((docs, err) => {
-            if(docs.length < 1) res.status(404).send({error: `bucket ${req.body.name} not found`});
+            if(docs.length < 1) res.status(404).send({error: `bucket ${req.params.bucket} not found`});
             else {
                 var bucket = new NeDB({filename: Path.join(sharedInstance.config.server.buckets,
                     req.params.bucket), autoload: true});

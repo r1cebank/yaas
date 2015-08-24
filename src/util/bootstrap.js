@@ -6,6 +6,7 @@ import AppSingleton     from './appsingleton';
 import Winston          from 'winston';
 import Promise          from 'bluebird';
 import NeDB             from 'nedb';
+import Mkdir            from 'mkdirp';
 
 function bootstrap () {
 
@@ -37,7 +38,9 @@ function bootstrap () {
     sharedInstance.findBucket = Promise.promisify(sharedInstance.buckets.find, sharedInstance.buckets);
     sharedInstance.insertBucket = Promise.promisify(sharedInstance.buckets.insert, sharedInstance.buckets);
 
-
+    //  Create all the folder needed for this application
+    Mkdir(sharedInstance.config.server.storage.dest);
+    Mkdir(sharedInstance.config.server.storage.processed);
 
     sharedInstance.L.info(TAG, "Bootstrap complete!");
 }

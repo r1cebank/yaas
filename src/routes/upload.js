@@ -24,7 +24,7 @@ function upload (req, res) {
 
         //  If no file supplied, error back
         if(!req.file) {
-            res.status(404).send({error: "File not supplied"});
+            res.status(404).send({error: "file not supplied"});
             resolve({ });
         } else {
             // Get this bucket
@@ -47,7 +47,6 @@ function upload (req, res) {
                             req.params.bucket), autoload: true});
                         bucket.find({originalname: req.file.originalname}, function (err, docs) {
                             if(docs.length > 0) {
-                                console.log("File exists.");
                                 //  File exists, uploading a new version.
 
                                 //  We have a new file, generate a new version code

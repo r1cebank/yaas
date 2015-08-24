@@ -16,8 +16,8 @@ function bucket (req, res) {
 
     return new Promise((resolve) => {
         if(req.body.secret != sharedInstance.config.secret) {
-            sharedInstance.L.warn(TAG, "api key is incorrect");
-            res.status(403).send({error: 'apikey is incorrect'});
+            sharedInstance.L.warn(TAG, "secret is incorrect");
+            res.status(403).send({error: 'secret is incorrect'});
             resolve({ });
         } else {
             sharedInstance.L.info(TAG, "api key is correct");
