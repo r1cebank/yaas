@@ -2,10 +2,11 @@
 
 0. [Overview](#overview)
 	0. [Installation](#installation)
-	1. [Configuration](#configuration)
-	2. [Usage](#usage)
-	3. [Supported actions](#supported-actions)
-	4. [Supported files](#supported-files)
+	1. [Build and Run](#build-and-run)
+	2. [Configuration](#configuration)
+	3. [Usage](#usage)
+	4. [Supported actions](#supported-actions)
+	5. [Supported files](#supported-files)
 1.	[Customization](#customization)
 2. [Who am I?](#who-am-i)
 3. [Todo list](#todo-list)
@@ -26,7 +27,12 @@ AAS is a complete ready-to-use asset server that support file versioning as well
 
 0.	Download the package in .zip
 1. `npm install`
+2. `npm install -g gulp`
 2. You can run the tests with `npm test`
+
+### Build and run
+0.	Run	 `gulp`
+1. Run `node ./build`
 
 ### Configuration
 
@@ -236,3 +242,27 @@ This is a tough part, to modify the transformation for a specific file, first I 
 You might have seen, the transformation files are stored according to their mimetype. For example, the `text/javascript` mimetype will be stored under `./src/transform/text/javascript/transform.js`
 
 **Note:** For any transformation you define, make sure it returns a **Promise** and resolve the transformed file path.
+
+## Copyright
+
+The MIT License (MIT)
+
+Copyright (c) 2015 Siyuan Gao
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
