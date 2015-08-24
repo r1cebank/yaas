@@ -15,7 +15,7 @@
 
 AAS is a complete ready-to-use asset server that support file versioning as well as data manipulation
 
-#####Example `http://localhost:3939/rai/261671.jpeg?scale=0.5&crop=[200,200]`
+##### Example `http://localhost:3939/rai/261671.jpeg?scale=0.5&crop=[200,200]`
 (this will get the jpeg named `261671` and apply 0.5 scale and crop 200x200 pixels from the center)
 
 **There are no external runtime development**, you don't need to install anything extra to use this.
@@ -219,6 +219,8 @@ Its a JSON array including all the files in bucket
 	  "http://localhost:3939/rai/261671.jpeg?v=NygObRwXh"
 	]
 Its a JSON array including all version urls for a file, if only one file exist, you can access it just by url (without the v)
+
+### Supported actions
 
 ## Customization
 

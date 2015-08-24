@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/bootstrap.js" afterPath="$PROJECT_DIR$/src/util/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/bucket.js" afterPath="$PROJECT_DIR$/src/routes/bucket.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/listfile.js" afterPath="$PROJECT_DIR$/src/routes/listfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/listversion.js" afterPath="$PROJECT_DIR$/src/routes/listversion.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/upload.js" afterPath="$PROJECT_DIR$/src/routes/upload.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aas.iws" />
@@ -568,7 +562,13 @@
       <option name="project" value="LOCAL" />
       <updated>1440376518269</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Bug fix and updated readme.md">
+      <created>1440386566179</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1440386566179</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -617,7 +617,8 @@
     <MESSAGE value="Upload version system v1" />
     <MESSAGE value="getfile with versions" />
     <MESSAGE value="Readme.md and file modifications working for png" />
-    <option name="LAST_COMMIT_MESSAGE" value="Readme.md and file modifications working for png" />
+    <MESSAGE value="Bug fix and updated readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug fix and updated readme.md" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
