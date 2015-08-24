@@ -24,7 +24,7 @@ function startup() {
         //  Setup routes for app
 
         //  Setup upload
-        sharedInstance.app.post('/bucket/:bucket/upload', sharedInstance.upload.single('file'), function(req, res) {
+        sharedInstance.app.post('/:bucket/upload', sharedInstance.upload.single('file'), function(req, res) {
             Routes.upload(req, res).then().catch().done();
         });
         //  Bucket creation path
