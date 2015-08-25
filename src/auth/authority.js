@@ -55,6 +55,16 @@ class Authority {
         //  To make sure we always have the auth field, we need to combine all the request params
         var request = _.extend(req.params || {}, req.query || {}, req.body || {});
 
+        //  Check if overwrite exist for this role, if exist, overwrite the checkauth and check role function
+        if(AppSingleton.getInstance().auth.overwrites[role]) {
+
+            //  Get overwrite auth type
+            var type = AppSingleton.getInstance().auth.overwrites[role];
+            AppSingleton.getInstance().L.warn(this.TAG, `overwrite auth method to ${type}`);
+            this.checkauth = require(`./${type}/checkauth.js`).checkauth;
+            this.checkrole = require(`./${type}/checkrole.js`).checkrole;
+        }
+
         //  Checkath will return the user if login correct or return undefined if error occured
         try {
             var user = this.checkauth(request.auth);

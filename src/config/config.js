@@ -31,6 +31,9 @@ var config = {
                     'version:list'
                 ]
             }
+        },
+        overwrites: {
+            'file:get': 'none'
         }
     }
 };

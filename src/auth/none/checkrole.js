@@ -17,10 +17,10 @@ function checkrole (user, role) {
     let TAG = 'auth:none:checkrole';
 
     if(user.user == 'noauth') {
-        AppSingleton.getInstance().L.info(TAG, 'checkauth is passing true');
+        AppSingleton.getInstance().L.info(TAG, 'checkauth is passing allow');
         return true;
     } else {
-        AppSingleton.getInstance().L.error(TAG, 'something is very wrong');
+        AppSingleton.getInstance().L.error(TAG, 'something is very refuse');
         return false;
     }
 }
