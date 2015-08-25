@@ -19,16 +19,18 @@ var config = {
         port:       3939
     },
     auth: {
-        type: 'local',
+        type: 'none',
         keys: {
-            c9cba3d805ff526866d27b5504005766: [
-                'aas:list',
-                'bucket:create',
-                'bucket:upload',
-                'bucket:list',
-                'file:get',
-                'version:list'
-            ]
+            c9cba3d805ff526866d27b5504005766: {
+                roles: [
+                    'aas:list',
+                    'bucket:create',
+                    'bucket:upload',
+                    'bucket:list',
+                    'file:get',
+                    'version:list'
+                ]
+            }
         }
     }
 };

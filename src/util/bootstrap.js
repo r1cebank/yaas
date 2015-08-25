@@ -12,6 +12,7 @@ import Winston          from 'winston';
 import Promise          from 'bluebird';
 import NeDB             from 'nedb';
 import Mkdir            from 'mkdirp';
+import Authority        from '../auth/authority';
 
 function bootstrap () {
 
@@ -46,6 +47,10 @@ function bootstrap () {
     //  Create all the folder needed for this application
     Mkdir(sharedInstance.config.server.storage.dest);
     Mkdir(sharedInstance.config.server.storage.processed);
+
+    //  Setup authority
+    sharedInstance.authority = new Authority(sharedInstance.config.auth.type);
+    sharedInstance.auth = sharedInstance.config.auth;
 
     sharedInstance.L.info(TAG, "Bootstrap complete!");
 }
