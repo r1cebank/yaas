@@ -6,7 +6,12 @@
  *  None will let everyone get in the system, anything is possible
  */
 
+import AppSingleton         from '../../util/appsingleton';
+
 function checkauth (auth) {
+
+    let TAG = 'auth:none:checkauth';
+    AppSingleton.getInstance().L.info(TAG, 'checkauth is passing noauth');
     return {user: 'noauth'};
 }
 

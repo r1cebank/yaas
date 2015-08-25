@@ -19,7 +19,7 @@ var config = {
         port:       3939
     },
     auth: {
-        type: 'none',
+        type: 'local',
         keys: {
             c9cba3d805ff526866d27b5504005766: {
                 roles: [

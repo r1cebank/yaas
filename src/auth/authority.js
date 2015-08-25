@@ -27,22 +27,25 @@ class Authority {
         AppSingleton.getInstance().L.info(this.TAG, `modules loading complete`);
     }
 
-    /*! For Express, we added these functions to help the authenticate
-     *  This also need to be a Express middleware
-     */
-    authenticate(req, res, next) {
-
-        //  To make sure we always have the auth field, we need to combine all the request params
-        var request = _.extend(req.params || {}, req.query || {}, req.body || {});
-
-        //  Checkath will return the user if login correct or return undefined if error occured
-        var user = this.checkauth(request.auth);
-        if(!user) {
-            res.status(403).send({error: `auth failed for ${this.TAG}`});
-        } else {
-            return next();
-        }
-    }
+    ///*!
+    // *  For Express, we added these functions to help the authenticate
+    // *  This also need to be a Express middleware
+    // */
+    //authenticate(req, res) {
+    //
+    //    //  To make sure we always have the auth field, we need to combine all the request params
+    //    var request = _.extend(req.params || {}, req.query || {}, req.body || {});
+    //
+    //    //  Checkath will return the user if login correct or return undefined if error occured
+    //    var user = this.checkauth(request.auth);
+    //    console.log(user)
+    //    if(!user) {
+    //        res.status(403).send({error: `auth failed for ${this.TAG}`});
+    //        return false;
+    //    } else {
+    //        return true;
+    //    }
+    //}
 
     /*!
      *  After authenticate is finished running, we need to check if the user is authenticated for that role
@@ -53,13 +56,24 @@ class Authority {
         var request = _.extend(req.params || {}, req.query || {}, req.body || {});
 
         //  Checkath will return the user if login correct or return undefined if error occured
-        var user = this.checkauth(request.auth);
+        try {
+            var user = this.checkauth(request.auth);
+        } catch (e) {
+            res.status(400).send({error: e});
+            return false;
+        }
 
-        if(!this.checkrole(user, role)) {
-            res.status(403).send({error: `${user} not permitted for ${role}`});
-            return false;   //  We still need to return since the value will be used to wrapped in if
+
+        if(!user) {
+            res.status(403).send({error: `auth failed for ${this.TAG}`});
+            return false;
         } else {
-            return true;
+            if(!this.checkrole(user, role)) {
+                res.status(403).send({error: `${request.auth} not permitted for ${role}`});
+                return false;   //  We still need to return since the value will be used to wrapped in if
+            } else {
+                return true;
+            }
         }
     }
 }

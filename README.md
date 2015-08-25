@@ -1,12 +1,15 @@
-# AAS (Awesome asset server written in NodeJS)
+# AAS.js (Awesome asset server written in NodeJS)
 
 0. [Overview](#overview)
 	0. [Installation](#installation)
 	1. [Build and Run](#build-and-run)
 	2. [Configuration](#configuration)
 	3. [Usage](#usage)
-	4. [Supported actions](#supported-actions)
-	5. [Supported files](#supported-files)
+	4. [Authentication](#authentication)
+		0.	[None](#authentication-none)
+		1. [Local](#authentication-local)
+	5. [Supported actions](#supported-actions)
+	6. [Supported files](#supported-files)
 1.	[Customization](#customization)
 2. [Who am I?](#who-am-i)
 3. [Todo list](#todo-list)
@@ -38,13 +41,34 @@ AAS is a complete ready-to-use asset server that support file versioning as well
 
 AAS is very configurable, but minminal configuration is needed to run on your system.
 
-##### Configure server secret
-The server secret is what the server uses to authorize a bucket creation. __(a bucket is a set of assets that belongs together, ie: a bucket can be a app you need to store assets for)__
+##### Configure Authority
+The server authority is what uses to authorize every request came from the client.
 
-In `./src/config/config.js`
+In `./src/config/config.js` (line 21)
 
-		secret: 'c9cba3d805ff526866d27b5504005766'
-Set this to the server secret you want, it can be anything (string)
+		auth: {
+        type: 'local',
+        keys: {
+            c9cba3d805ff526866d27b5504005766: {
+                roles: [
+                    'aas:list',
+                    'bucket:create',
+                    'bucket:upload',
+                    'bucket:list',
+                    'file:get',
+                    'version:list'
+                ]
+            }
+        }
+    }
+    
+`auth` is an object, it has two properties, `type` and anything else.
+`type` is requires indicating what type of authentication will be using
+	
+* none (anything is ok)
+* local (api key and role based authentication)
+
+More information is [here](#authentication)
 
 ##### Configure Host
 In order to get some features to work properly, (not required for basic feature) we need to configure the hostname correctly in `./src/config/config.js`
@@ -87,9 +111,6 @@ Changing the `filename` function to modify the behavior or the naming process of
 
 **Errors**
 
-	{
-  		"error": "secret is incorrect"
-	}
 	{
   		"error": "bucket [name] exists"
 	}
@@ -226,6 +247,8 @@ Its a JSON array including all the files in bucket
 	]
 Its a JSON array including all version urls for a file, if only one file exist, you can access it just by url (without the v)
 
+### Authentication
+
 ### Supported actions
 
 * image/jpeg
@@ -267,7 +290,7 @@ I am Siyuan Gao, a Mobile application developer, full-stack developer, designer 
 
 0. Make the project more stuctured, (no more big source files)
 1. Make adding transformation easier
-2. Allow user to config authentication
+2. Allow user to config authentication [*](#authentication)
 3. HTTPS support
 4. Better manage disk space
 5. More Mocha tests (**sorry, need to write more tests)
