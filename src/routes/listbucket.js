@@ -2,6 +2,10 @@
  * Created by r1cebank on 8/22/15.
  */
 
+/*!
+ *  This is the list bucket route, does only one thing, list all buckets in index file
+ */
+
 import AppSingleton     from '../util/appsingleton';
 import Promise          from 'bluebird';
 import Shortid          from 'shortid';

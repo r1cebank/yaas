@@ -45,6 +45,13 @@ function transform(req, file, version) {
                     //  All processing goes here.
                     for(var key of Object.keys(req)) {
                         try {
+
+                            /*!
+                             *  I am aware that having a big switch statement is not ideal,
+                             *  but thinking about having a chainable pipe with promises is just too
+                             *  much code.
+                             *  If we decides that chainable transform is needed, i am happy to implement
+                             */
                             switch(key) {
                                 case "scale":
                                     //  Scale the image

@@ -5,6 +5,7 @@
 /*!
  *  This sis the AppSingleton, this is shared across entire app
  */
+
 class AppSingleton {
     constructor() {
         console.error("Do not construct singleton using the constructor!");

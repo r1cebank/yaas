@@ -36,7 +36,7 @@ function startup() {
             Routes.listbucket(req, res).then().catch().done();
         });
         //  List all files in bucket
-        sharedInstance.app.get('/:bucket/list', function (req, res) {
+        sharedInstance.app.get('/:bucket', function (req, res) {
             Routes.listfile(req, res).then().catch().done();
         });
         //  List all versions for file

@@ -27,71 +27,56 @@ function upload (req, res) {
             res.status(404).send({error: "file not supplied"});
             resolve({ });
         } else {
-            // Get this bucket
-            sharedInstance.findBucket({name: req.params.bucket}).then((docs, err) => {
-                if(docs.length < 1) {
-                    //  Send back a error, delete the file
-                    Fs.unlink(req.file.path);
-                    res.status(400).send({error: `bucket ${req.params.bucket} not found`});
+            var bucket = new NeDB({
+                filename: Path.join(sharedInstance.config.server.buckets,
+                    req.params.bucket), autoload: true
+            });
+            bucket.find({originalname: req.file.originalname}, function (err, docs) {
+                if (docs.length > 0) {
+                    //  File exists, uploading a new version.
+
+                    //  We have a new file, generate a new version code
+                    var version = Shortid.generate();
+
+                    var file = _.clone(docs[0]);
+                    file.versions = _.clone(docs[0].versions);
+                    file.versions[version] = req.file.path;
+                    file.latestversion = version;
+                    bucket.update({originalname: req.file.originalname}, {
+                            $set: {
+                                versions: file.versions,
+                                latestversion: version
+                            }
+                        },
+                        function (error, doc) {
+                            res.send(file);
+                            sharedInstance.L.info(TAG, `file ${file.originalname} updated, version ${file.latestversion}`);
+                        });
                 }
                 else {
-                    if(req.body.key != docs[0].key) {
-                        //  Send a error, delete the file
-                        Fs.unlink(req.file.path);
-                        sharedInstance.L.warn(TAG, "bucket key is incorrect");
-                        res.status(403).send({error: 'bucket key is incorrect'});
-                        resolve({ });
-                    } else {
-                        sharedInstance.L.info(TAG, "bucket key is correct");
-                        var bucket = new NeDB({filename: Path.join(sharedInstance.config.server.buckets,
-                            req.params.bucket), autoload: true});
-                        bucket.find({originalname: req.file.originalname}, function (err, docs) {
-                            if(docs.length > 0) {
-                                //  File exists, uploading a new version.
 
-                                //  We have a new file, generate a new version code
-                                var version = Shortid.generate();
+                    var version = Shortid.generate();
 
-                                var file = _.clone(docs[0]);
-                                file.versions = _.clone(docs[0].versions);
-                                file.versions[version] = req.file.path;
-                                file.latestversion = version;
-                                bucket.update({originalname: req.file.originalname}, { $set: {versions: file.versions,
-                                        latestversion: version}},
-                                    function (error, doc) {
-                                        res.send(file);
-                                        sharedInstance.L.info(TAG, `file ${file.originalname} updated, version ${file.latestversion}`);
-                                    });
-                            }
-                            else {
+                    //  We have a new file, generate a new version code
+                    var versions = {};
+                    versions[version] = req.file.path;
 
-                                var version = Shortid.generate();
+                    //  Clone the file object
+                    var file = _.clone(req.file);
+                    file.versions = versions;
+                    file.latestversion = version;
+                    file.url = file.url = UrlJoin(sharedInstance.config.server.host,
+                        req.params.bucket, req.file.originalname);
 
-                                //  We have a new file, generate a new version code
-                                var versions = { };
-                                versions[version] = req.file.path;
-
-                                //  Clone the file object
-                                var file = _.clone(req.file);
-                                file.versions = versions;
-                                file.latestversion = version;
-                                file.url = file.url = UrlJoin(sharedInstance.config.server.host,
-                                    req.params.bucket, req.file.originalname);
-
-                                //  Insert the record into bucket
-                                bucket.insert(file, function (err, doc) {
-                                    sharedInstance.L.info(TAG, "file uploaded");
-                                });
-                                res.send(file);
-                            }
-                        });
-                        resolve({ });
-                    }
+                    //  Insert the record into bucket
+                    bucket.insert(file, function (err, doc) {
+                        sharedInstance.L.info(TAG, "file uploaded");
+                    });
+                    res.send(file);
                 }
             });
+            resolve({});
         }
-
-        // Get this bucket
     });
 
 }

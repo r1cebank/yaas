@@ -2,6 +2,11 @@
  * Created by r1cebank on 8/19/15.
  */
 
+/*!
+ *  Bootstrap is ran first will set all the necessary things like in appsingleton
+ *  loggers, configs and many other things. It is reusable in many other applications
+ */
+
 import AppSingleton     from './appsingleton';
 import Winston          from 'winston';
 import Promise          from 'bluebird';
