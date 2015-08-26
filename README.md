@@ -1,4 +1,4 @@
-# AAS.js (Awesome asset server written in NodeJS)
+# YAAS.js (Yet another asset server)
 
 0. [Overview](#overview)
 	0. [Installation](#installation)
@@ -17,7 +17,7 @@
 
 ## Overview
 
-AAS is a complete ready-to-use asset server that support file versioning as well as data manipulation
+YAAS is a complete ready-to-use asset server that support file versioning as well as data manipulation
 
 ##### Example `http://localhost:3939/rai/261671.jpeg?scale=0.5&crop=[200,200]`
 (this will get the jpeg named `261671` and apply 0.5 scale and crop 200x200 pixels from the center)
@@ -39,7 +39,7 @@ AAS is a complete ready-to-use asset server that support file versioning as well
 
 ### Configuration
 
-AAS is very configurable, but minminal configuration is needed to run on your system.
+YAAS is very configurable, but minminal configuration is needed to run on your system.
 
 #### Configure Authority
 The server authority is what uses to authorize every request came from the client.
@@ -51,7 +51,7 @@ In `./src/config/config.js` (line 21)
         keys: {
             c9cba3d805ff526866d27b5504005766: {
                 roles: [
-                    'aas:list',
+                    'yaas:list',
                     'bucket:create',
                     'bucket:upload',
                     'bucket:list',
@@ -79,7 +79,7 @@ More information is [here](#authentication)
 In order to get some features to work properly, (not required for basic feature) we need to configure the hostname correctly in `./src/config/config.js`
 	
 	host:       'http://localhost:3939'
-Here put the hostname of the server/computer you are running AAS on, if you don't know what to put, leave it default.
+Here put the hostname of the server/computer you are running YAAS on, if you don't know what to put, leave it default.
 
 **Note:** If you are using a custom port other than `3939`, please change the port name in `host` as well.
 
@@ -267,7 +267,7 @@ For this authentication type, api keys will be defined in `config.js` like this:
         keys: {
             c9cba3d805ff526866d27b5504005766: {
                 roles: [
-                    'aas:list',
+                    'yaas:list',
                     'bucket:create',
                     'bucket:upload',
                     'bucket:list',

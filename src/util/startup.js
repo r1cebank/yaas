@@ -41,7 +41,7 @@ function startup() {
             /*!
              *  Looks like cannot use as middleware.
              */
-            if(sharedInstance.authority.hasRole(req, res, 'aas:list')) {
+            if(sharedInstance.authority.hasRole(req, res, 'yaas:list')) {
                 Routes.listbucket(req, res).then().catch().done();
             }
         });
