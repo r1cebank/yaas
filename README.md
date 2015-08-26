@@ -6,8 +6,8 @@
 	2. [Configuration](#configuration)
 	3. [Usage](#usage)
 	4. [Authentication](#authentication)
-		0.	[None](#authentication-none)
-		1. [Local](#authentication-local)
+		0.	[None](#none)
+		1. [Local](#local)
 	5. [Supported actions](#supported-actions)
 	6. [Supported files](#supported-files)
 1.	[Customization](#customization)
@@ -41,7 +41,7 @@ AAS is a complete ready-to-use asset server that support file versioning as well
 
 AAS is very configurable, but minminal configuration is needed to run on your system.
 
-##### Configure Authority
+#### Configure Authority
 The server authority is what uses to authorize every request came from the client.
 
 In `./src/config/config.js` (line 21)
@@ -59,6 +59,10 @@ In `./src/config/config.js` (line 21)
                     'version:list'
                 ]
             }
+        },
+        overwrites: {
+            'file:get': 'none',
+            'version:list': 'none'
         }
     }
     
@@ -67,10 +71,11 @@ In `./src/config/config.js` (line 21)
 	
 * none (anything is ok)
 * local (api key and role based authentication)
+* overwrites is for the roles you want to apply a different authentication method (example: `'file:get': 'none'` means even we defined local authentical for every action, we will skip authentication for `file:get`
 
 More information is [here](#authentication)
 
-##### Configure Host
+#### Configure Host
 In order to get some features to work properly, (not required for basic feature) we need to configure the hostname correctly in `./src/config/config.js`
 	
 	host:       'http://localhost:3939'
@@ -80,13 +85,13 @@ Here put the hostname of the server/computer you are running AAS on, if you don'
 
 		ie. host:       'http://localhost:80'
 
-##### Configure port
+#### Configure port
 
 		1.	index.js (line 24)
 		2. ./src/config/config.js
 To specify which port your asset server will be running on, use `process.env.PORT` or specify port in `config.js`
 
-##### Upload file save path
+#### Upload file save path
 
 		1.	index.js (line 41)
 		2.	./src/config/config.js
@@ -94,7 +99,7 @@ You can change the upload file saving path by changing the storage object in lin
 
 **Note:** currently it doesn't support absolute file path, please stick to config.js and use relative path.
 
-##### Upload file save name
+#### Upload file save name
 
 		1.	index.js (line 45)
 Changing the `filename` function to modify the behavior or the naming process of `multer` module, currently all uploaded files will be named 
@@ -103,11 +108,11 @@ Changing the `filename` function to modify the behavior or the naming process of
 		example: EJuZ0D72.jpeg
 
 ### Usage
-##### Create a new bucket
+#### Create a new bucket
 
 **POST** `http://localhost:3939/bucket`
 
-**Params** `secret: [secret], name: [name of the bucket]`
+**Params** `auth: [credential], name: [name of the bucket]`
 
 **Errors**
 
@@ -117,16 +122,16 @@ Changing the `filename` function to modify the behavior or the naming process of
 **Response**
 
 	{
-	  "name": "rai2",
-	  "key": "Ey0d__X2"
+	  "message": "bucket rai2 created",
+	  "url": "http://localhost:3939/rai"
 	}
 	
-**Key** is your key for uploading to the bucket
+**url** if host is configured correctly, this will be the url for accessing your bucket
 
-##### Create a new upload
+#### Create a new upload
 **POST** `http://localhost:3939/[bucket]/upload`
 
-**Params** `file: [files to be uploaded], key: [bucket key]`
+**Params** `auth: [credential], file: [files to be uploaded]`
 
 **Errors**
 
@@ -158,11 +163,11 @@ Changing the `filename` function to modify the behavior or the naming process of
 	}
 This is all the information stored on local [nedb](https://github.com/louischatriot/nedb), including all the versions and the latest version, with the url to access the file.
 
-##### Get the file
+#### Get the file
 
 **GET** `http://localhost:3939/[bucket]/filename`
 
-**Params** `none`
+**Params** `auth: [credential]`
 
 **Errors**
 
@@ -173,11 +178,11 @@ This is all the information stored on local [nedb](https://github.com/louischatr
 
 	The file requested
 
-##### To get a specific version of a file
+#### To get a specific version of a file
 
 **GET** `http://localhost:3939/[bucket]/[file]?v=[version]`
 
-**Params** `none`
+**Params** `auth: [credential]`
 
 **Errors**
 
@@ -188,11 +193,11 @@ This is all the information stored on local [nedb](https://github.com/louischatr
 
 	The file requested
 
-##### List all the buckets
+#### List all the buckets
 
 **GET** `http://localhost:3939/list`
 
-**Params** `none`
+**Params** `auth: [credential]`
 
 **Errors**
 
@@ -206,11 +211,11 @@ This is all the information stored on local [nedb](https://github.com/louischatr
 	]
 Its a JSON array including all the buckets in the system
 
-##### List all files in buckets
+#### List all files in buckets
 
 **GET** `http://localhost:3939/[bucket]/list`
 
-**Params** `none`
+**Params** `auth: [credential]`
 
 **Errors**
 
@@ -225,11 +230,11 @@ Its a JSON array including all the buckets in the system
 	]
 Its a JSON array including all the files in bucket
 
-##### List all versions for a file
+#### List all versions for a file
 
 **GET** `http://localhost:3939/[bucket]/[file]/list`
 
-**Params** `none`
+**Params** `auth: [credential]`
 
 **Errors**
 
@@ -249,6 +254,40 @@ Its a JSON array including all version urls for a file, if only one file exist, 
 
 ### Authentication
 
+#### None
+For this authenticatin type, server will ignore anything in the auth field which means you don't have to provide any credentials.
+
+**Note:** not recommended, should be used as overwrite to make some calls public
+
+#### Local
+For this authentication type, api keys will be defined in `config.js` like this:
+
+	auth: {
+        type: 'local',
+        keys: {
+            c9cba3d805ff526866d27b5504005766: {
+                roles: [
+                    'aas:list',
+                    'bucket:create',
+                    'bucket:upload',
+                    'bucket:list',
+                    'file:get',
+                    'version:list'
+                ]
+            }
+        },
+        overwrites: {
+            'file:get': 'none',
+            'version:list': 'none'
+        }
+    }
+**First** `type` tells the server we are using `local` as authentication method, so during server's bootstrap, the correct authenticator will be loaded.
+
+**Second**, `keys` tells server what keys are allowed to access this api, the `role` is an array contains all the roles the key is authrorized.
+
+**Last** (optional), `overwrites` is very important if you want to customize authentications type for each role. The example here `'file:get' : 'none'` means even the global authentication method is `local`, we will skil authentication for `'file:get': 'none'` 
+
+
 ### Supported actions
 
 * image/jpeg
@@ -262,6 +301,8 @@ Its a JSON array including all version urls for a file, if only one file exist, 
 	* lighten (increase brightness)
 	* darken (decrease brightness)
 	* hue (adjust hue)
+* application/json
+	* search
 
 ### Supported files
 

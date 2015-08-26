@@ -33,7 +33,8 @@ var config = {
             }
         },
         overwrites: {
-            'file:get': 'none'
+            'file:get': 'none',
+            'version:list': 'none'
         }
     }
 };
