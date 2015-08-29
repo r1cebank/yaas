@@ -53,17 +53,18 @@ function getfile (req, res) {
                         } else {
                             //  check other parameters and process them if supported
                             res.type(docs[0].mimetype);
-                            let v = _.clone(req.query.v);
 
                             //  Combining inputs
                             var request = _.extend(req.params || {}, req.query || {}, req.body || {});
                             //  Needs to delete to avoid issues when deciding if processing is needed
                             delete request.v;
                             delete request.auth;
+                            delete request.bucket;
+                            delete request.filename;
                             // Processing
                             Transform.transform(res, docs[0].mimetype,
-                                req.query, Path.join(process.cwd(),
-                                docs[0].versions[version]), v);
+                                request, Path.join(process.cwd(),
+                                docs[0].versions[version]), version);
                         }
                     }
                 });

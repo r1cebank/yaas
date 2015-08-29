@@ -36,7 +36,7 @@ function transform(req, file, version) {
                 }
                 var batch = image.batch();
 
-                //  Needed the version number to enforce the files don't colide.
+                //  Needed the version number to enforce the files don't collide.
                 req.v = version;
                 var filename = Path.join(process.cwd(), sharedInstance.config.server.storage.processed, `${hash.digest(req)}.jpeg`);
                 //  Needs to delete v to avoid confusions

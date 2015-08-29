@@ -3,7 +3,8 @@
  */
 
 /*!
- *  This will transform the images and output
+ *  This will transform the json
+ *  currently supports jsonpath query
  */
 
 import AppSingleton     from '../../../util/appsingleton';

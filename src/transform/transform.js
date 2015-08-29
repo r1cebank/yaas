@@ -25,22 +25,25 @@ function transform (res, type, req, file, version) {
     let transformFile = Path.join(__dirname, type.split('/')[0], type.split('/')[1], `transform.js`);
 
     //  Do all the processing, and return the transformed file
-    if(Fs.existsSync(transformFile)) {
+    Fs.stat(transformFile, (err, stat) => {
+        //  If exists in the system, dont bother processing it
+        if(!err) {
 
-        //  Call the transformation file and get the final processed file.
-        require(transformFile)(req, file, version).then((file) => {
+            //  Call the transformation file and get the final processed file.
+            require(transformFile)(req, file, version).then((file) => {
+                res.sendFile(file);
+                end = new Date();
+                sharedInstance.L.info(TAG, `Processing time ${end-start}ms`);
+            }).catch((e) => {
+                //  If error is caught, send the original file
+                res.sendFile(file);
+                sharedInstance.L.error(TAG, e.toString());
+            }).done();
+        } else {
+            //  File don't support transform
             res.sendFile(file);
-            end = new Date();
-            sharedInstance.L.info(TAG, `Processing time ${end-start}ms`);
-        }).catch((e) => {
-            //  If error is caught, send the original file
-            res.sendFile(file);
-            sharedInstance.L.error(TAG, e.toString());
-        }).done();
-    } else {
-        //  File don't support transform
-        res.sendFile(file);
-    }
+        }
+    });
 }
 
 export default {transform};

@@ -34,7 +34,9 @@ var config = {
         },
         overwrites: {
             'file:get': 'none',
-            'version:list': 'none'
+            'version:list': 'none',
+            'bucket:list': 'none',
+            'yaas:list': 'none'
         }
     }
 };
