@@ -1,5 +1,5 @@
 /**
- * Rai.js entry file.
+ * yaas.js entry file.
  *
  * @author  Siyuan Gao <siyuangao@gmail.com>
  * @license MIT

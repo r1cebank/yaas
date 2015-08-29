@@ -40,8 +40,6 @@ function transform (res, type, req, file, version) {
     } else {
         //  File don't support transform
         res.sendFile(file);
-        end = new Date();
-        sharedInstance.L.info(TAG, `Processing time ${end-start}ms`);
     }
 }
 

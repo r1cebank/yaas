@@ -1,6 +1,6 @@
 {
-  "name": "aas",
-  "version": "1.1.0",
+  "name": "yaas",
+  "version": "1.1.1",
   "description": "Awesome Asset Server",
   "main": "build/index.js",
   "scripts": {
@@ -31,6 +31,8 @@
     "checksum": "^0.1.1",
     "express": "^4.13.3",
     "json-hash": "^1.1.0",
+    "jsonfile": "^2.2.1",
+    "jsonpath": "^0.1.8",
     "localeval": "^15.2.3",
     "lodash": "^3.10.1",
     "lwip": "0.0.7",
@@ -48,5 +50,10 @@
   "license": "MIT",
   "directories": {
     "test": "test"
-  }
+  },
+  "keywords": [
+    "asset",
+    "asset-server",
+    "server"
+  ]
 }

@@ -55,8 +55,12 @@ function getfile (req, res) {
                             res.type(docs[0].mimetype);
                             let v = _.clone(req.query.v);
 
+                            //  Combining inputs
+                            var request = _.extend(req.params || {}, req.query || {}, req.body || {});
                             //  Needs to delete to avoid issues when deciding if processing is needed
-                            delete req.query.v;
+                            delete request.v;
+                            delete request.auth;
+                            // Processing
                             Transform.transform(res, docs[0].mimetype,
                                 req.query, Path.join(process.cwd(),
                                 docs[0].versions[version]), v);
