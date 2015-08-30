@@ -40,9 +40,10 @@ function transform(req, file, version) {
                 if(!err) {
                     //  No error while reading ysql, continue to processing
                     // TODO: write real processing here
+                    //  Open a new connection -> cache the connection -> query -> grab the results
                     resolve(obj);
                 } else {
-                    sharedInstance.L.error(TAG, `error occured: ${err.toString()}`);
+                    sharedInstance.L.error(TAG, `error occurred: ${err.toString()}`);
                     resolve({error : err.toString()});
                 }
             });

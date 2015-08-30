@@ -15,6 +15,8 @@ import Path             from 'path';
 import UrlJoin          from 'url-join';
 import _                from 'lodash';
 import Transform        from '../transform/transform';
+//  Old require still using require
+var hash = require('json-hash');
 
 function getfile (req, res) {
 
@@ -54,11 +56,28 @@ function getfile (req, res) {
 
                             //  Combining inputs
                             var request = _.extend(req.params || {}, req.query || {}, req.body || {});
+
+                            //  This is used only for caching.
+                            var requestForHashing = _.clone(request);
+
+                            //  Again, delete the auth which is going to cause unexpected issue in hashing.
+                            requestForHashing.v = version;
+                            delete requestForHashing.auth;
+
                             //  Needs to delete to avoid issues when deciding if processing is needed
                             delete request.v;
                             delete request.auth;
                             delete request.bucket;
                             delete request.filename;
+                            sharedInstance.L.info(TAG, `request for hashing: ${JSON.stringify(requestForHashing)}`);
+
+                            /*! Used for caching, since we need unique hash for each request and make sure the
+                             *  same request yields the same hash so we are ensure that our cache is always valid
+                             *  for a particular request. But! need a better caching system so that we won't use up
+                             *  memory/old cache is purged once TTL passed.
+                             */
+                            var requestHash = hash.digest(requestForHashing);
+                            sharedInstance.L.info(TAG, `request hash: ${requestHash}`);
                             // Processing
                             Transform.transform(res, docs[0].mimetype,
                                 request, Path.join(process.cwd(),
