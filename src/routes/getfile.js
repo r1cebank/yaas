@@ -51,8 +51,6 @@ function getfile (req, res) {
                         if(!docs[0].versions[version])  {
                             res.status(404).send({error: `version ${version} not found`});
                         } else {
-                            //  check other parameters and process them if supported
-                            res.type(docs[0].mimetype);
 
                             //  Combining inputs
                             var request = _.extend(req.params || {}, req.query || {}, req.body || {});

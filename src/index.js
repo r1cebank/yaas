@@ -43,7 +43,9 @@ var storage = Multer.diskStorage({
         cb(null, Config.server.storage.dest);
     },
     filename: function (req, file, cb) {
-        cb(null, Shortid.generate() + `.${file.mimetype.split('/')[1]}`);
+        //  If custom file type, modify the mimetype to yaas/<type>
+        if(file.originalname.split('.').pop() == 'ysql') file.mimetype = 'yaas/sql';
+        cb(null, Shortid.generate() + `.${file.originalname.split('.').pop()}`);
     }
 });
 let upload = Multer({storage});
