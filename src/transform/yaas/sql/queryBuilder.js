@@ -44,7 +44,7 @@ function buildQuery(query, input, req, connection) {
         query = query.replace(match0, key);
     }
 
-    sharedInstance.L.info(TAG, `query built: ${query}`);
+    sharedInstance.L.verbose(TAG, `query built: ${query}`);
 
     return query;
 }

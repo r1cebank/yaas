@@ -11,7 +11,7 @@ import AppSingleton         from '../../util/appsingleton';
 function checkauth (auth) {
 
     let TAG = 'auth:none:checkauth';
-    AppSingleton.getInstance().L.info(TAG, 'checkauth is passing noauth');
+    AppSingleton.getInstance().L.verbose(TAG, 'checkauth is passing noauth');
     return {user: 'noauth'};
 }
 

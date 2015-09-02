@@ -26,11 +26,13 @@ function bootstrap () {
     sharedInstance.Log = new (Winston.Logger)({
         transports: [
             new (Winston.transports.Console)({
-                colorize: 'all'
+                colorize    : 'all',
+                level       : 'verbose'
             })
         ]
     });
     sharedInstance.L = {
+        verbose :   (tag, log) => {sharedInstance.Log.verbose(`[${tag}] : ${log}`);},
         info    :   (tag, log) => {sharedInstance.Log.info(`[${tag}] : ${log}`);},
         error   :   (tag, log) => {sharedInstance.Log.error(`[${tag}] : ${log}`);},
         warn    :   (tag, log) => {sharedInstance.Log.warn(`[${tag}] : ${log}`);}

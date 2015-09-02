@@ -34,11 +34,11 @@ function transform (res, type, req, file, version) {
                 //  After processing, the output can be two types, JSON or filepath
                 if(typeof file === 'object') {
                     //  If it is object, then just send it to as response.
-                    sharedInstance.L.info(TAG, 'sending result as response');
+                    sharedInstance.L.verbose(TAG, 'sending result as response');
                     res.send(file);
                 } else {
                     //  If it is not, then send as a file.
-                    sharedInstance.L.info(TAG, 'sending result as file');
+                    sharedInstance.L.verbose(TAG, 'sending result as file');
                     res.type(type);
                     res.sendFile(file);
                 }

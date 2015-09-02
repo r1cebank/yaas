@@ -69,7 +69,7 @@ function getfile (req, res) {
                             delete request.auth;
                             delete request.bucket;
                             delete request.filename;
-                            sharedInstance.L.info(TAG, `request for hashing: ${JSON.stringify(requestForHashing)}`);
+                            sharedInstance.L.verbose(TAG, `request for hashing: ${JSON.stringify(requestForHashing)}`);
 
                             /*! Used for caching, since we need unique hash for each request and make sure the
                              *  same request yields the same hash so we are ensure that our cache is always valid
@@ -77,7 +77,7 @@ function getfile (req, res) {
                              *  memory/old cache is purged once TTL passed.
                              */
                             var requestHash = hash.digest(requestForHashing);
-                            sharedInstance.L.info(TAG, `request hash: ${requestHash}`);
+                            sharedInstance.L.verbose(TAG, `request hash: ${requestHash}`);
                             // Processing
                             Transform.transform(res, docs[0].mimetype,
                                 request, Path.join(process.cwd(),

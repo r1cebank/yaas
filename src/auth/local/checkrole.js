@@ -18,10 +18,10 @@ function checkrole (user, role) {
     let TAG = 'auth:local:checkrole';
 
     if(_.includes(user.roles, role)) {
-        AppSingleton.getInstance().L.info(TAG, 'local is passing allow');
+        AppSingleton.getInstance().L.verbose(TAG, 'local is passing allow');
         return true;
     } else {
-        AppSingleton.getInstance().L.error(TAG, 'local is passing refuse');
+        AppSingleton.getInstance().L.verbose(TAG, 'local is passing refuse');
         return false;
     }
 }
