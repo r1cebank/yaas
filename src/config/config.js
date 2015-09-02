@@ -16,7 +16,8 @@ var config = {
         index:      'db/index',
         buckets:    'db/bucket/',
         host:       'http://localhost:3939',
-        port:       3939
+        port:       3939,
+        port_ssl:   33939
     },
     auth: {
         type: 'local',

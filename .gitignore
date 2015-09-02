@@ -32,6 +32,6 @@ node_modules
 storage
 db
 processed
-src/cert
+cert
 
 # Created by .ignore support plugin (hsz.mobi)

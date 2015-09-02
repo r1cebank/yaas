@@ -34,11 +34,11 @@ function transform(req, file, version) {
         JsonFile.readFile(file, function(err, obj) {
             if(!err) {
                 //  No error while reading ysql, continue to processing
-                // TODO: write real processing here
                 //  Open a new connection -> cache the connection -> query -> grab the results
                 var connection = MySQL.createConnection(obj.data.server);
                 //  Connect to MySQL
                 connection.connect();
+                //  TODO: Should i cache the connections
                 connection.query(obj.data.query, (err, rows) => {
                     if(err) {
                         sharedInstance.L.error(TAG, `error occurred: ${err.toString()}`);

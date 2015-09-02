@@ -16,12 +16,21 @@ import Startup          from './util/startup';
 import NodeInfo         from 'node-info';
 import Config           from './config/config';
 import Shortid          from 'shortid';
+import Fs               from 'fs';
+import HTTP             from 'http';
+import HTTPS            from 'https';
 
 //  Log TAG
 var TAG = "index";
 
+//  HTTPS Certificates
+var key = Fs.readFileSync('./cert/cert_p.p12', 'utf8');
+var cert = Fs.readFileSync('./cert/cert.cer', 'utf8');
+var credentials = {key, cert};
+
 //  Grab the port number or get from deploy environment
 let PORT = process.env.PORT || Config.server.port;
+let PORT_SSL = process.env.PORT_SSL || Config.server.port_ssl;
 
 //  AppSingleton Instance
 var sharedInstance = AppSingleton.getInstance();
@@ -75,9 +84,9 @@ Bootstrap();
  */
 
 Startup().then(function () {
-    var server = app.listen(PORT, function () {
-        var host = server.address().address;
-        var port = server.address().port;
-        sharedInstance.L.info(TAG, `Server running at: ${host}:${port}`);
-    });
+    var server = HTTP.createServer(app).listen(PORT);
+    //var server_https = HTTPS.createServer(credentials, app).listen(PORT_SSL);
+    var host = server.address().address;
+    sharedInstance.L.info(TAG, `HTTP Server running at: ${host}:${PORT}`);
+    //sharedInstance.L.info(TAG, `HTTPS Server running at: ${host}:${PORT_SSL}`);
 });
