@@ -24,9 +24,9 @@ import HTTPS            from 'https';
 var TAG = "index";
 
 //  HTTPS Certificates
-var key = Fs.readFileSync('./cert/cert_p.p12', 'utf8');
-var cert = Fs.readFileSync('./cert/cert.cer', 'utf8');
-var credentials = {key, cert};
+//  var key = Fs.readFileSync('./cert/cert_p.p12', 'utf8');
+//  var cert = Fs.readFileSync('./cert/cert.cer', 'utf8');
+//  var credentials = {key, cert};
 
 //  Grab the port number or get from deploy environment
 let PORT = process.env.PORT || Config.server.port;
