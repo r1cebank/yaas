@@ -14,6 +14,7 @@ import JsonFile         from 'jsonfile';
 import Path             from 'path';
 import _                from 'lodash';
 import MySQL            from 'mysql';
+import QueryBuilder     from './queryBuilder';
 
 //  Old require still using require
 var hash = require('json-hash');
@@ -38,11 +39,13 @@ function transform(req, file, version) {
                 var connection = MySQL.createConnection(obj.data.server);
                 //  Connect to MySQL
                 connection.connect();
-                //  TODO: Should i cache the connections
-                connection.query(obj.data.query, (err, rows) => {
+                //  For queries have placeholders, replace them with real values
+                var query = QueryBuilder.buildQuery(obj.data.query, obj.data.input, req, connection);
+                //  TODO: Should I persist the connections?
+                connection.query(query, (err, rows) => {
                     if(err) {
                         sharedInstance.L.error(TAG, `error occurred: ${err.toString()}`);
-                        reject(err);
+                        resolve({error: err.toString()});
                     }
                     resolve(rows);
                     //  Close the connection
