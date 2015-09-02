@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/transform/yaas/sql/queryBuilder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/transform/yaas/sql/transform.js" afterPath="$PROJECT_DIR$/src/transform/yaas/sql/transform.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/transform/yaas/sql/queryBuilder.js" afterPath="$PROJECT_DIR$/src/transform/yaas/sql/queryBuilder.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aas.iws" />
@@ -60,8 +59,8 @@
       <file leaf-file-name="queryBuilder.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/transform/yaas/sql/queryBuilder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7285068">
-              <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.7963801">
+              <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -651,7 +650,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441163623604</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Added query builder, should allow custom queries">
+      <created>1441167772793</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1441167772793</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -716,7 +721,8 @@
     <MESSAGE value="Prepare for hot caching system implementation." />
     <MESSAGE value="ysql support for sql query from file" />
     <MESSAGE value="Add some todo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add some todo" />
+    <MESSAGE value="Added query builder, should allow custom queries" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added query builder, should allow custom queries" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1103,8 +1109,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/transform/yaas/sql/queryBuilder.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7285068">
-          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.7963801">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
           <folding />
         </state>
       </provider>

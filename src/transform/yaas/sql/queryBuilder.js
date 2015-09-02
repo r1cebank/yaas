@@ -27,22 +27,22 @@ function buildQuery(query, input, req, connection) {
         key = "";
 
     // replace query params
-    do {
+    while(nameRegex.test(query)) {
         // Loop until regex no longer match item
         match = nameRegex.exec(query)[1];       //  Get the param number
         match0 = nameRegex.exec(query)[0];      //  Get the actual match
         key = input[match];                               //  Get the key name
         query = query.replace(match0, key);                     //  Replace the key with actual value name
-    } while(nameRegex.test(query));
+    }
 
     //  replace the values in a loop
-    do {
+    while(valueRegex.test(query)) {
         // Loop until regex no longer match item
         match = valueRegex.exec(query)[1];
         match0 = valueRegex.exec(query)[0];
         key = connection.escape(req[input[match]]);
         query = query.replace(match0, key);
-    } while(valueRegex.test(query));
+    }
 
     sharedInstance.L.info(TAG, `query built: ${query}`);
 
