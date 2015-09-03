@@ -15,7 +15,7 @@ import _                from 'lodash';
 function listversion (req, res) {
 
     //  Log tag
-    let TAG = "route:upload";
+    let TAG = "route:listversion";
 
     //  Get shared instance from singleton
     var sharedInstance = AppSingleton.getInstance();
