@@ -1,7 +1,7 @@
 {
   "name": "yaas",
   "version": "0.11.0",
-  "description": "Awesome Asset Server",
+  "description": "Yet Another Asset Server",
   "main": "build/index.js",
   "scripts": {
     "start": "gulp && node .",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@git.motiondex.com:r1cebank/aas.git"
+    "url": "git@github.com:r1cebank/yaas.git"
   },
   "devDependencies": {
     "babel": "^5.8.21",
