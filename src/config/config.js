@@ -24,7 +24,6 @@ var config = {
             c9cba3d805ff526866d27b5504005766: {
                 roles: [
                     'yaas:list',
-                    'bucket:create',
                     'bucket:upload',
                     'bucket:list',
                     'file:get',
