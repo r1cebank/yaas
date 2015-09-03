@@ -2,6 +2,8 @@
 
 ##### Updated for commit [9b1f0b](https://github.com/r1cebank/yaas/commit/9b1f0b86a157cae9fceb67e3a68f86e4a54eebcc)
 
+##### Updated documentation: [here](http://yaas.readme.io)
+
 0. [Overview](#overview)
 	0. [Installation](#installation)
 	1. [Build and Run](#build-and-run)
