@@ -20,7 +20,7 @@ var hash = require('json-hash');
 function getfile (req, res) {
 
     //  Log tag
-    let TAG = "route:upload";
+    let TAG = "route:getfile";
 
     //  Get shared instance from singleton
     var sharedInstance = AppSingleton.getInstance();
