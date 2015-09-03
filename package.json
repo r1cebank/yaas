@@ -15,6 +15,7 @@
   "devDependencies": {
     "babel": "^5.8.21",
     "babel-core": "^5.8.21",
+    "del": "^2.0.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.0",
     "gulp-istanbul": "^0.10.0",

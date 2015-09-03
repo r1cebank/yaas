@@ -14,11 +14,12 @@ var jshint         = require('gulp-jshint');
 var stylish        = require('gulp-jscs-stylish');
 var istanbul       = require('gulp-istanbul');
 var sourcemaps     = require('gulp-sourcemaps');
+var del            = require('del');
 
 /*!
  * Aliases
  */
-gulp.task('default', ['build']);
+gulp.task('default', ['clean','build']);
 
 /*!
  * Builds script files.
@@ -34,6 +35,13 @@ gulp.task('build', function() {
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('build'));
 
+});
+
+/*!
+ *  Delete the build folder
+ */
+gulp.task('clean', function() {
+    return del(['build/**/*']);
 });
 
 
