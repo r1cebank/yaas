@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/routes/bucket.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/bootstrap.js" afterPath="$PROJECT_DIR$/src/util/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auth/none/checkauth.js" afterPath="$PROJECT_DIR$/src/auth/none/checkauth.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auth/local/checkrole.js" afterPath="$PROJECT_DIR$/src/auth/local/checkrole.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auth/none/checkrole.js" afterPath="$PROJECT_DIR$/src/auth/none/checkrole.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/config/config.js" afterPath="$PROJECT_DIR$/src/config/config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/getfile.js" afterPath="$PROJECT_DIR$/src/routes/getfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/transform/yaas/sql/queryBuilder.js" afterPath="$PROJECT_DIR$/src/transform/yaas/sql/queryBuilder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/transform/transform.js" afterPath="$PROJECT_DIR$/src/transform/transform.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/listbucket.js" afterPath="$PROJECT_DIR$/src/routes/listbucket.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/listfile.js" afterPath="$PROJECT_DIR$/src/routes/listfile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/listversion.js" afterPath="$PROJECT_DIR$/src/routes/listversion.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/routes.js" afterPath="$PROJECT_DIR$/src/routes/routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/routes/upload.js" afterPath="$PROJECT_DIR$/src/routes/upload.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aas.iws" />
@@ -44,7 +47,7 @@
         <entry file="file://$PROJECT_DIR$/src/config/config.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="44" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="44" />
+              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -60,51 +63,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bootstrap.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/util/bootstrap.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.32126698">
-              <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="50" column="86" selection-start-line="50" selection-start-column="86" selection-end-line="50" selection-end-column="86" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/startup.js">
+      <file leaf-file-name="upload.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/routes/upload.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+              <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/routes.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getfile.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="getfile.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/routes/getfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="79" column="52" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
+            <state vertical-scroll-proportion="1.0520362">
+              <caret line="65" column="68" selection-start-line="65" selection-start-column="68" selection-end-line="65" selection-end-column="68" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bucket.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/bucket.js">
+      <file leaf-file-name="listversion.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/routes/listversion.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+            <state vertical-scroll-proportion="-9.259259">
+              <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -131,13 +124,8 @@
         <option value="$PROJECT_DIR$/src/transform/image/suported.js" />
         <option value="$PROJECT_DIR$/src/transform/image/transform.js" />
         <option value="$PROJECT_DIR$/src/transform/image/jpeg/actions.js" />
-        <option value="$PROJECT_DIR$/src/routes/upload.js" />
         <option value="$PROJECT_DIR$/src/auth/local/c9cba3d805ff526866d27b5504005766: [             'bucket:create',             'bucket:upload',             ''         ].js" />
         <option value="$PROJECT_DIR$/src/auth/local/authority.js" />
-        <option value="$PROJECT_DIR$/src/routes/listbucket.js" />
-        <option value="$PROJECT_DIR$/src/routes/listfile.js" />
-        <option value="$PROJECT_DIR$/src/routes/listversion.js" />
-        <option value="$PROJECT_DIR$/src/routes/routes.js" />
         <option value="$PROJECT_DIR$/src/util/appsingleton.js" />
         <option value="$PROJECT_DIR$/src/auth/local/checkauth.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -148,16 +136,21 @@
         <option value="$PROJECT_DIR$/src/transform/image/jpeg/transform.js" />
         <option value="$PROJECT_DIR$/src/routes/bucket.js" />
         <option value="$PROJECT_DIR$/src/transform/yaas/yaas/transform.js" />
-        <option value="$PROJECT_DIR$/src/config/config.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/transform/yaas/sql/transform.js" />
         <option value="$PROJECT_DIR$/src/transform/yaas/sql/queryBuilder.js" />
         <option value="$PROJECT_DIR$/src/transform/transform.js" />
-        <option value="$PROJECT_DIR$/src/routes/getfile.js" />
         <option value="$PROJECT_DIR$/src/auth/none/checkauth.js" />
         <option value="$PROJECT_DIR$/src/auth/none/checkrole.js" />
         <option value="$PROJECT_DIR$/src/auth/local/checkrole.js" />
+        <option value="$PROJECT_DIR$/src/routes/routes.js" />
+        <option value="$PROJECT_DIR$/src/config/config.js" />
+        <option value="$PROJECT_DIR$/src/routes/upload.js" />
+        <option value="$PROJECT_DIR$/src/routes/getfile.js" />
+        <option value="$PROJECT_DIR$/src/routes/listversion.js" />
         <option value="$PROJECT_DIR$/src/util/bootstrap.js" />
+        <option value="$PROJECT_DIR$/src/routes/listfile.js" />
+        <option value="$PROJECT_DIR$/src/routes/listbucket.js" />
       </list>
     </option>
   </component>
@@ -674,7 +667,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441205980574</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Log level changes">
+      <created>1441208116953</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1441208116953</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -716,7 +715,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Project setup" />
     <MESSAGE value="Project setup 2" />
     <MESSAGE value="Adding everything needed for nw app" />
     <MESSAGE value="Sending file and retriving file works" />
@@ -741,7 +739,8 @@
     <MESSAGE value="Add some todo" />
     <MESSAGE value="Added query builder, should allow custom queries" />
     <MESSAGE value="Bugfix, empty input cause crash" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bugfix, empty input cause crash" />
+    <MESSAGE value="Log level changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Log level changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -936,34 +935,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78054297">
-          <caret line="55" column="22" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/listbucket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.32352942">
-          <caret line="5" column="86" selection-start-line="5" selection-start-column="86" selection-end-line="5" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/listfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6447964">
-          <caret line="40" column="77" selection-start-line="40" selection-start-column="77" selection-end-line="40" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/listversion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33936653">
-          <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/appsingleton.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23755656">
@@ -986,14 +957,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/bucket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/transform/application/json/transform.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1005,14 +968,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23755656">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="25" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1040,29 +995,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/startup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/transform/yaas/sql/transform.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15158372">
           <caret line="42" column="88" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="88" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="44" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,18 +1061,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/getfile.js">
+    <entry file="file://$PROJECT_DIR$/src/util/startup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25339368">
+          <caret line="55" column="45" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54298645">
+          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="52" selection-start-line="79" selection-start-column="52" selection-end-line="79" selection-end-column="52" />
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/upload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="44" selection-start-line="33" selection-start-column="44" selection-end-line="33" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32126698">
-          <caret line="28" column="36" selection-start-line="28" selection-start-column="36" selection-end-line="28" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="86" selection-start-line="50" selection-start-column="86" selection-end-line="50" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/listfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7285068">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/listversion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.259259">
+          <caret line="36" column="46" selection-start-line="36" selection-start-column="46" selection-end-line="36" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/listbucket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7285068">
+          <caret line="33" column="21" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/getfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0520362">
+          <caret line="65" column="68" selection-start-line="65" selection-start-column="68" selection-end-line="65" selection-end-column="68" />
           <folding />
         </state>
       </provider>

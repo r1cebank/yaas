@@ -10,7 +10,6 @@
 import AppSingleton     from '../util/appsingleton';
 import Promise          from 'bluebird';
 import Shortid          from 'shortid';
-import NeDB             from 'nedb';
 import Path             from 'path';
 import UrlJoin          from 'url-join';
 import _                from 'lodash';
@@ -28,66 +27,56 @@ function getfile (req, res) {
 
     return new Promise((resolve) => {
 
-        // Get this bucket
-        sharedInstance.findBucket({name: req.params.bucket}).then((docs, err) => {
+        //  read the Nedb database stored on disk.
+        var bucket = sharedInstance.buckets.collection(req.params.bucket);
 
-            //  If bucket is not found, send 404 to client
-            if(docs.length < 1) res.status(404).send({error: `bucket ${req.body.name} not found`});
+        //  First the file needs to exist
+        bucket.findOne({originalname: req.params.filename}, function (err, doc) {
+            if(!doc) {
+                res.status(404).send({error: `file ${req.params.filename} not found.`});
+            }
             else {
+                // Try to see if there is a get param for version
+                var version = doc.latestversion;
+                if(req.query.v) version = req.query.v;
 
-                //  read the Nedb database stored on disk.
-                var bucket = new NeDB({filename: Path.join(sharedInstance.config.server.buckets,
-                    req.params.bucket), autoload: true});
+                //  Check if version exists
+                if(!doc.versions[version])  {
+                    res.status(404).send({error: `version ${version} not found`});
+                } else {
 
-                //  First the file needs to exist
-                bucket.find({originalname: req.params.filename}, function (err, docs) {
-                    if(docs.length < 1) {
-                        res.status(404).send({error: `file ${req.params.filename} not found.`});
-                    }
-                    else {
-                        // Try to see if there is a get param for version
-                        var version = docs[0].latestversion;
-                        if(req.query.v) version = req.query.v;
+                    //  Combining inputs
+                    var request = _.extend(req.params || {}, req.query || {}, req.body || {});
 
-                        //  Check if version exists
-                        if(!docs[0].versions[version])  {
-                            res.status(404).send({error: `version ${version} not found`});
-                        } else {
+                    //  This is used only for caching.
+                    var requestForHashing = _.clone(request);
 
-                            //  Combining inputs
-                            var request = _.extend(req.params || {}, req.query || {}, req.body || {});
+                    //  Again, delete the auth which is going to cause unexpected issue in hashing.
+                    requestForHashing.v = version;
+                    delete requestForHashing.auth;
 
-                            //  This is used only for caching.
-                            var requestForHashing = _.clone(request);
+                    //  Needs to delete to avoid issues when deciding if processing is needed
+                    delete request.v;
+                    delete request.auth;
+                    delete request.bucket;
+                    delete request.filename;
+                    sharedInstance.L.verbose(TAG, `request for hashing: ${JSON.stringify(requestForHashing)}`);
 
-                            //  Again, delete the auth which is going to cause unexpected issue in hashing.
-                            requestForHashing.v = version;
-                            delete requestForHashing.auth;
-
-                            //  Needs to delete to avoid issues when deciding if processing is needed
-                            delete request.v;
-                            delete request.auth;
-                            delete request.bucket;
-                            delete request.filename;
-                            sharedInstance.L.verbose(TAG, `request for hashing: ${JSON.stringify(requestForHashing)}`);
-
-                            /*! Used for caching, since we need unique hash for each request and make sure the
-                             *  same request yields the same hash so we are ensure that our cache is always valid
-                             *  for a particular request. But! need a better caching system so that we won't use up
-                             *  memory/old cache is purged once TTL passed.
-                             */
-                            var requestHash = hash.digest(requestForHashing);
-                            sharedInstance.L.verbose(TAG, `request hash: ${requestHash}`);
-                            // Processing
-                            Transform.transform(res, docs[0].mimetype,
-                                request, Path.join(process.cwd(),
-                                docs[0].versions[version]), version);
-                        }
-                    }
-                });
-                resolve({ });
+                    /*! Used for caching, since we need unique hash for each request and make sure the
+                     *  same request yields the same hash so we are ensure that our cache is always valid
+                     *  for a particular request. But! need a better caching system so that we won't use up
+                     *  memory/old cache is purged once TTL passed.
+                     */
+                    var requestHash = hash.digest(requestForHashing);
+                    sharedInstance.L.verbose(TAG, `request hash: ${requestHash}`);
+                    // Processing
+                    Transform.transform(res, doc.mimetype,
+                        request, Path.join(process.cwd(),
+                        doc.versions[version]), version);
+                }
             }
         });
+        resolve({ });
     });
 
 }

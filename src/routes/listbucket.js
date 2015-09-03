@@ -9,30 +9,29 @@
 import AppSingleton     from '../util/appsingleton';
 import Promise          from 'bluebird';
 import Shortid          from 'shortid';
-import NeDB             from 'nedb';
 import Path             from 'path';
 import UrlJoin          from 'url-join';
+import Fs               from 'fs';
+import Junk             from 'junk';
 import _                from 'lodash';
 
 function listbucket (req, res) {
 
     //  Log tag
-    let TAG = "route:upload";
+    let TAG = "route:listbucket";
 
     //  Get shared instance from singleton
     var sharedInstance = AppSingleton.getInstance();
 
     return new Promise((resolve) => {
-        // Get this bucket
-        sharedInstance.findBucket({ }).then((docs, err) => {
-
-            //  List all the buckets
-            var buckets = [ ];
-            for(let doc of docs) {
-                buckets.push(doc.name);
-            }
-            res.send(buckets);
+        Fs.readdir(sharedInstance.config.server.database, function(err, files) {
+            files = files.filter(Junk.not);
+            var buckets = files.map(function (filename) {
+                return UrlJoin(sharedInstance.config.server.host, filename);
+            });
+            res.send({buckets});
         });
+        resolve({ });
     });
 }
 

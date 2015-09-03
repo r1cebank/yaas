@@ -6,7 +6,6 @@
 import AppSingleton     from '../util/appsingleton';
 import Promise          from 'bluebird';
 import Shortid          from 'shortid';
-import NeDB             from 'nedb';
 import Path             from 'path';
 import UrlJoin          from 'url-join';
 import _                from 'lodash';
@@ -27,19 +26,16 @@ function upload (req, res) {
             res.status(404).send({error: "file not supplied"});
             resolve({ });
         } else {
-            var bucket = new NeDB({
-                filename: Path.join(sharedInstance.config.server.buckets,
-                    req.params.bucket), autoload: true
-            });
-            bucket.find({originalname: req.file.originalname}, function (err, docs) {
-                if (docs.length > 0) {
+            var bucket = sharedInstance.buckets.collection(req.params.bucket);
+            bucket.findOne({originalname: req.file.originalname}, function (err, doc) {
+                if (doc) {
                     //  File exists, uploading a new version.
 
                     //  We have a new file, generate a new version code
                     var version = Shortid.generate();
 
-                    var file = _.clone(docs[0]);
-                    file.versions = _.clone(docs[0].versions);
+                    var file = _.clone(doc);
+                    file.versions = _.clone(doc.versions);
                     file.versions[version] = req.file.path;
                     file.latestversion = version;
                     bucket.update({originalname: req.file.originalname}, {

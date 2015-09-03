@@ -6,7 +6,6 @@
  *  I am not sure this is required, but it made source code looks much nicer
  */
 
-import bucket       from    './bucket';
 import upload       from    './upload';
 import getfile      from    './getfile';
 import listfile     from    './listfile';
@@ -18,7 +17,6 @@ import listversion  from    './listversion';
  */
 
 export default {
-    bucket,
     upload,
     getfile,
     listfile,

@@ -13,8 +13,7 @@ var config = {
             dest: 'storage/',
             processed: 'processed/'
         },
-        index:      'db/index',
-        buckets:    'db/bucket/',
+        database:   'db/',
         host:       'http://localhost:3939',
         port:       3939,
         port_ssl:   33939

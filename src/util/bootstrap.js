@@ -10,9 +10,10 @@
 import AppSingleton     from './appsingleton';
 import Winston          from 'winston';
 import Promise          from 'bluebird';
-import NeDB             from 'nedb';
+import DB               from 'tingodb';
 import Mkdir            from 'mkdirp';
 import Authority        from '../auth/authority';
+
 
 function bootstrap () {
 
@@ -38,17 +39,19 @@ function bootstrap () {
         warn    :   (tag, log) => {sharedInstance.Log.warn(`[${tag}] : ${log}`);}
     };
 
-    //  Setup local master db connection here
-    sharedInstance.buckets = new NeDB({filename: sharedInstance.config.server.index, autoload: true});
-    sharedInstance.L.info(TAG, `${sharedInstance.config.server.buckets} is loaded`);
-
-    //  Promisify functions
-    sharedInstance.findBucket = Promise.promisify(sharedInstance.buckets.find, sharedInstance.buckets);
-    sharedInstance.insertBucket = Promise.promisify(sharedInstance.buckets.insert, sharedInstance.buckets);
-
     //  Create all the folder needed for this application
+    Mkdir(sharedInstance.config.server.database);
     Mkdir(sharedInstance.config.server.storage.dest);
     Mkdir(sharedInstance.config.server.storage.processed);
+
+    //  Setup local master db connection here
+    var Engine = DB();  //  Create a db engine
+
+    //  Create the database for yaas, mongodb compliant
+    sharedInstance.buckets = new Engine.Db(sharedInstance.config.server.database, {});
+    sharedInstance.L.info(TAG, `${sharedInstance.config.server.database} is loaded`);
+
+    //  Promisify functions
 
     //  Setup authority
     sharedInstance.authority = new Authority(sharedInstance.config.auth.type);
