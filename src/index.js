@@ -5,20 +5,24 @@
  * @license MIT
  */
 
-require("babel/polyfill"); //   Needed for some babel functions, remove after ES6
+//require("babel/polyfill"); //   Needed for some babel functions, remove after ES6
 
+//  NPM packages
 import Multer           from 'multer';
 import Express          from 'express';
 import BodyParser       from 'body-parser';
-import AppSingleton     from './util/appsingleton';
-import Bootstrap        from './util/bootstrap';
-import Startup          from './util/startup';
 import NodeInfo         from 'node-info';
-import Config           from './config/config';
 import Shortid          from 'shortid';
 import Fs               from 'fs';
 import HTTP             from 'http';
 import HTTPS            from 'https';
+
+//  Custom library
+import AppSingleton     from './util/appsingleton';
+import Bootstrap        from './util/bootstrap';
+import MulterCore       from './util/multercore';
+import Startup          from './util/startup';
+import Config           from './config/config';
 
 //  Log TAG
 var TAG = "index";
@@ -48,14 +52,8 @@ let app = Express();
 
 //  Upload instance
 var storage = Multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, Config.server.storage.dest);
-    },
-    filename: function (req, file, cb) {
-        //  If custom file type, modify the mimetype to yaas/<type>
-        if(file.originalname.split('.').pop() == 'ysql') file.mimetype = 'yaas/sql';
-        cb(null, Shortid.generate() + `.${file.originalname.split('.').pop()}`);
-    }
+    destination: MulterCore.destination,
+    filename: MulterCore.filename
 });
 let upload = Multer({storage});
 

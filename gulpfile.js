@@ -33,7 +33,7 @@ gulp.task('build', function() {
             auxiliaryCommentBefore: 'istanbul ignore next'
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('build'));
+        .pipe(gulp.dest('lib'));
 
 });
 
@@ -41,7 +41,7 @@ gulp.task('build', function() {
  *  Delete the build folder
  */
 gulp.task('clean', function() {
-    return del(['build/**/*']);
+    return del(['lib/**/*']);
 });
 
 
@@ -94,7 +94,7 @@ gulp.task('test', ['lint', 'build'], function() {
  */
 gulp.task('cover', ['lint', 'build'], function(done) {
 
- gulp.src(['lib/**/*.js'])
+ gulp.src(['src/**/*.js'])
    .pipe(istanbul())
    .pipe(istanbul.hookRequire())
    .on('finish', function() {

@@ -16,7 +16,7 @@ function checkrole (user, role) {
 
     let TAG = 'auth:none:checkrole';
 
-    if(user.user == 'noauth') {
+    if(user.user === 'noauth') {
         AppSingleton.getInstance().L.verbose(TAG, 'checkauth is passing allow');
         return true;
     } else {

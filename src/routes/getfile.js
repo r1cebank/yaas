@@ -38,7 +38,9 @@ function getfile (req, res) {
             else {
                 // Try to see if there is a get param for version
                 var version = doc.latestversion;
-                if(req.query.v) version = req.query.v;
+                if(req.query.v) {
+                    version = req.query.v;
+                }
 
                 //  Check if version exists
                 if(!doc.versions[version])  {

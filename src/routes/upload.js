@@ -28,13 +28,14 @@ function upload (req, res) {
         } else {
             var bucket = sharedInstance.buckets.collection(req.params.bucket);
             bucket.findOne({originalname: req.file.originalname}, function (err, doc) {
+                //  File exists, uploading a new version.
+
+                //  We have a new file, generate a new version code
+                var version = Shortid.generate();
+
+                var file = { };
                 if (doc) {
-                    //  File exists, uploading a new version.
-
-                    //  We have a new file, generate a new version code
-                    var version = Shortid.generate();
-
-                    var file = _.clone(doc);
+                    file = _.clone(doc);
                     file.versions = _.clone(doc.versions);
                     file.versions[version] = req.file.path;
                     file.latestversion = version;
@@ -50,15 +51,12 @@ function upload (req, res) {
                         });
                 }
                 else {
-
-                    var version = Shortid.generate();
-
                     //  We have a new file, generate a new version code
                     var versions = {};
                     versions[version] = req.file.path;
 
                     //  Clone the file object
-                    var file = _.clone(req.file);
+                    file = _.clone(req.file);
                     file.versions = versions;
                     file.latestversion = version;
                     file.url = file.url = UrlJoin(sharedInstance.config.server.host,

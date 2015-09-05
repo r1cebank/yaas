@@ -1,0 +1,2 @@
+--compilers js:mocha-babel
+-R nyan

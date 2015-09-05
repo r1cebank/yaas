@@ -1,5 +1,5 @@
 /**
- * Created by r1cebank on 8/23/15.
+ * Created by r1cebank on 9/5/15.
  */
 
 /*!
@@ -18,7 +18,7 @@ var hash = require('json-hash');
 
 function transform(req, file, version) {
 
-    let TAG = 'transform:image:jpeg';
+    let TAG = 'transform:image:png';
 
     var sharedInstance = AppSingleton.getInstance();
 
