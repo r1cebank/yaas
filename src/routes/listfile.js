@@ -16,7 +16,7 @@ import _                from 'lodash';
 function listfile (req, res) {
 
     //  Log tag
-    let TAG = "route:upload";
+    let TAG = "route:listfile";
 
     //  Get shared instance from singleton
     var sharedInstance = AppSingleton.getInstance();

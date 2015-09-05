@@ -29,12 +29,6 @@ function startup() {
                 Routes.upload(req, res).then().catch().done();
             }
         });
-        //  Bucket creation path
-        sharedInstance.app.post('/bucket', function (req, res) {
-            if(sharedInstance.authority.hasRole(req, res, 'bucket:create')) {
-                Routes.bucket(req, res).then().catch().done();
-            }
-        });
         //  List all buckets
         sharedInstance.app.get('/list', function (req, res) {
 
