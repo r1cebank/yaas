@@ -1,5 +1,7 @@
 # YAAS.js (Yet another asset server)
 [![codecov.io](http://codecov.io/github/r1cebank/yaas/coverage.svg?branch=master)](http://codecov.io/github/r1cebank/yaas?branch=master)
+[![Code Climate](https://codeclimate.com/github/r1cebank/yaas/badges/gpa.svg)](https://codeclimate.com/github/r1cebank/yaas)
+[![Dependencies](https://david-dm.org/r1cebank/yaas.svg)](https://david-dm.org/r1cebank/yaas.svg)
 [![Circle CI](https://circleci.com/gh/r1cebank/yaas.svg?style=svg)](https://circleci.com/gh/r1cebank/yaas)
 ##### Updated for commit [9b1f0b](https://github.com/r1cebank/yaas/commit/9b1f0b86a157cae9fceb67e3a68f86e4a54eebcc)
 
@@ -343,6 +345,10 @@ I am Siyuan Gao, a Mobile application developer, full-stack developer, designer 
 
 ***
 If you want to help out, feel free to fork and send me a pull request.
+
+## Coverage graph
+
+![codecov.io](http://codecov.io/github/r1cebank/yaas/branch.svg?branch=master)
 
 ## Copyright
 
