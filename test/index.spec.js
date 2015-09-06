@@ -20,3 +20,7 @@ describe('Core Functions', function () {
 describe('Routes', function() {
 
 });
+
+describe('Transforms', function() {
+    require('./transform/transform.spec.js');
+});

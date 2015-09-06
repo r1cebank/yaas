@@ -72,9 +72,20 @@ function getfile (req, res) {
                     var requestHash = hash.digest(requestForHashing);
                     sharedInstance.L.verbose(TAG, `request hash: ${requestHash}`);
                     // Processing
-                    Transform.transform(res, doc.mimetype,
+                    Transform.transform(doc.mimetype,
                         request, Path.join(process.cwd(),
-                        doc.versions[version]), version);
+                        doc.versions[version]), version).then(function (file) {
+                            if(typeof file === 'object') {
+                                //  If it is object, then just send it to as response.
+                                sharedInstance.L.verbose(TAG, 'sending result as response');
+                                res.send(file);
+                            } else {
+                                //  If it is not, then send as a file.
+                                sharedInstance.L.verbose(TAG, 'sending result as file');
+                                res.type(doc.mimetype);
+                                res.sendFile(file);
+                            }
+                        });
                 }
             }
         });

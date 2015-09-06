@@ -8,9 +8,10 @@
  */
 import AppSingleton         from '../util/appsingleton';
 import Fs                   from 'fs';
+import Promise              from 'bluebird';
 import Path                 from 'path';
 
-function transform (res, type, req, file, version) {
+function transform (type, req, file, version) {
 
     let TAG = 'transform';
 
@@ -19,40 +20,33 @@ function transform (res, type, req, file, version) {
 
     var sharedInstance = AppSingleton.getInstance();
 
-    //  Ger new filename with extensions
+    return new Promise(function (resolve, reject) {
+        //  Ger new filename with extensions
 
-    //  for image/jpeg type, the transform file will be stored in /image/jpeg/transform.js
-    let transformFile = Path.join(__dirname, type.split('/')[0], type.split('/')[1], `transform.js`);
+        //  for image/jpeg type, the transform file will be stored in /image/jpeg/transform.js
+        let transformFile = Path.join(__dirname, type.split('/')[0], type.split('/')[1], `transform.js`);
 
-    //  Do all the processing, and return the transformed file
-    Fs.stat(transformFile, (err, stat) => {
-        //  If exists in the system, dont bother processing it
-        if(!err) {
+        //  Do all the processing, and return the transformed file
+        Fs.stat(transformFile, (err, stat) => {
+            //  If exists in the system, dont bother processing it
+            if(!err) {
 
-            //  Call the transformation file and get the final processed file.
-            require(transformFile)(req, file, version).then((file) => {
-                //  After processing, the output can be two types, JSON or filepath
-                if(typeof file === 'object') {
-                    //  If it is object, then just send it to as response.
-                    sharedInstance.L.verbose(TAG, 'sending result as response');
-                    res.send(file);
-                } else {
-                    //  If it is not, then send as a file.
-                    sharedInstance.L.verbose(TAG, 'sending result as file');
-                    res.type(type);
-                    res.sendFile(file);
-                }
-                end = new Date();
-                sharedInstance.L.info(TAG, `Processing time ${end-start}ms`);
-            }).catch((e) => {
-                //  If error is caught, send the original file
-                res.sendFile(file);
-                sharedInstance.L.error(TAG, e.toString());
-            }).done();
-        } else {
-            //  File don't support transform
-            res.sendFile(file);
-        }
+                //  Call the transformation file and get the final processed file.
+                require(transformFile)(req, file, version).then((file) => {
+                    //  After processing, the output can be two types, JSON or filepath
+                    resolve(file);
+                    end = new Date();
+                    sharedInstance.L.info(TAG, `Processing time ${end-start}ms`);
+                }).catch((e) => {
+                    //  If error is caught, send the original file
+                    resolve(file);
+                    sharedInstance.L.error(TAG, e.toString());
+                }).done();
+            } else {
+                //  File don't support transform
+                resolve(file);
+            }
+        });
     });
 }
 
