@@ -13,17 +13,26 @@ import  _                   from 'lodash';
 class Authority {
 
     //  Constructor will load the appropriate methods based on type
-    constructor(type) {
+    constructor(type, auth) {
         //  Log tags
         this.TAG = `authority:${type}`;
+        this.type = type;
+        this.auth = auth;
+
         //  Supress warnings
         this.checkauth = (a) => {AppSingleton.getInstance().L.error(this.TAG, `this should not be printed`);};
         this.checkrole = (u) => {AppSingleton.getInstance().L.error(this.TAG, `this should not be printed`);};
 
         AppSingleton.getInstance().L.info(this.TAG, `loading modules`);
-
-        _.assign(this, require(`./${type}/checkauth.js`));
-        _.assign(this, require(`./${type}/checkrole.js`));
+        try {
+            _.assign(this, require(`./${type}/checkauth.js`));
+            _.assign(this, require(`./${type}/checkrole.js`));
+        } catch (e) {
+            AppSingleton.getInstance().L.error(this.TAG, `critical, authority type doesn't exist!`);
+            _.assign(this, require(`./reject/checkauth.js`));
+            _.assign(this, require(`./reject/checkrole.js`));
+            this.type = 'reject';
+        }
         AppSingleton.getInstance().L.info(this.TAG, `modules loading complete`);
     }
 
@@ -56,10 +65,11 @@ class Authority {
         var request = _.extend(req.params || {}, req.query || {}, req.body || {});
 
         //  Check if overwrite exist for this role, if exist, overwrite the checkauth and check role function
-        if(AppSingleton.getInstance().auth.overwrites[role]) {
+        //  If type is reject, non can be overwritten
+        if(this.auth.overwrites[role] && this.type !== 'reject') {
 
             //  Get overwrite auth type
-            var type = AppSingleton.getInstance().auth.overwrites[role];
+            var type = this.auth.overwrites[role];
             AppSingleton.getInstance().L.warn(this.TAG, `overwrite auth method to ${type}`);
             this.checkauth = require(`./${type}/checkauth.js`).checkauth;
             this.checkrole = require(`./${type}/checkrole.js`).checkrole;

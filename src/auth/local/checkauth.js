@@ -14,7 +14,7 @@ function checkauth (auth) {
     let TAG = 'auth:local:checkauth';
 
     //  Returns roles for api key
-    return AppSingleton.getInstance().auth.keys[auth];
+    return this.auth.keys[auth];
 }
 
 export default {checkauth};

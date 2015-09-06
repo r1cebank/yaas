@@ -1,5 +1,5 @@
 /**
- * Created by r1cebank on 9/5/15.
+ * Created by r1cebank on 9/6/15.
  */
 
 /*!
@@ -32,6 +32,7 @@ function transform(req, file, version) {
             lwip.open(file, function (err, image) {
                 if(err) {
                     //  If there is error, return the original file
+                    sharedInstance.L.error(TAG, 'file open error');
                     resolve(file);
                 }
                 var batch = image.batch();

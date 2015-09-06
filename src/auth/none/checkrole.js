@@ -20,7 +20,7 @@ function checkrole (user, role) {
         AppSingleton.getInstance().L.verbose(TAG, 'checkauth is passing allow');
         return true;
     } else {
-        AppSingleton.getInstance().L.verbose(TAG, 'something is very refuse');
+        AppSingleton.getInstance().L.verbose(TAG, 'something is very wrong, refuse');
         return false;
     }
 }

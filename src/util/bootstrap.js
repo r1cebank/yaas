@@ -54,8 +54,7 @@ function bootstrap () {
     //  Promisify functions
 
     //  Setup authority
-    sharedInstance.authority = new Authority(sharedInstance.config.auth.type);
-    sharedInstance.auth = sharedInstance.config.auth;
+    sharedInstance.authority = new Authority(sharedInstance.config.auth.type, sharedInstance.config.auth);
 
     sharedInstance.L.info(TAG, "Bootstrap complete!");
 }

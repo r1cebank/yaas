@@ -26,6 +26,8 @@ function transform (type, req, file, version) {
         //  for image/jpeg type, the transform file will be stored in /image/jpeg/transform.js
         let transformFile = Path.join(__dirname, type.split('/')[0], type.split('/')[1], `transform.js`);
 
+        sharedInstance.L.verbose(TAG, `transform file ${transformFile}`);
+
         //  Do all the processing, and return the transformed file
         Fs.stat(transformFile, (err, stat) => {
             //  If exists in the system, dont bother processing it
@@ -33,6 +35,7 @@ function transform (type, req, file, version) {
 
                 //  Call the transformation file and get the final processed file.
                 require(transformFile)(req, file, version).then((file) => {
+                    sharedInstance.L.verbose(TAG, 'file processed');
                     //  After processing, the output can be two types, JSON or filepath
                     resolve(file);
                     end = new Date();
@@ -44,6 +47,7 @@ function transform (type, req, file, version) {
                 }).done();
             } else {
                 //  File don't support transform
+                sharedInstance.L.verbose(TAG, `file ${type} doesn't support transform`);
                 resolve(file);
             }
         });

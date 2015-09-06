@@ -17,6 +17,7 @@ import _                from 'lodash';
 var hash = require('json-hash');
 
 function transform(req, file, version) {
+    console.log('here');
 
     let TAG = 'transform:image:jpeg';
 
@@ -32,8 +33,10 @@ function transform(req, file, version) {
             lwip.open(file, function (err, image) {
                 if(err) {
                     //  If there is error, return the original file
+                    sharedInstance.L.error(TAG, 'file open error');
                     resolve(file);
                 }
+                sharedInstance.L.verbose(TAG, `file ${file} opened`);
                 var batch = image.batch();
 
                 //  Needed the version number to enforce the files don't collide.

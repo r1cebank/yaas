@@ -18,18 +18,13 @@ Chai.use(require('chai-as-promised'));
 var expect         = Chai.expect;
 
 var Transform       = require('../../src/transform/transform');
+var BootStrap       = require('../../src/util/bootstrap');
 
 describe('core transform', function() {
+    beforeEach(function () {
+        BootStrap();
+    });
     it('should redirect file if no request params', function () {
-        var res = {
-            send: function (data) {
-            },
-            type: function (type) {
-            },
-            sendFile: function (file) {
-            }
-        };
-        var sendFileSpy = Chai.spy.on(res, 'sendFile');
         var doc = {
             mimetype: 'application/json',
             versions: [
@@ -38,8 +33,18 @@ describe('core transform', function() {
         };
         var version = '0';
         var request = {};
-        Transform.transform(doc.mimetype, request, 'file.json', version).then(function (file) {
-            expect(file).to.equal('file.json');
-        });
+        expect(Transform.transform(doc.mimetype, request, 'file.json', version)).to.eventually.equal('file.json');
+    });
+    it('should transform file if params supplied', function () {
+        var doc = {
+            mimetype: 'image/jpeg',
+            versions: [
+                'test'
+            ]
+        };
+        var version = '0';
+        var request = {scale: 0.1};
+        expect(Transform.transform(doc.mimetype, request,
+            Path.join(process.cwd(), 'test', 'fixture','file.jpeg'), version)).to.eventually.equal('');
     });
 });

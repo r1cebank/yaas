@@ -21,6 +21,10 @@ describe('Routes', function() {
 
 });
 
+describe('Authority', function() {
+    require('./auth/auth-core.spec.js');
+});
+
 describe('Transforms', function() {
     require('./transform/transform.spec.js');
 });
