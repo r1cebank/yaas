@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp && node .",
     "test": "gulp && ./node_modules/.bin/mocha",
-    "posttest": "istanbul cover ./node_modules/.bin/_mocha -- -R spec"
+    "posttest": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "bluebird": "^2.9.34",
     "body-parser": "^1.13.3",
     "checksum": "^0.1.1",
+    "codecov.io": "^0.1.6",
     "express": "^4.13.3",
     "json-hash": "^1.1.0",
     "jsonfile": "^2.2.1",
