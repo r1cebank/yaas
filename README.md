@@ -1,5 +1,6 @@
 # YAAS.js (Yet another asset server)
-
+[![Coverage Status](https://coveralls.io/repos/r1cebank/yaas/badge.svg?branch=master&service=github)](https://coveralls.io/github/r1cebank/yaas?branch=master)
+[![Circle CI](https://circleci.com/gh/r1cebank/yaas.svg?style=svg)](https://circleci.com/gh/r1cebank/yaas)
 ##### Updated for commit [9b1f0b](https://github.com/r1cebank/yaas/commit/9b1f0b86a157cae9fceb67e3a68f86e4a54eebcc)
 
 ##### Updated documentation: [here](http://yaas.readme.io)
