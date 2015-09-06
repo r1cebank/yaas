@@ -1,0 +1,10 @@
+machine:
+  environment:
+    COVERALLS_REPO_TOKEN: W6SNQHHIq5JEDo4kZlOsTspYRRGIAzKet
+dependencies:
+  pre:
+    - npm install -g istanbul
+
+general:
+  artifacts:
+    - ./coverage

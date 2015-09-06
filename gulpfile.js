@@ -95,7 +95,7 @@ gulp.task('test', ['lint', 'build'], function() {
 gulp.task('cover', ['lint', 'build'], function(done) {
 
  gulp.src(['src/**/*.js'])
-   .pipe(istanbul())
+   .pipe(istanbul({babel: { stage: 0 }}))
    .pipe(istanbul.hookRequire())
    .on('finish', function() {
      gulp.src(['test/index.spec.js'])
