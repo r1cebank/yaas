@@ -35,7 +35,8 @@ var config = {
             'file:get': 'none',
             'version:list': 'none',
             'bucket:list': 'none',
-            'yaas:list': 'none'
+            'yaas:list': 'none',
+            'generator:lorem': 'none'
         }
     }
 };
