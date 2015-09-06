@@ -64,6 +64,9 @@ class Authority {
         //  To make sure we always have the auth field, we need to combine all the request params
         var request = _.extend(req.params || {}, req.query || {}, req.body || {});
 
+        //  User object
+        var user = { };
+
         //  Check if overwrite exist for this role, if exist, overwrite the checkauth and check role function
         //  If type is reject, non can be overwritten
         if(this.auth.overwrites[role] && this.type !== 'reject') {
@@ -71,28 +74,27 @@ class Authority {
             //  Get overwrite auth type
             var type = this.auth.overwrites[role];
             AppSingleton.getInstance().L.warn(this.TAG, `overwrite auth method to ${type}`);
-            this.checkauth = require(`./${type}/checkauth.js`).checkauth;
-            this.checkrole = require(`./${type}/checkrole.js`).checkrole;
-        }
-
-        //  Checkath will return the user if login correct or return undefined if error occured
-        try {
-            var user = this.checkauth(request.auth);
-        } catch (e) {
-            res.status(400).send({error: e});
-            return false;
-        }
-
-
-        if(!user) {
-            res.status(403).send({error: `auth failed for ${this.TAG}`});
-            return false;
-        } else {
-            if(!this.checkrole(user, role)) {
+            user = require(`./${type}/checkauth.js`).checkauth(request.auth);
+            if(!require(`./${type}/checkrole.js`).checkrole(user, role)) {
                 res.status(403).send({error: `${request.auth} not permitted for ${role}`});
                 return false;   //  We still need to return since the value will be used to wrapped in if
             } else {
                 return true;
+            }
+        } else {
+            //  Checkath will return the user if login correct or return undefined if error occured
+            user = this.checkauth(request.auth);
+
+            if(!user) {
+                res.status(403).send({error: `auth failed for ${this.TAG}`});
+                return false;
+            } else {
+                if(!this.checkrole(user, role)) {
+                    res.status(403).send({error: `${request.auth} not permitted for ${role}`});
+                    return false;   //  We still need to return since the value will be used to wrapped in if
+                } else {
+                    return true;
+                }
             }
         }
     }
