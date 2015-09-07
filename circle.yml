@@ -1,9 +1,13 @@
 machine:
   environment:
+    CODECLIMATE_REPO_TOKEN: 1300a17b65ba1c518cc32a5c7e439466770fbecad7ce372ef42ff0c9c3e133d2
 dependencies:
   pre:
     - npm install -g istanbul
-
+    - npm install -g codeclimate-test-reporter
+test:
+  post:
+    codeclimate-test-reporter < ./coverage/lcov.info
 general:
   artifacts:
     - ./coverage
