@@ -6,7 +6,7 @@
  */
 
 /*!
- *  This is the list bucket route, does only one thing, list all buckets in index file
+ *  This is the lorem generator, very simple, using a 3rd party library
  */
 
 import AppSingleton     from '../../util/appsingleton';

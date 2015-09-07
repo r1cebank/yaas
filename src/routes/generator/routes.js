@@ -10,11 +10,15 @@
  */
 
 import lorem       from    './lorem';
+import jsondata    from    './jsondata';
+import xmldata     from    './xmldata';
 
 /*!
  *  Export all the routes
  */
 
 export default {
-    lorem
+    lorem,
+    jsondata,
+    xmldata
 };

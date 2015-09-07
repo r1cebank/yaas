@@ -36,7 +36,9 @@ var config = {
             'version:list': 'none',
             'bucket:list': 'none',
             'yaas:list': 'none',
-            'generator:lorem': 'none'
+            'generator:lorem': 'none',
+            'generator:json': 'none',
+            'generator:xml': 'none'
         }
     }
 };

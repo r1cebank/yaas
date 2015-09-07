@@ -67,6 +67,16 @@ function startup() {
                 Generators.lorem(req, res).then().catch().done();
             }
         });
+        sharedInstance.app.get('/generator/json', function (req, res) {
+            if(sharedInstance.authority.hasRole(req, res, 'generator:json')) {
+                Generators.jsondata(req, res).then().catch().done();
+            }
+        });
+        sharedInstance.app.get('/generator/xml', function (req, res) {
+            if(sharedInstance.authority.hasRole(req, res, 'generator:xml')) {
+                Generators.xmldata(req, res).then().catch().done();
+            }
+        });
         resolve({ });
     });
 
