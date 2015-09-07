@@ -18,12 +18,8 @@ Chai.use(require('chai-as-promised'));
 var expect         = Chai.expect;
 
 var Transform       = require('../../src/transform/transform');
-var BootStrap       = require('../../src/util/bootstrap');
 
 describe('core transform', function() {
-    beforeEach(function () {
-        BootStrap();
-    });
     it('should redirect file if no request params', function () {
         var doc = {
             mimetype: 'application/json',

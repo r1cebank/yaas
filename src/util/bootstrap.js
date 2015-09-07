@@ -13,6 +13,7 @@ import Promise          from 'bluebird';
 import DB               from 'tingodb';
 import Mkdir            from 'mkdirp';
 import Authority        from '../auth/authority';
+import Config           from '../config/config';
 
 
 function bootstrap () {
@@ -22,6 +23,9 @@ function bootstrap () {
 
     //  This instance is shared across the entire app life-cycle
     var sharedInstance = AppSingleton.getInstance();
+
+    //  Set the config object
+    sharedInstance.config = Config;
 
     //  Creating a new shared instance for winston logger
     sharedInstance.Log = new (Winston.Logger)({

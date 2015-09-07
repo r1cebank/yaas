@@ -13,6 +13,10 @@ Chai.should();
 var sourcemap = require.resolve('source-map-support');
 if (sourcemap) { require(sourcemap).install(); }
 
+var Bootstrap = require('../src/util/bootstrap');
+
+Bootstrap();
+
 describe('Core Functions', function () {
     require('./util/core.spec.js');
 });

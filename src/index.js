@@ -22,7 +22,6 @@ import AppSingleton     from './util/appsingleton';
 import Bootstrap        from './util/bootstrap';
 import MulterCore       from './util/multercore';
 import Startup          from './util/startup';
-import Config           from './config/config';
 
 //  Log TAG
 var TAG = "index";
@@ -62,7 +61,6 @@ let upload = Multer({storage});
  */
 sharedInstance.app = app;
 sharedInstance.upload = upload;
-sharedInstance.config = Config;
 
 
 /*!
