@@ -19,10 +19,6 @@ class Authority {
         this.type = type;
         this.auth = auth;
 
-        //  Supress warnings
-        this.checkauth = (a) => {AppSingleton.getInstance().L.error(this.TAG, `this should not be printed`);};
-        this.checkrole = (u) => {AppSingleton.getInstance().L.error(this.TAG, `this should not be printed`);};
-
         AppSingleton.getInstance().L.info(this.TAG, `loading modules`);
         try {
             _.assign(this, require(`./${type}/checkauth.js`));

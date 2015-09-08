@@ -52,14 +52,4 @@ describe('None', function () {
         var access = auth.hasRole(req, res, 'bucket:list');
         expect(access).to.equal(true);
     });
-    it('overwrite should work', function () {
-        var access = auth.hasRole(req, res, 'file:get');
-        expect(access).to.equal(false);
-    });
-    it('overwrite should reset', function () {
-        var access = auth.hasRole(req, res, 'file:get');
-        expect(access).to.equal(false);
-        var access2 = auth.hasRole(req, res, 'bucket:list');
-        expect(access2).to.equal(true);
-    });
 });

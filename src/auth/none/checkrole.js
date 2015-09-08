@@ -3,7 +3,7 @@
  */
 
 /*!
- *  None will not care about roles, everyhting is permitted
+ *  None will not care about roles, everything is permitted
  */
 
 import AppSingleton         from '../../util/appsingleton';

@@ -18,7 +18,16 @@ var sourcemap      = require.resolve('source-map-support');
 if (sourcemap) { require(sourcemap).install(); }
 
 var req = {
+    body: {
+        auth: "c9cba3d805ff526866d27b5504005766"
+    }
 };
+var req2 = {
+    body: {
+        auth: "c9cba32805ff526866d27b5504005766"
+    }
+};
+
 var res = {
     status: () => {return res;},
     send:   () => {return res;}
@@ -38,13 +47,6 @@ var config = {
         }
     },
     overwrites: {
-        'file:get': 'none',
-            'version:list': 'none',
-            'bucket:list': 'none',
-            'yaas:list': 'none',
-            'generator:lorem': 'none',
-            'generator:json': 'none',
-            'generator:xml': 'none'
     }
 };
 
@@ -55,5 +57,15 @@ describe('Local', function () {
         expect(auth.type).to.equal('local');
     });
     it('should authenticate api user', function () {
+        var access = auth.hasRole(req, res, 'file:get');
+        expect(access).to.equal(true);
+    });
+    it('should not authenticate if role is not permitted', function () {
+        var access = auth.hasRole(req, res, 'generator:json');
+        expect(access).to.equal(false);
+    });
+    it('should not authenticate if user does not exist', function () {
+        var access = auth.hasRole(req2, res, 'file:get');
+        expect(access).to.equal(false);
     });
 });
