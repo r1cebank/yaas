@@ -25,13 +25,13 @@ function startup() {
         //  Setup routes for app
 
         //  Setup upload
-        sharedInstance.app.post('buckets/:bucket/upload', sharedInstance.upload.single('file'), function(req, res) {
+        sharedInstance.app.post('/buckets/:bucket/upload', sharedInstance.upload.single('file'), function(req, res) {
             if(sharedInstance.authority.hasRole(req, res, 'bucket:upload')) {
                 Routes.upload(req, res).then().catch().done();
             }
         });
         //  List all buckets
-        sharedInstance.app.get('buckets/list', function (req, res) {
+        sharedInstance.app.get('/list', function (req, res) {
 
             /*!
              *  Looks like cannot use as middleware.
@@ -41,19 +41,19 @@ function startup() {
             }
         });
         //  List all files in bucket
-        sharedInstance.app.get('buckets/:bucket', function (req, res) {
+        sharedInstance.app.get('/buckets/:bucket', function (req, res) {
             if(sharedInstance.authority.hasRole(req, res, 'bucket:list')) {
                 Routes.listfile(req, res).then().catch().done();
             }
         });
         //  List all versions for file
-        sharedInstance.app.get('buckets/:bucket/:filename/list', function (req, res) {
+        sharedInstance.app.get('/buckets/:bucket/:filename/list', function (req, res) {
             if(sharedInstance.authority.hasRole(req, res, 'version:list')) {
                 Routes.listversion(req, res).then().catch().done();
             }
         });
         //  Get uploaded file
-        sharedInstance.app.get('buckets/:bucket/:filename', function (req, res) {
+        sharedInstance.app.get('/buckets/:bucket/:filename', function (req, res) {
             if(sharedInstance.authority.hasRole(req, res, 'file:get')) {
                 Routes.getfile(req, res).then().catch().done();
             }

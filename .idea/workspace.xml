@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/auth/auth-core.spec.js" afterPath="$PROJECT_DIR$/test/auth/auth-core.spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auth/authority.js" afterPath="$PROJECT_DIR$/src/auth/authority.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/auth/none/checkrole.js" afterPath="$PROJECT_DIR$/src/auth/none/checkrole.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/auth/local/local.spec.js" afterPath="$PROJECT_DIR$/test/auth/local/local.spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/auth/none/none.spec.js" afterPath="$PROJECT_DIR$/test/auth/none/none.spec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/startup.js" afterPath="$PROJECT_DIR$/src/util/startup.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aas.iws" />
@@ -28,21 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="auth-core.spec.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/auth/auth-core.spec.js">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5588235">
-              <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/util/core.spec.js">
+      <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/startup.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
+              <caret line="56" column="72" selection-start-line="56" selection-start-column="72" selection-end-line="56" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -58,45 +56,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkrole.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/auth/local/checkrole.js">
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.07177033">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="local.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/auth/local/local.spec.js">
+      <file leaf-file-name="checkrole.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/auth/local/checkrole.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="28" selection-end-column="2" />
-              <folding>
-                <element signature="e#0#88#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="none.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/auth/none/none.spec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="44" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#87#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/index.spec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -107,16 +81,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="transform.spec.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/transform/transform.spec.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -168,17 +132,14 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.coveralls.yml" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/.jshintrc" />
         <option value="$PROJECT_DIR$/circle.yml" />
         <option value="$PROJECT_DIR$/src/routes/generator/lorem.js" />
         <option value="$PROJECT_DIR$/src/config/config.js" />
         <option value="$PROJECT_DIR$/src/routes/generator/jsondata.js" />
         <option value="$PROJECT_DIR$/src/routes/generator/routes.js" />
-        <option value="$PROJECT_DIR$/src/util/startup.js" />
         <option value="$PROJECT_DIR$/src/routes/generator/xmldata.js" />
         <option value="$PROJECT_DIR$/test/index.spec.js" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/util/bootstrap.js" />
         <option value="$PROJECT_DIR$/test/transform/transform.spec.js" />
         <option value="$PROJECT_DIR$/src/auth/local/checkrole.js" />
@@ -188,6 +149,9 @@
         <option value="$PROJECT_DIR$/test/auth/local/local.spec.js" />
         <option value="$PROJECT_DIR$/test/auth/none/none.spec.js" />
         <option value="$PROJECT_DIR$/test/auth/auth-core.spec.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/util/startup.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -622,7 +586,7 @@
       <recent name="$PROJECT_DIR$/src/transform/image/jpeg" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.Test">
+  <component name="RunManager" selected="Node.js.Start">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
@@ -974,7 +938,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441679028229</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Finished testing auth #6">
+      <created>1441680584888</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1441680584888</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1016,7 +986,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Cache fix" />
     <MESSAGE value="adding yaas/sql file type for simple api scaffolding." />
     <MESSAGE value="Prepare for hot caching system implementation." />
     <MESSAGE value="ysql support for sql query from file" />
@@ -1041,7 +1010,8 @@
     <MESSAGE value="Dockerfile #11" />
     <MESSAGE value="fixed broken test, config moved to bootstrap" />
     <MESSAGE value="Testing auth." />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing auth." />
+    <MESSAGE value="Finished testing auth #6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished testing auth #6" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1287,14 +1257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/startup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/generator/xmldata.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1335,14 +1297,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1355,14 +1309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.215311">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1391,14 +1337,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/auth/local/checkrole.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/auth/none/checkrole.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.101809956">
@@ -1415,27 +1353,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/auth/none/none.spec.js">
+    <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="44" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#87#0" expanded="false" />
-          </folding>
+          <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/auth/auth-core.spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7963801">
+          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/util/core.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.45701358">
           <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/startup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="72" selection-start-line="56" selection-start-column="72" selection-end-line="56" selection-end-column="72" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/auth/local/local.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.6447964">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="28" selection-end-column="2" />
           <folding>
             <element signature="e#0#88#0" expanded="false" />
@@ -1443,10 +1395,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/auth/auth-core.spec.js">
+    <entry file="file://$PROJECT_DIR$/test/auth/none/none.spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5588235">
-          <caret line="65" column="24" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.101809956">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="44" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#87#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/auth/local/checkrole.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="52" selection-end-line="14" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07177033">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
           <folding />
         </state>
       </provider>
