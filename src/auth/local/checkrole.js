@@ -16,7 +16,6 @@ function checkrole (user, role) {
      */
 
     let TAG = 'auth:local:checkrole';
-
     if(_.includes(user.roles, role)) {
         AppSingleton.getInstance().L.verbose(TAG, 'local is passing allow');
         return true;

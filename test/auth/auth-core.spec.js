@@ -25,20 +25,12 @@ var res = {
 };
 
 describe('Authority Core', function () {
-    it('should support default authority none', function () {
-        var auth = new Authority('none', {overwrites:[]});
-        expect(auth.type).to.equal('none');
-        var access = auth.hasRole(req, res, 'file:get');
-        expect(access).to.equal(true);
-    });
-    it('should support default authority local', function () {
-        var auth = new Authority('local');
-        expect(auth.type).to.equal('local');
-    });
     it('should default to reject if auth type does not exist', function () {
         var auth = new Authority('some_random_type', {overwrites:[]});
         expect(auth.type).to.equal('reject');
         var access = auth.hasRole(res, res, 'file:get');
         expect(access).to.equal(false);
     });
+    require('./local/local.spec.js');
+    require('./none/none.spec.js');
 });

@@ -74,8 +74,19 @@ class Authority {
             //  Get overwrite auth type
             var type = this.auth.overwrites[role];
             AppSingleton.getInstance().L.warn(this.TAG, `overwrite auth method to ${type}`);
-            user = require(`./${type}/checkauth.js`).checkauth(request.auth);
-            if(!require(`./${type}/checkrole.js`).checkrole(user, role)) {
+
+            //  Get temp functions
+            var tempCheckauth = require(`./${type}/checkauth.js`);
+            //  Need to pass auth to require
+            tempCheckauth.auth = this.auth;
+            var tempCheckRole = require(`./${type}/checkrole.js`);
+            tempCheckRole.auth = this.auth;
+
+            user = tempCheckauth.checkauth(request.auth);
+
+            if(!user) {return false;}   //  If user is not found
+
+            if(!tempCheckRole.checkrole(user, role)) {
                 res.status(403).send({error: `${request.auth} not permitted for ${role}`});
                 return false;   //  We still need to return since the value will be used to wrapped in if
             } else {

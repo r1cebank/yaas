@@ -42,7 +42,7 @@ describe('multer core', function() {
 
         MulterCore.filename({ }, file, cb);
 
-        expect(cb).to.have.been.calledWith(null, Sinon.match(/([A-Z]\w+).png/));
+        expect(cb).to.have.been.calledWith(null, Sinon.match(/(\S+).png/));
     });
     it('ysql object needs to retain their extension', function() {
         var file = {originalname: 'test.ysql'};
@@ -50,7 +50,7 @@ describe('multer core', function() {
 
         MulterCore.filename({ }, file, cb);
 
-        expect(cb).to.have.been.calledWith(null, Sinon.match(/([A-Z]\w+).ysql/));
+        expect(cb).to.have.been.calledWith(null, Sinon.match(/(\S+).ysql/));
     });
     it('ysql object needs to nave yaas mimetype', function() {
         var file = {originalname: 'test.ysql'};
@@ -58,7 +58,7 @@ describe('multer core', function() {
 
         MulterCore.filename({ }, file, cb);
 
-        expect(cb).to.have.been.calledWith(null, Sinon.match(/([A-Z]\w+).ysql/));
+        expect(cb).to.have.been.calledWith(null, Sinon.match(/(\S+).ysql/));
         expect(file.mimetype.split('/')[0]).to.equal('yaas');
     });
 });
