@@ -70,16 +70,17 @@ app.use(BodyParser.urlencoded({ extended: false }));
 app.use(NodeInfo()); // Using NodeInfo to display server information
 
 /*!
+ *  Bootstrap the application, setting the proper shared variables in AppSingleton
+ */
+Bootstrap();
+
+/*!
  *  Setup the kue ui
  */
 UI.setup(Config.server.ui);
 sharedInstance.app.use('/api', Kue.app);
 sharedInstance.app.use('/kue', UI.app);
 
-/*!
- *  Bootstrap the application, setting the proper shared variables in AppSingleton
- */
-Bootstrap();
 
 //  Grab the port number or get from deploy environment
 let PORT = process.env.PORT || Config.server.port;

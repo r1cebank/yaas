@@ -60,9 +60,13 @@ function bootstrap () {
      */
     Injector();
 
+    sharedInstance.L.verbose(TAG, "current configuration");
+    sharedInstance.L.verbose(TAG, `${JSON.stringify(sharedInstance.config)}`);
 
     //  Create a worker queue
-    sharedInstance.queue = Kue.createQueue(sharedInstance.config.redis);
+    sharedInstance.queue = Kue.createQueue({
+        redis: sharedInstance.config.redis
+    });
     sharedInstance.L.verbose(TAG, 'worker kue created/restored');
 
 
