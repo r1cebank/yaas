@@ -47,6 +47,8 @@
     "jsonfile": "^2.2.1",
     "jsonpath": "^0.1.8",
     "junk": "^1.0.2",
+    "kue": "^0.9.4",
+    "kue-ui": "^0.1.0",
     "localeval": "^15.2.3",
     "lodash": "^3.10.1",
     "lorem-ipsum": "^1.0.3",

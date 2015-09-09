@@ -16,7 +16,7 @@ import Random           from 'generate-random-data';
 import Jsf              from 'json-schema-faker';
 import _                from 'lodash';
 
-function jsondata (req, res) {
+function jsondata (request) {
 
     //  Log tag
     let TAG = "route:generator:jsondata";
@@ -24,27 +24,24 @@ function jsondata (req, res) {
     //  Get shared instance from singleton
     var sharedInstance = AppSingleton.getInstance();
 
-    //  Combine all request params
-    var request = _.clone(req.params);
     //  Default number of objects is 1
     var objectCount = 1;
+
+    //  If over than specified, reset to max
+    if(request.count > sharedInstance.config.generator.max) {
+        request.count = sharedInstance.config.generator.max;
+    }
 
     //  If the count in request is a number, replace objects
     if(!isNaN(request.count)) { objectCount = request.count; }
 
-    return new Promise((resolve) => {
-        try {
-            var objects = [ ];
-            var schema = JSON.parse(request.schema);
-            for (var i = 0; i < objectCount; i++) {
-                objects.push(Jsf(schema));
-            }
-            res.send(objects);
-        } catch(e) {
-            sharedInstance.L.error(TAG, `error occurred: ${e}`);
-            res.status(400).send({error: e.toString()});
+    return new Promise((resolve, reject) => {
+        var objects = [ ];
+        var schema = JSON.parse(request.schema || "{ }"); //  If undefined, setup empty object
+        for (var i = 0; i < objectCount; i++) {
+            objects.push(Jsf(schema));
         }
-        resolve({ });
+        resolve(objects);
     });
 }
 

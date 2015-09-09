@@ -15,7 +15,7 @@ import Shortid          from 'shortid';
 import Lorem            from 'lorem-ipsum';
 import _                from 'lodash';
 
-function lorem (req, res) {
+function lorem (request) {
 
     //  Log tag
     let TAG = "route:generator:lorem";
@@ -23,13 +23,14 @@ function lorem (req, res) {
     //  Get shared instance from singleton
     var sharedInstance = AppSingleton.getInstance();
 
-    //  Combine all request params
-    var request = _.clone(req.params);
+    //  If over than specified, reset to max
+    if(request.count > sharedInstance.config.generator.max) {
+        request.count = sharedInstance.config.generator.max;
+    }
 
     return new Promise((resolve) => {
         var output = Lorem(request);
-        res.send(output);
-        resolve({ });
+        resolve(output);
     });
 }
 

@@ -11,6 +11,8 @@ import AppSingleton     from './appsingleton';
 import Promise          from 'bluebird';
 import Routes           from '../routes/routes';
 import Generators       from '../routes/generator/routes';
+import Wrapper          from './workerwrapper';
+
 
 function startup() {
 
@@ -64,17 +66,18 @@ function startup() {
          */
         sharedInstance.app.get('/generator/lorem', function (req, res) {
             if(sharedInstance.authority.hasRole(req, res, 'generator:lorem')) {
-                Generators.lorem(req, res).then().catch().done();
+                //Generators.lorem(req, res).then().catch().done();
+                Wrapper.wrapper('generator:lorem', req, res);
             }
         });
         sharedInstance.app.get('/generator/json', function (req, res) {
             if(sharedInstance.authority.hasRole(req, res, 'generator:json')) {
-                Generators.jsondata(req, res).then().catch().done();
+                Wrapper.wrapper('generator:json', req, res);
             }
         });
         sharedInstance.app.get('/generator/xml', function (req, res) {
             if(sharedInstance.authority.hasRole(req, res, 'generator:xml')) {
-                Generators.xmldata(req, res).then().catch().done();
+                Wrapper.wrapper('generator:xml', req, res);
             }
         });
         resolve({ });

@@ -12,8 +12,11 @@ import Winston          from 'winston';
 import Promise          from 'bluebird';
 import DB               from 'tingodb';
 import Mkdir            from 'mkdirp';
+import Kue              from 'kue';
+import UI               from 'kue-ui';
 import Authority        from '../auth/authority';
 import Config           from '../config/config';
+import QueueWorker      from './queueworker';
 
 
 function bootstrap () {
@@ -43,6 +46,15 @@ function bootstrap () {
         warn    :   (tag, log) => {sharedInstance.Log.warn(`[${tag}] : ${log}`);}
     };
 
+    //  Create a worker queue
+    sharedInstance.queue = Kue.createQueue();
+    sharedInstance.L.verbose(TAG, 'worker kue created/restored');
+
+    //  Setup kue queue ui
+    UI.setup(sharedInstance.config.server.ui);
+    sharedInstance.app.use('/api', Kue.app);
+    sharedInstance.app.use('/kue', UI.app);
+
     //  Create all the folder needed for this application
     Mkdir(sharedInstance.config.server.database);
     Mkdir(sharedInstance.config.server.storage.dest);
@@ -59,6 +71,9 @@ function bootstrap () {
 
     //  Setup authority
     sharedInstance.authority = new Authority(sharedInstance.config.auth.type, sharedInstance.config.auth);
+
+    //  Set all the queue workers
+    QueueWorker();
 
     sharedInstance.L.info(TAG, "Bootstrap complete!");
 }

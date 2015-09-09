@@ -13,10 +13,19 @@ var config = {
             dest: 'storage/',
             processed: 'processed/'
         },
+        ui: {
+            apiURL: '/api', // IMPORTANT: specify the api url
+            baseURL: '/kue', // IMPORTANT: specify the base url
+            updateInterval: 2000 // Optional: Fetches new data every 5000 ms
+        },
+        autoclean: false,
         database:   'db/',
         host:       'http://localhost:3939',
         port:       3939,
         port_ssl:   33939
+    },
+    generator: {
+        max: 1000
     },
     auth: {
         type: 'local',
