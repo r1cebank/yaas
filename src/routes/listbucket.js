@@ -27,7 +27,7 @@ function listbucket (req, res) {
         Fs.readdir(sharedInstance.config.server.database, function(err, files) {
             files = files.filter(Junk.not);
             var buckets = files.map(function (filename) {
-                return UrlJoin(sharedInstance.config.server.host, filename);
+                return UrlJoin(sharedInstance.config.server.host, 'buckets', filename);
             });
             res.send({buckets});
         });

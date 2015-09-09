@@ -34,10 +34,6 @@ var TAG = "index";
 //  var cert = Fs.readFileSync('./cert/cert.cer', 'utf8');
 //  var credentials = {key, cert};
 
-//  Grab the port number or get from deploy environment
-let PORT = process.env.PORT || Config.server.port;
-let PORT_SSL = process.env.PORT_SSL || Config.server.port_ssl;
-
 //  AppSingleton Instance
 var sharedInstance = AppSingleton.getInstance();
 
@@ -84,6 +80,10 @@ sharedInstance.app.use('/kue', UI.app);
  *  Bootstrap the application, setting the proper shared variables in AppSingleton
  */
 Bootstrap();
+
+//  Grab the port number or get from deploy environment
+let PORT = process.env.PORT || Config.server.port;
+let PORT_SSL = process.env.PORT_SSL || Config.server.port_ssl;
 
 /*!
  *  Startup the app, setting the appropriate routes and settings.

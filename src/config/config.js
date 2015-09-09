@@ -8,6 +8,7 @@
  */
 
 var config = {
+    HMACSecret: '909957e0fe0b9d8197e44e6daeee9336',
     server: {
         storage: {
             dest: 'storage/',
@@ -28,7 +29,7 @@ var config = {
         max: 1000
     },
     auth: {
-        type: 'local',
+        type: 'none',
         keys: {
             c9cba3d805ff526866d27b5504005766: {
                 roles: [

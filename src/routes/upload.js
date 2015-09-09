@@ -59,7 +59,7 @@ function upload (req, res) {
                     file = _.clone(req.file);
                     file.versions = versions;
                     file.latestversion = version;
-                    file.url = file.url = UrlJoin(sharedInstance.config.server.host,
+                    file.url = file.url = UrlJoin(sharedInstance.config.server.host, 'buckets',
                         req.params.bucket, req.file.originalname);
 
                     //  Insert the record into bucket

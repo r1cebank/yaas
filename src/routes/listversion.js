@@ -35,7 +35,7 @@ function listversion (req, res) {
                 //  List all versions
                 var urls = [ ];
                 for(var key of Object.keys(doc.versions)) {
-                    urls.push(UrlJoin(sharedInstance.config.server.host,
+                    urls.push(UrlJoin(sharedInstance.config.server.host, 'buckets',
                         req.params.bucket, req.params.filename, `?v=${key}`));
                 }
                 res.send(urls);

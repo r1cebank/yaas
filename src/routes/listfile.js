@@ -32,7 +32,7 @@ function listfile (req, res) {
             for(let doc of docs) {
 
                 //  All we want is a array of urls back to the client
-                urls.push(UrlJoin(sharedInstance.config.server.host,
+                urls.push(UrlJoin(sharedInstance.config.server.host, 'buckets',
                     req.params.bucket, doc.originalname));
             }
             res.send(urls);

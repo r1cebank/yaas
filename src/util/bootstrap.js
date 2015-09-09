@@ -13,9 +13,11 @@ import Promise          from 'bluebird';
 import DB               from 'tingodb';
 import Mkdir            from 'mkdirp';
 import Kue              from 'kue';
+import Encrypter        from 'object-encrypter';
 import Authority        from '../auth/authority';
 import Config           from '../config/config';
 import QueueWorker      from './queueworker';
+import Injector         from './injectconfig';
 
 
 function bootstrap () {
@@ -28,6 +30,10 @@ function bootstrap () {
 
     //  Set the config object
     sharedInstance.config = Config;
+
+    //  Set global encryption engine
+    sharedInstance.engine = Encrypter(Config.HMACSecret, {ttl: false});
+
 
     //  Creating a new shared instance for winston logger
     sharedInstance.Log = new (Winston.Logger)({
@@ -44,6 +50,16 @@ function bootstrap () {
         error   :   (tag, log) => {sharedInstance.Log.error(`[${tag}] : ${log}`);},
         warn    :   (tag, log) => {sharedInstance.Log.warn(`[${tag}] : ${log}`);}
     };
+
+    //  Sign the config
+    var token = sharedInstance.engine.encrypt(Config);
+    sharedInstance.L.verbose(TAG, token);
+
+    /*!
+     *  Run the config injector, if config is set through environment variables, we will load config from jwt
+     */
+    Injector();
+
 
     //  Create a worker queue
     sharedInstance.queue = Kue.createQueue();
