@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/r1cebank/yaas.png?label=ready&title=Ready)](https://waffle.io/r1cebank/yaas)
 # YAAS.js (Yet another asset server)
 [![codecov.io](http://codecov.io/github/r1cebank/yaas/coverage.svg?branch=master)](http://codecov.io/github/r1cebank/yaas?branch=master)
 [![Code Climate](https://codeclimate.com/github/r1cebank/yaas/badges/gpa.svg)](https://codeclimate.com/github/r1cebank/yaas)
