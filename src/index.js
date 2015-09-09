@@ -16,6 +16,8 @@ import Shortid          from 'shortid';
 import Fs               from 'fs';
 import HTTP             from 'http';
 import HTTPS            from 'https';
+import Kue              from 'kue';
+import UI               from 'kue-ui';
 
 //  Custom library
 import AppSingleton     from './util/appsingleton';
@@ -70,6 +72,13 @@ sharedInstance.upload = upload;
 app.use(BodyParser.json()); //  Using bodyparser for POST requests
 app.use(BodyParser.urlencoded({ extended: false }));
 app.use(NodeInfo()); // Using NodeInfo to display server information
+
+/*!
+ *  Setup the kue ui
+ */
+UI.setup(Config.server.ui);
+sharedInstance.app.use('/api', Kue.app);
+sharedInstance.app.use('/kue', UI.app);
 
 /*!
  *  Bootstrap the application, setting the proper shared variables in AppSingleton
