@@ -41,6 +41,12 @@ function inject() {
         sharedInstance.L.verbose(TAG, "no config supplied, using config file");
     }
 
+    // Other environment variables need to inject to config
+
+    //  Replace redis connection settings from environment variables
+    sharedInstance.config.redis.host = process.env.REDIS_PORT_6379_TCP_ADDR || '127.0.0.1';
+    sharedInstance.config.redis.port = process.env.REDIS_PORT_6379_TCP_PORT || 6379;
+
 }
 
 export default inject;

@@ -28,8 +28,12 @@ var config = {
     generator: {
         max: 1000
     },
+    redis: {
+        port: 6379,
+        host: '127.0.0.1'
+    },
     auth: {
-        type: 'none',
+        type: 'local',
         keys: {
             c9cba3d805ff526866d27b5504005766: {
                 roles: [

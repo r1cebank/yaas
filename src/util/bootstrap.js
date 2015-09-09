@@ -62,7 +62,7 @@ function bootstrap () {
 
 
     //  Create a worker queue
-    sharedInstance.queue = Kue.createQueue();
+    sharedInstance.queue = Kue.createQueue(sharedInstance.config.redis);
     sharedInstance.L.verbose(TAG, 'worker kue created/restored');
 
 
