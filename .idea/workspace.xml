@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
+    <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="ES6 Polyfill">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/startup.js" afterPath="$PROJECT_DIR$/src/util/startup.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aas.iws" />
@@ -24,10 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.13574661">
+            <state vertical-scroll-proportion="0.0">
               <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
               <folding>
                 <element signature="e#0#94#0" expanded="false" />
@@ -60,17 +60,17 @@
         <entry file="file://$PROJECT_DIR$/src/config/config.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
+              <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="startup.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/startup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+            <state vertical-scroll-proportion="-0.23755656">
+              <caret line="47" column="62" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -170,7 +170,6 @@
         <option value="$PROJECT_DIR$/src/util/worker/generator:json.js" />
         <option value="$PROJECT_DIR$/src/routes/generator/lorem.js" />
         <option value="$PROJECT_DIR$/src/util/worker/generator:xml.js" />
-        <option value="$PROJECT_DIR$/src/util/startup.js" />
         <option value="$PROJECT_DIR$/src/routes/generator/jsondata.js" />
         <option value="$PROJECT_DIR$/src/routes/generator/xmldata.js" />
         <option value="$PROJECT_DIR$/src/util/queueworker.js" />
@@ -182,6 +181,7 @@
         <option value="$PROJECT_DIR$/src/util/injectconfig.js" />
         <option value="$PROJECT_DIR$/src/util/bootstrap.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
+        <option value="$PROJECT_DIR$/src/util/startup.js" />
       </list>
     </option>
   </component>
@@ -446,7 +446,7 @@
       <recent name="$PROJECT_DIR$/src/transform/image/jpeg" />
     </key>
   </component>
-  <component name="RunManager" selected="Mocha.Test">
+  <component name="RunManager" selected="Node.js.Start">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
@@ -550,12 +550,6 @@
       <created>1440043790923</created>
       <option name="number" value="Default" />
       <updated>1440043790923</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Adding everything needed for nw app">
-      <created>1440054592755</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1440054592755</updated>
     </task>
     <task id="LOCAL-00004" summary="Sending file and retriving file works">
       <created>1440217397540</created>
@@ -845,7 +839,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441786626844</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="ES6 Polyfill">
+      <created>1441787411945</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1441787411945</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -887,7 +887,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Critical fix for #1" />
     <MESSAGE value="Update gulpfile" />
     <MESSAGE value="Update readme" />
     <MESSAGE value="update package.json for submission" />
@@ -912,7 +911,8 @@
     <MESSAGE value="Now config can be overwritten by environment variable" />
     <MESSAGE value="Docker friendly" />
     <MESSAGE value="Docker fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Docker fix" />
+    <MESSAGE value="ES6 Polyfill" />
+    <option name="LAST_COMMIT_MESSAGE" value="ES6 Polyfill" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1300,14 +1300,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="25" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1316,21 +1308,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/startup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="79" column="46" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13574661">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding>
             <element signature="e#0#94#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/startup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.23755656">
+          <caret line="47" column="62" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
