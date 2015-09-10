@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/bootstrap.js" afterPath="$PROJECT_DIR$/src/util/bootstrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aas.iws" />
@@ -57,8 +57,8 @@
       <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.215311">
-              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.035885166">
+              <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -69,16 +69,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="47" column="62" selection-start-line="47" selection-start-column="62" selection-end-line="47" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="queueworker.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/util/queueworker.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -109,6 +99,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gulpfile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gulpfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="136" column="31" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -153,7 +153,6 @@
         <option value="$PROJECT_DIR$/src/auth/reject/checkauth.js" />
         <option value="$PROJECT_DIR$/src/auth/reject/checkrole.js" />
         <option value="$PROJECT_DIR$/src/auth/local/checkauth.js" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.coveralls.yml" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -169,7 +168,6 @@
         <option value="$PROJECT_DIR$/test/auth/local/local.spec.js" />
         <option value="$PROJECT_DIR$/test/auth/none/none.spec.js" />
         <option value="$PROJECT_DIR$/test/auth/auth-core.spec.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/util/worker/generator:lorem.js" />
         <option value="$PROJECT_DIR$/src/util/workerwrapper.js" />
         <option value="$PROJECT_DIR$/src/util/worker/generator:json.js" />
@@ -190,6 +188,8 @@
         <option value="$PROJECT_DIR$/src/util/worker/generator.xml.js" />
         <option value="$PROJECT_DIR$/src/config/config.js" />
         <option value="$PROJECT_DIR$/src/util/bootstrap.js" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -206,9 +206,27 @@
         <tasks>
           <GulpTaskState>
             <dependencies>
+              <dependency value="clean" />
               <dependency value="build" />
+              <dependency value="bump" />
             </dependencies>
             <task-name>default</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="clean" />
+              <dependency value="build" />
+              <dependency value="bumpmajor" />
+            </dependencies>
+            <task-name>major</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <dependencies>
+              <dependency value="clean" />
+              <dependency value="build" />
+              <dependency value="bumpminor" />
+            </dependencies>
+            <task-name>minor</task-name>
           </GulpTaskState>
           <GulpTaskState>
             <task-name>build</task-name>
@@ -235,6 +253,15 @@
           </GulpTaskState>
           <GulpTaskState>
             <task-name>watch</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>bump</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>bumpmajor</task-name>
+          </GulpTaskState>
+          <GulpTaskState>
+            <task-name>bumpminor</task-name>
           </GulpTaskState>
         </tasks>
       </GulpfileState>
@@ -454,7 +481,7 @@
       <recent name="$PROJECT_DIR$/src/transform/image/jpeg" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Start">
+  <component name="RunManager" selected="Gulp.js.Minor Build">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
@@ -504,10 +531,34 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <configuration default="false" name="Build" type="js.build_tools.gulp" factoryName="Gulp.js">
+    <configuration default="false" name="Patch Build" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
-      <tasks />
+      <tasks>
+        <task>default</task>
+      </tasks>
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Minor Build" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
+      <tasks>
+        <task>minor</task>
+      </tasks>
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Major Build" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile>$PROJECT_DIR$/gulpfile.js</gulpfile>
+      <tasks>
+        <task>major</task>
+      </tasks>
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
@@ -529,7 +580,6 @@
     <configuration default="false" name="Start" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="/usr/local/bin/node" path-to-js-file="./lib/index.js" working-dir="$PROJECT_DIR$">
       <method>
         <option name="RunConfigurationTask" enabled="true" run_configuration_name="Build" run_configuration_type="js.build_tools.gulp" />
-        <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_nump patch" />
       </method>
     </configuration>
     <configuration default="false" name="Start with config" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="/usr/local/bin/node" path-to-js-file="./lib/index.js" working-dir="$PROJECT_DIR$">
@@ -542,11 +592,13 @@
         <option name="RunConfigurationTask" enabled="true" run_configuration_name="Build" run_configuration_type="js.build_tools.gulp" />
       </method>
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Gulp.js.Build" />
-      <item index="1" class="java.lang.String" itemvalue="Mocha.Test" />
-      <item index="2" class="java.lang.String" itemvalue="Node.js.Start" />
-      <item index="3" class="java.lang.String" itemvalue="Node.js.Start with config" />
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Gulp.js.Patch Build" />
+      <item index="1" class="java.lang.String" itemvalue="Gulp.js.Minor Build" />
+      <item index="2" class="java.lang.String" itemvalue="Gulp.js.Major Build" />
+      <item index="3" class="java.lang.String" itemvalue="Mocha.Test" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.Start" />
+      <item index="5" class="java.lang.String" itemvalue="Node.js.Start with config" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -559,18 +611,6 @@
       <created>1440043790923</created>
       <option name="number" value="Default" />
       <updated>1440043790923</updated>
-    </task>
-    <task id="LOCAL-00006" summary="getfile with versions">
-      <created>1440273140240</created>
-      <option name="number" value="00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1440273140240</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Readme.md and file modifications working for png">
-      <created>1440376518269</created>
-      <option name="number" value="00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1440376518269</updated>
     </task>
     <task id="LOCAL-00008" summary="Bug fix and updated readme.md">
       <created>1440386566179</created>
@@ -854,20 +894,32 @@
       <option name="project" value="LOCAL" />
       <updated>1441857319799</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Process exit handler">
+      <created>1441861554594</created>
+      <option name="number" value="00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1441861554594</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Build configurations">
+      <created>1441861972283</created>
+      <option name="number" value="00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1441861972283</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="28" y="23" width="1401" height="789" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5148936" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32761088" sideWeight="0.5637681" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.52340424" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32761088" sideWeight="0.5637681" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.48510638" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.47659576" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39914164" sideWeight="0.49710146" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32761088" sideWeight="0.43623188" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -896,8 +948,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="update package.json for submission" />
-    <MESSAGE value="Testing 1, file are stored by buckets" />
     <MESSAGE value="Testing 2, multer tests" />
     <MESSAGE value="Testing 3, transform now returns promise" />
     <MESSAGE value="Lorem Ipsum generator #5" />
@@ -921,7 +971,9 @@
     <MESSAGE value="ES6 Polyfill" />
     <MESSAGE value="Route changes" />
     <MESSAGE value="better worker error handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="better worker error handling" />
+    <MESSAGE value="Process exit handler" />
+    <MESSAGE value="Build configurations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Build configurations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1042,13 +1094,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5927602">
-          <caret line="114" column="3" selection-start-line="114" selection-start-column="3" selection-end-line="114" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -1309,10 +1354,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="136" column="31" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.215311">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.035885166">
+          <caret line="43" column="36" selection-start-line="43" selection-start-column="36" selection-end-line="43" selection-end-column="36" />
           <folding />
         </state>
       </provider>
