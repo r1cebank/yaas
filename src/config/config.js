@@ -9,6 +9,7 @@
 
 var config = {
     HMACSecret: '909957e0fe0b9d8197e44e6daeee9336',
+    concurrency: 3, //  IMPORTANT: if you don't specify this, we will use number of processor you have as concurrency
     server: {
         storage: {
             dest: 'storage/',
@@ -19,7 +20,7 @@ var config = {
             baseURL: '/kue', // IMPORTANT: specify the base url
             updateInterval: 2000 // Optional: Fetches new data every 5000 ms
         },
-        autoclean: false,
+        autoclean: false,   //  Want to remove the completed task?
         database:   'db/',
         host:       'http://localhost:3939',
         port:       3939,

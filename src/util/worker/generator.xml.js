@@ -18,7 +18,7 @@ function worker (job, done) {
     //  job.data.params is param passed from express
     Generators.xmldata(job.data.request).then(function (data) {
         done(null, data);
-    }).catch().done();
+    }).catch(function (e) {done(e);}).done();
 }
 
 export default worker;

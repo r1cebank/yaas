@@ -26,9 +26,19 @@ function queueworker() {
     //  This instance is shared across the entire app life-cycle
     var sharedInstance = AppSingleton.getInstance();
 
-    sharedInstance.queue.process('generator:lorem', require('./worker/generator.lorem.js'));
-    sharedInstance.queue.process('generator:json', require('./worker/generator.json.js'));
-    sharedInstance.queue.process('generator:xml', require('./worker/generator.xml.js'));
+    //  Get concurrency for this app
+    if(isNaN(sharedInstance.config.concurrency)) {
+       sharedInstance.config.concurrency = require('os').cpus().length;
+    }
+
+    sharedInstance.queue.process('generator:lorem', sharedInstance.config.concurrency, require('./worker/generator.lorem.js'));
+    sharedInstance.queue.process('generator:json', sharedInstance.config.concurrency, require('./worker/generator.json.js'));
+    sharedInstance.queue.process('generator:xml', sharedInstance.config.concurrency, require('./worker/generator.xml.js'));
+
+
+    sharedInstance.queue.on('error', function(err) {
+        sharedInstance.L.error(TAG, err);
+    });
 }
 
 module.exports = queueworker;
