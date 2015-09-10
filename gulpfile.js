@@ -15,12 +15,16 @@ var stylish        = require('gulp-jscs-stylish');
 var istanbul       = require('gulp-istanbul');
 var sourcemaps     = require('gulp-sourcemaps');
 var del            = require('del');
+var bump           = require('gulp-bump');
 
 /*!
  * Aliases
  */
-gulp.task('default', ['clean','build']);
+gulp.task('default', ['clean','build', 'bump']);
 
+gulp.task('major', ['clean','build', 'bumpmajor']);
+
+gulp.task('minor', ['clean','build', 'bumpminor']);
 /*!
  * Builds script files.
  * Ignore fixtures
@@ -118,3 +122,25 @@ gulp.task('watch', function() {
   gulp.watch(['src/**/*.js'], ['build']);
 
 });
+
+/*!
+ *  verion bump
+ */
+gulp.task('bump', function(){
+    gulp.src('./package.json')
+        .pipe(bump())
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('bumpmajor', function(){
+    gulp.src('./package.json')
+        .pipe(bump({type:'major'}))
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('bumpminor', function(){
+    gulp.src('./package.json')
+        .pipe(bump({type:'minor'}))
+        .pipe(gulp.dest('./'));
+});
+

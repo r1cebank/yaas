@@ -1,6 +1,6 @@
 {
   "name": "yaas",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "description": "Yet Another Asset Server",
   "main": "lib/index.js",
   "scripts": {
@@ -41,6 +41,7 @@
     "codecov.io": "^0.1.6",
     "express": "^4.13.3",
     "generate-random-data": "0.0.1",
+    "gulp-bump": "^0.3.1",
     "js2xmlparser": "^1.0.0",
     "json-hash": "^1.1.0",
     "json-schema-faker": "^0.2.0",
