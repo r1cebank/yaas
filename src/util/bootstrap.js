@@ -90,6 +90,15 @@ function bootstrap () {
     //  Set all the queue workers
     QueueWorker();
 
+
+    //  Final step, make sure we exit the app nicely
+    process.once('SIGTERM', function (sig) {
+        sharedInstance.queue.shutdown(5000, function(err) {
+            console.log('Kue shutdown: ', err||'');
+            process.exit(0);
+        });
+    });
+
     sharedInstance.L.info(TAG, "Bootstrap complete!");
 }
 
