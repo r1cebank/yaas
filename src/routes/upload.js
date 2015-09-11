@@ -11,7 +11,7 @@ import UrlJoin          from 'url-join';
 import _                from 'lodash';
 import Fs               from 'fs';
 
-function upload (req, res) {
+function upload (request) {
 
     //  Log tag
     let TAG = "route:upload";
@@ -22,12 +22,12 @@ function upload (req, res) {
     return new Promise((resolve) => {
 
         //  If no file supplied, error back
-        if(!req.file) {
+        if(!request.file) {
             res.status(404).send({error: "file not supplied"});
             resolve({ });
         } else {
-            var bucket = sharedInstance.buckets.collection(req.params.bucket);
-            bucket.findOne({originalname: req.file.originalname}, function (err, doc) {
+            var bucket = sharedInstance.buckets.collection(request.request.bucket);
+            bucket.findOne({originalname: request.file.originalname}, function (err, doc) {
                 //  File exists, uploading a new version.
 
                 //  We have a new file, generate a new version code
@@ -37,39 +37,44 @@ function upload (req, res) {
                 if (doc) {
                     file = _.clone(doc);
                     file.versions = _.clone(doc.versions);
-                    file.versions[version] = req.file.path;
+                    file.versions[version] = request.file.path;
                     file.latestversion = version;
-                    bucket.update({originalname: req.file.originalname}, {
+                    bucket.update({originalname: request.file.originalname}, {
                             $set: {
                                 versions: file.versions,
                                 latestversion: version
                             }
                         },
                         function (error, doc) {
-                            res.send(file);
+                            resolve({
+                                type: 'object',
+                                data: file
+                            });
                             sharedInstance.L.info(TAG, `file ${file.originalname} updated, version ${file.latestversion}`);
                         });
                 }
                 else {
                     //  We have a new file, generate a new version code
                     var versions = {};
-                    versions[version] = req.file.path;
+                    versions[version] = request.file.path;
 
                     //  Clone the file object
-                    file = _.clone(req.file);
+                    file = _.clone(request.file);
                     file.versions = versions;
                     file.latestversion = version;
                     file.url = file.url = UrlJoin(sharedInstance.config.server.host, 'buckets',
-                        req.params.bucket, req.file.originalname);
+                        request.request.bucket, request.file.originalname);
 
                     //  Insert the record into bucket
                     bucket.insert(file, function (err, doc) {
                         sharedInstance.L.info(TAG, "file uploaded");
                     });
-                    res.send(file);
+                    resolve({
+                        type: 'object',
+                        data: file
+                    });
                 }
             });
-            resolve({});
         }
     });
 

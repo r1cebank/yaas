@@ -29,23 +29,20 @@ function startup() {
         //  List all buckets
         sharedInstance.app.get('/', function (req, res) {
 
-            /*!
-             *  Looks like cannot use as middleware.
-             */
-            if(sharedInstance.authority.hasRole(req, res, 'yaas:list')) {
-                Routes.listbucket(req, res).then().catch().done();
+            if(sharedInstance.authority.hasRole(req, res, 'bucket:list')) {
+                Wrapper.wrapper('bucket:list', req, res);
             }
         });
         //  List all files in bucket
         sharedInstance.app.get('/buckets/:bucket', function (req, res) {
-            if(sharedInstance.authority.hasRole(req, res, 'bucket:list')) {
-                Routes.listfile(req, res).then().catch().done();
+            if(sharedInstance.authority.hasRole(req, res, 'file:list')) {
+                Wrapper.wrapper('file:list', req, res);
             }
         });
         //  Setup upload
         sharedInstance.app.post('/buckets/:bucket/upload', sharedInstance.upload.single('file'), function(req, res) {
             if(sharedInstance.authority.hasRole(req, res, 'bucket:upload')) {
-                Routes.upload(req, res).then().catch().done();
+                Wrapper.wrapper('bucket:upload', req, res);
             }
         });
         //  Get uploaded file

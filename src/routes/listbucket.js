@@ -15,7 +15,7 @@ import Fs               from 'fs';
 import Junk             from 'junk';
 import _                from 'lodash';
 
-function listbucket (req, res) {
+function listbucket (req) {
 
     //  Log tag
     let TAG = "route:listbucket";
@@ -29,9 +29,11 @@ function listbucket (req, res) {
             var buckets = files.map(function (filename) {
                 return UrlJoin(sharedInstance.config.server.host, 'buckets', filename);
             });
-            res.send({buckets});
+            resolve({
+                type: 'object',
+                data: buckets
+            });
         });
-        resolve({ });
     });
 }
 

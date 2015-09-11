@@ -13,7 +13,7 @@ import Path             from 'path';
 import UrlJoin          from 'url-join';
 import _                from 'lodash';
 
-function listfile (req, res) {
+function listfile (request) {
 
     //  Log tag
     let TAG = "route:listfile";
@@ -24,7 +24,7 @@ function listfile (req, res) {
     return new Promise((resolve) => {
 
         //  Open this Nedb so a find query can be executed later
-        var bucket = sharedInstance.buckets.collection(req.params.bucket);
+        var bucket = sharedInstance.buckets.collection(request.bucket);
 
         //  Using {} will yield us all the records in the bucket
         bucket.find().toArray(function (err, docs) {
@@ -33,11 +33,13 @@ function listfile (req, res) {
 
                 //  All we want is a array of urls back to the client
                 urls.push(UrlJoin(sharedInstance.config.server.host, 'buckets',
-                    req.params.bucket, doc.originalname));
+                    request.bucket, doc.originalname));
             }
-            res.send(urls);
+            resolve({
+                type: 'object',
+                data: urls
+            });
         });
-        resolve({ });
     });
 }
 

@@ -38,9 +38,9 @@ var config = {
         keys: {
             c9cba3d805ff526866d27b5504005766: {
                 roles: [
-                    'yaas:list',
-                    'bucket:upload',
                     'bucket:list',
+                    'bucket:upload',
+                    'file:list',
                     'file:get',
                     'version:list'
                 ]
@@ -49,8 +49,8 @@ var config = {
         overwrites: {
             'file:get': 'none',
             'version:list': 'none',
+            'file:list': 'none',
             'bucket:list': 'none',
-            'yaas:list': 'none',
             'generator:lorem': 'none',
             'generator:json': 'none',
             'generator:xml': 'none'

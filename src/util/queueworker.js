@@ -34,6 +34,9 @@ function queueworker() {
 
     sharedInstance.queue.process('version:list', sharedInstance.config.concurrency, require('./worker/version.list.js'));
     sharedInstance.queue.process('file:get', sharedInstance.config.concurrency, require('./worker/file.get.js'));
+    sharedInstance.queue.process('bucket:list', sharedInstance.config.concurrency, require('./worker/bucket.list.js'));
+    sharedInstance.queue.process('file:list', sharedInstance.config.concurrency, require('./worker/file.list.js'));
+    sharedInstance.queue.process('bucket:upload', sharedInstance.config.concurrency, require('./worker/bucket.upload.js'));
 
     //  Generators
     sharedInstance.queue.process('generator:lorem', sharedInstance.config.concurrency, require('./worker/generator.lorem.js'));
