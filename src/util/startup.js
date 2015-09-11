@@ -51,14 +51,14 @@ function startup() {
         //  Get uploaded file
         sharedInstance.app.get('/buckets/:bucket/:filename', function (req, res) {
             if(sharedInstance.authority.hasRole(req, res, 'file:get')) {
-                Routes.getfile(req, res).then().catch().done();
+                Wrapper.wrapper('file:get', req, res);
             }
 
         });
         //  List all versions for file
         sharedInstance.app.get('/buckets/:bucket/:filename/versions', function (req, res) {
             if(sharedInstance.authority.hasRole(req, res, 'version:list')) {
-                Routes.listversion(req, res).then().catch().done();
+                Wrapper.wrapper('version:list', req, res);
             }
         });
         /*!

@@ -17,7 +17,6 @@ import _                from 'lodash';
 var hash = require('json-hash');
 
 function transform(req, file, version) {
-    console.log('here');
 
     let TAG = 'transform:image:jpeg';
 

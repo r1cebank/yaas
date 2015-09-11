@@ -17,7 +17,7 @@ import Transform        from '../transform/transform';
 //  Old require still using require
 var hash = require('json-hash');
 
-function getfile (req, res) {
+function getfile (request) {
 
     //  Log tag
     let TAG = "route:getfile";
@@ -28,27 +28,24 @@ function getfile (req, res) {
     return new Promise((resolve) => {
 
         //  read the Nedb database stored on disk.
-        var bucket = sharedInstance.buckets.collection(req.params.bucket);
+        var bucket = sharedInstance.buckets.collection(request.bucket);
 
         //  First the file needs to exist
-        bucket.findOne({originalname: req.params.filename}, function (err, doc) {
+        bucket.findOne({originalname: request.filename}, function (err, doc) {
             if(!doc) {
-                res.status(404).send({error: `file ${req.params.filename} not found.`});
+                res.status(404).send({error: `file ${request.filename} not found.`});
             }
             else {
                 // Try to see if there is a get param for version
                 var version = doc.latestversion;
-                if(req.query.v) {
-                    version = req.query.v;
+                if(request.v) {
+                    version = request.v;
                 }
 
                 //  Check if version exists
                 if(!doc.versions[version])  {
                     res.status(404).send({error: `version ${version} not found`});
                 } else {
-
-                    //  Combining inputs
-                    var request = _.extend(req.params || {}, req.query || {}, req.body || {});
 
                     //  This is used only for caching.
                     var requestForHashing = _.clone(request);
@@ -75,21 +72,15 @@ function getfile (req, res) {
                     Transform.transform(doc.mimetype,
                         request, Path.join(process.cwd(),
                         doc.versions[version]), version).then(function (file) {
-                            if(typeof file === 'object') {
-                                //  If it is object, then just send it to as response.
-                                sharedInstance.L.verbose(TAG, 'sending result as response');
-                                res.send(file);
-                            } else {
-                                //  If it is not, then send as a file.
-                                sharedInstance.L.verbose(TAG, 'sending result as file');
-                                res.type(doc.mimetype);
-                                res.sendFile(file);
-                            }
+                            resolve({
+                                type: 'path',
+                                mimetype: doc.mimetype,
+                                path: file
+                            });
                         });
                 }
             }
         });
-        resolve({ });
     });
 
 }

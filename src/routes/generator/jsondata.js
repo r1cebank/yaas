@@ -41,7 +41,10 @@ function jsondata (request) {
         for (var i = 0; i < objectCount; i++) {
             objects.push(Jsf(schema));
         }
-        resolve(objects);
+        resolve({
+            type: 'object',
+            data: objects
+        });
     });
 }
 

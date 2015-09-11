@@ -42,7 +42,10 @@ function xmldata (request) {
         for (var i = 0; i < objectCount; i++) {
             objects.push(Jsf(schema));
         }
-        resolve(Js2xmlparser("result", {data: objects}));
+        resolve({
+            type: 'object',
+            data: Js2xmlparser("result", {data: objects})
+        });
     });
 }
 

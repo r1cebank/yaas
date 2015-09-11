@@ -26,8 +26,6 @@ function transform (type, req, file, version) {
         //  for image/jpeg type, the transform file will be stored in /image/jpeg/transform.js
         let transformFile = Path.join(__dirname, type.split('/')[0], type.split('/')[1], `transform.js`);
 
-        sharedInstance.L.verbose(TAG, `transform file ${transformFile}`);
-
         //  Do all the processing, and return the transformed file
         Fs.stat(transformFile, (err, stat) => {
             //  If exists in the system, dont bother processing it

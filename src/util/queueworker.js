@@ -30,7 +30,12 @@ function queueworker() {
     if(isNaN(sharedInstance.config.concurrency)) {
        sharedInstance.config.concurrency = require('os').cpus().length;
     }
+    sharedInstance.L.verbose(TAG, `setting concurrency ${sharedInstance.config.concurrency}`);
 
+    sharedInstance.queue.process('version:list', sharedInstance.config.concurrency, require('./worker/version.list.js'));
+    sharedInstance.queue.process('file:get', sharedInstance.config.concurrency, require('./worker/file.get.js'));
+
+    //  Generators
     sharedInstance.queue.process('generator:lorem', sharedInstance.config.concurrency, require('./worker/generator.lorem.js'));
     sharedInstance.queue.process('generator:json', sharedInstance.config.concurrency, require('./worker/generator.json.js'));
     sharedInstance.queue.process('generator:xml', sharedInstance.config.concurrency, require('./worker/generator.xml.js'));

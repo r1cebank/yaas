@@ -30,7 +30,10 @@ function lorem (request) {
 
     return new Promise((resolve) => {
         var output = Lorem(request);
-        resolve(output);
+        resolve({
+            type: 'object',
+            data: output
+        });
     });
 }
 

@@ -27,19 +27,24 @@ function wrapper(work, req, res) {
         // avoid sending data after the response has been closed
         sharedInstance.L.verbose(TAG, "job complete");
         if (!res.finished) {
-            if(typeof file === 'object') {
-
+            if(result.type === 'object') {
                 //  If it is object, then just send it to as response.
                 sharedInstance.L.verbose(TAG, 'sending result as response');
-                res.sendFile(result);
+                res.send(result.data);
+            } else if (result.type === 'path') {
+                //  If it is not, then send as a file.
+                sharedInstance.L.verbose(TAG, 'sending result as file');
+                res.type(result.mimetype);
+                res.sendFile(result.path);
             } else {
-                res.send(result);
+                res.status(500).send({error: 'internal error'});
             }
+
         }
-    }).on('failed', function(){
+    }).on('failed', function(error){
         sharedInstance.L.verbose(TAG, `job #${job.id} failed`);
         if (!res.finished) {
-            res.send({error: `job #${job.id} failed`});
+            res.send({error: error});
         }
     }).on('progress', function(progress){
         sharedInstance.L.verbose(TAG, 'job #' + job.id + ' ' + progress + '% complete');

@@ -12,7 +12,7 @@ import Path             from 'path';
 import UrlJoin          from 'url-join';
 import _                from 'lodash';
 
-function listversion (req, res) {
+function listversion (request) {
 
     //  Log tag
     let TAG = "route:listversion";
@@ -22,26 +22,28 @@ function listversion (req, res) {
 
     return new Promise((resolve) => {
 
-        //  Open the nedb file to query later
-        var bucket = sharedInstance.buckets.collection(req.params.bucket);
+        //  Open the bucket file to query later
+        var bucket = sharedInstance.buckets.collection(request.bucket);
 
         //  Query the file
-        bucket.findOne({originalname: req.params.filename}, function (err, doc) {
+        bucket.findOne({originalname: request.filename}, function (err, doc) {
             if(!doc) {
                 //  If file is not found, send 404 and a error
-                res.status(404).send({error: `file ${req.params.filename} not found.`});
+                resolve({error: 'file not found'});
             }
             else {
-                //  List all versions
                 var urls = [ ];
+                //  List all versions
                 for(var key of Object.keys(doc.versions)) {
                     urls.push(UrlJoin(sharedInstance.config.server.host, 'buckets',
-                        req.params.bucket, req.params.filename, `?v=${key}`));
+                        request.bucket, request.filename, `?v=${key}`));
                 }
-                res.send(urls);
+                resolve({
+                    type: 'object',
+                    data: urls
+                });
             }
         });
-        resolve({ });
     });
 
 }
