@@ -20,6 +20,8 @@ var bump           = require('gulp-bump');
 /*!
  * Aliases
  */
+gulp.task('patch', ['clean','build', 'bump']);
+
 gulp.task('default', ['clean','build', 'bump']);
 
 gulp.task('major', ['clean','build', 'bumpmajor']);
