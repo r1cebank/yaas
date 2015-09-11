@@ -22,7 +22,7 @@ var bump           = require('gulp-bump');
  */
 gulp.task('patch', ['clean','build', 'bump']);
 
-gulp.task('default', ['clean','build', 'bump']);
+gulp.task('default', ['clean','build']);
 
 gulp.task('major', ['clean','build', 'bumpmajor']);
 
