@@ -11,10 +11,8 @@
 
 import AppSingleton     from '../../util/appsingleton';
 import Promise          from 'bluebird';
-import Shortid          from 'shortid';
 import Jsf              from 'json-schema-faker';
 import Js2xmlparser     from 'js2xmlparser';
-import _                from 'lodash';
 
 function xmldata (request) {
 

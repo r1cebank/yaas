@@ -8,12 +8,9 @@
 
 import AppSingleton     from '../util/appsingleton';
 import Promise          from 'bluebird';
-import Shortid          from 'shortid';
-import Path             from 'path';
 import UrlJoin          from 'url-join';
 import Fs               from 'fs';
 import Junk             from 'junk';
-import _                from 'lodash';
 
 function listbucket (req) {
 

@@ -21,11 +21,6 @@ var expect         = Chai.expect;
 var MulterCore     = require('../../src/util/multercore');
 var Config         = require('../../src/config/config');
 
-describe('core startup', function() {
-    it('should start server', function () {
-       // require('../../src/index.js');
-    });
-});
 
 describe('multer core', function() {
     it('should give correct destination', function() {

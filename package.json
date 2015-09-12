@@ -1,6 +1,6 @@
 {
   "name": "yaas",
-  "version": "0.14.45",
+  "version": "0.15.23",
   "description": "Yet Another Asset Server",
   "main": "lib/index.js",
   "scripts": {
@@ -32,6 +32,7 @@
     "jshint-stylish": "^2.0.1",
     "mocha": "^2.3.0",
     "mocha-babel": "^3.0.0",
+    "node-xml-lite": "0.0.5",
     "sinon": "^1.16.1",
     "sinon-chai": "^2.8.0"
   },
@@ -43,7 +44,6 @@
     "checksum": "^0.1.1",
     "codecov.io": "^0.1.6",
     "express": "^4.13.3",
-    "generate-random-data": "0.0.1",
     "js2xmlparser": "^1.0.0",
     "json-hash": "^1.1.0",
     "json-schema-faker": "^0.2.0",

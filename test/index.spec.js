@@ -22,7 +22,7 @@ describe('Core Functions', function () {
 });
 
 describe('Routes', function() {
-
+    require('./route/route-core.spec.js');
 });
 
 describe('Workers', function() {

@@ -11,9 +11,7 @@
 
 import AppSingleton     from '../../util/appsingleton';
 import Promise          from 'bluebird';
-import Shortid          from 'shortid';
 import Lorem            from 'lorem-ipsum';
-import _                from 'lodash';
 
 function lorem (request) {
 
