@@ -12,7 +12,6 @@
 import AppSingleton     from '../../util/appsingleton';
 import Promise          from 'bluebird';
 import Shortid          from 'shortid';
-import Random           from 'generate-random-data';
 import Jsf              from 'json-schema-faker';
 import _                from 'lodash';
 
