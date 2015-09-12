@@ -22,6 +22,7 @@ function transform(req, file, version) {
 
     let TAG = 'transform:application:json';
 
+
     var sharedInstance = AppSingleton.getInstance();
 
     return new Promise((resolve, reject) => {

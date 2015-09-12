@@ -46,7 +46,7 @@ function bootstrap () {
         transports: [
             new (Winston.transports.Console)({
                 colorize    : 'all',
-                level       : 'verbose'
+                level       : Config.loglevel
             })
         ]
     });

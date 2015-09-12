@@ -10,6 +10,7 @@
 var config = {
     HMACSecret: '909957e0fe0b9d8197e44e6daeee9336',
     concurrency: 3, //  IMPORTANT: if you don't specify this, we will use number of processor you have as concurrency
+    loglevel: 'error',
     server: {
         storage: {
             dest: 'storage/',   //Not Relative locations
