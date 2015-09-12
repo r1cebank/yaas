@@ -40,6 +40,15 @@ var req4 = {
     count: 20000000000000
 };
 
+var req5 = {
+    count: 20000000000000
+};
+
+var req6 = {
+    units: 'words',
+    count: 20000000000000
+};
+
 describe('generators', function() {
     describe('lorem', function() {
         it('lorem should generate data', function(done) {
@@ -52,6 +61,12 @@ describe('generators', function() {
             Lorem(req2).should.to.be.fulfilled.then(function (result) {
                 result.type.should.equal('object');
                 result.data.should.be.a('string');
+            }).should.notify(done);
+        });
+        it('lorem should limit data count', function(done) {
+            Lorem(req6).should.to.be.fulfilled.then(function (result) {
+                result.type.should.equal('object');
+                result.data.split(' ').length.should.equal(Config.generator.max);
             }).should.notify(done);
         });
     });
@@ -83,7 +98,7 @@ describe('generators', function() {
             XMLData(req3).should.to.be.rejected.should.notify(done);
         });
         it('xml should limit data count', function(done) {
-            XMLData(req4).should.to.be.fulfilled.then(function (result) {
+            XMLData(req5).should.to.be.fulfilled.then(function (result) {
                 result.type.should.equal('object');
                 xml.parseString(result.data).childs.length.should.equal(Config.generator.max*2+1);
             }).should.notify(done);

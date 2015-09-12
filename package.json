@@ -1,12 +1,12 @@
 {
   "name": "yaas",
-  "version": "0.15.23",
+  "version": "0.15.25",
   "description": "Yet Another Asset Server",
   "main": "lib/index.js",
   "scripts": {
     "start": "gulp && node .",
     "test": "gulp && ./node_modules/.bin/mocha",
-    "posttest": "babel-istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
+    "posttest": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
   },
   "repository": {
     "type": "git",
