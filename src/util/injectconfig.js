@@ -46,6 +46,7 @@ function inject() {
     //  Replace redis connection settings from environment variables
     sharedInstance.config.redis.host = process.env.REDIS_PORT_6379_TCP_ADDR || '127.0.0.1';
     sharedInstance.config.redis.port = process.env.REDIS_PORT_6379_TCP_PORT || 6379;
+    sharedInstance.log.transports.console.level = process.env.LOG_LEVEL || sharedInstance.config.loglevel;
 
 }
 

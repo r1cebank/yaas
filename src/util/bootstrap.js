@@ -42,7 +42,7 @@ function bootstrap () {
 
 
     //  Creating a new shared instance for winston logger
-    sharedInstance.Log = new (Winston.Logger)({
+    sharedInstance.log = new (Winston.Logger)({
         transports: [
             new (Winston.transports.Console)({
                 colorize    : 'all',
@@ -51,10 +51,10 @@ function bootstrap () {
         ]
     });
     sharedInstance.L = {
-        verbose :   (tag, log) => {sharedInstance.Log.verbose(`[${tag}] : ${log}`);},
-        info    :   (tag, log) => {sharedInstance.Log.info(`[${tag}] : ${log}`);},
-        error   :   (tag, log) => {sharedInstance.Log.error(`[${tag}] : ${log}`);},
-        warn    :   (tag, log) => {sharedInstance.Log.warn(`[${tag}] : ${log}`);}
+        verbose :   (tag, log) => {sharedInstance.log.verbose(`[${tag}] : ${log}`);},
+        info    :   (tag, log) => {sharedInstance.log.info(`[${tag}] : ${log}`);},
+        error   :   (tag, log) => {sharedInstance.log.error(`[${tag}] : ${log}`);},
+        warn    :   (tag, log) => {sharedInstance.log.warn(`[${tag}] : ${log}`);}
     };
 
     //  Sign the config
