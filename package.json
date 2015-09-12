@@ -1,6 +1,6 @@
 {
   "name": "yaas",
-  "version": "0.14.22",
+  "version": "0.14.29",
   "description": "Yet Another Asset Server",
   "main": "lib/index.js",
   "scripts": {

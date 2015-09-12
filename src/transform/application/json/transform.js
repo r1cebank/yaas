@@ -32,7 +32,7 @@ function transform(req, file, version) {
         } else {
             //  Needed the version number to enforce the files don't collide.
             req.v = version;
-            var filename = Path.join(process.cwd(), sharedInstance.config.server.storage.processed, `${hash.digest(req)}.json`);
+            var filename = Path.join(sharedInstance.config.server.storage.processed, `${hash.digest(req)}.json`);
             //  Needs to delete v to avoid confusions
             delete req.v;
             Fs.stat(filename, (err, stat) => {

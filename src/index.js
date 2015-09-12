@@ -8,7 +8,6 @@
 require("babel/polyfill"); //   Needed for some babel functions, remove after ES6
 
 //  NPM packages
-import Multer           from 'multer';
 import Express          from 'express';
 import BodyParser       from 'body-parser';
 import NodeInfo         from 'node-info';
@@ -22,7 +21,6 @@ import UI               from 'kue-ui';
 //  Custom library
 import AppSingleton     from './util/appsingleton';
 import Bootstrap        from './util/bootstrap';
-import MulterCore       from './util/multercore';
 import Startup          from './util/startup';
 import Config           from './config/config';
 
@@ -48,18 +46,10 @@ if (sourcemaps) { require(sourcemaps).install(); }
  */
 let app = Express();
 
-//  Upload instance
-var storage = Multer.diskStorage({
-    destination: MulterCore.destination,
-    filename: MulterCore.filename
-});
-let upload = Multer({storage});
-
 /*!
  *  Pass the express app + multer + config instance to appsingleton
  */
 sharedInstance.app = app;
-sharedInstance.upload = upload;
 
 
 /*!

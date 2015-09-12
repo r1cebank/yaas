@@ -7,17 +7,23 @@
  *  loggers, configs and many other things. It is reusable in many other applications
  */
 
-import AppSingleton     from './appsingleton';
+//  NPM modules
+import Multer           from 'multer';
 import Winston          from 'winston';
 import Promise          from 'bluebird';
 import DB               from 'tingodb';
 import Mkdir            from 'mkdirp';
 import Kue              from 'kue';
+import Path             from 'path';
 import Encrypter        from 'object-encrypter';
+
+//  Libraries
+import AppSingleton     from './appsingleton';
 import Authority        from '../auth/authority';
 import Config           from '../config/config';
 import QueueWorker      from './queueworker';
 import Injector         from './injectconfig';
+import MulterCore       from './multercore';
 
 
 function bootstrap () {
@@ -69,17 +75,34 @@ function bootstrap () {
     });
     sharedInstance.L.verbose(TAG, 'worker kue created/restored');
 
+    //  If path is relative, get absolute path
+    if(sharedInstance.config.server.storage.relative) {
+        sharedInstance.config.server.storage.dest = Path.join(process.cwd(),
+            sharedInstance.config.server.storage.dest);
+        sharedInstance.config.server.storage.database = Path.join(process.cwd(),
+            sharedInstance.config.server.storage.database);
+        sharedInstance.config.server.storage.processed = Path.join(process.cwd(),
+            sharedInstance.config.server.storage.processed);
+    }
+
 
     //  Create all the folder needed for this application
-    Mkdir(sharedInstance.config.server.database);
+    Mkdir(sharedInstance.config.server.storage.database);
     Mkdir(sharedInstance.config.server.storage.dest);
     Mkdir(sharedInstance.config.server.storage.processed);
+
+    //  Upload instance
+    var storage = Multer.diskStorage({
+        destination: MulterCore.destination,
+        filename: MulterCore.filename
+    });
+    sharedInstance.upload = Multer({storage});
 
     //  Setup local master db connection here
     var Engine = DB();  //  Create a db engine
 
     //  Create the database for yaas, mongodb compliant
-    sharedInstance.buckets = new Engine.Db(sharedInstance.config.server.database, {});
+    sharedInstance.buckets = new Engine.Db(sharedInstance.config.server.storage.database, {});
     sharedInstance.L.info(TAG, `${sharedInstance.config.server.database} is loaded`);
 
     //  Promisify functions

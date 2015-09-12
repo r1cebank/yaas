@@ -12,8 +12,10 @@ var config = {
     concurrency: 3, //  IMPORTANT: if you don't specify this, we will use number of processor you have as concurrency
     server: {
         storage: {
-            dest: 'storage/',
-            processed: 'processed/'
+            dest: 'storage/',   //Not Relative locations
+            processed: 'processed/',
+            database:   'db/',
+            relative: true
         },
         ui: {
             apiURL: '/api', // IMPORTANT: specify the api url
@@ -21,7 +23,6 @@ var config = {
             updateInterval: 2000 // Optional: Fetches new data every 5000 ms
         },
         autoclean: false,   //  Want to remove the completed task?
-        database:   'db/',
         host:       'http://localhost:3939',
         port:       3939,
         port_ssl:   33939

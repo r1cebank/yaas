@@ -27,7 +27,7 @@ function transform(req, file, version) {
 
     return new Promise((resolve, reject) => {
         req.v = version;
-        var filename = Path.join(process.cwd(), sharedInstance.config.server.storage.processed, `${hash.digest(req)}.ysql`);
+        var filename = Path.join(sharedInstance.config.server.storage.processed, `${hash.digest(req)}.ysql`);
         //  Needs to delete v to avoid confusions
         delete req.v;
         //  If exists in the system, don't bother processing it

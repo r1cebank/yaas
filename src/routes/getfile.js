@@ -70,8 +70,7 @@ function getfile (request) {
                     sharedInstance.L.verbose(TAG, `request hash: ${requestHash}`);
                     // Processing
                     Transform.transform(doc.mimetype,
-                        request, Path.join(process.cwd(),
-                        doc.versions[version]), version).then(function (file) {
+                        request, Path.join(doc.versions[version]), version).then(function (file) {
                             resolve({
                                 type: 'path',
                                 mimetype: doc.mimetype,
