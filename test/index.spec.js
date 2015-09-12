@@ -25,6 +25,10 @@ describe('Routes', function() {
 
 });
 
+describe('Workers', function() {
+    require('./worker/worker-core.spec.js');
+});
+
 describe('Authority', function() {
     require('./auth/auth-core.spec.js');
 });

@@ -1,12 +1,12 @@
 {
   "name": "yaas",
-  "version": "0.14.29",
+  "version": "0.14.45",
   "description": "Yet Another Asset Server",
   "main": "lib/index.js",
   "scripts": {
     "start": "gulp && node .",
     "test": "gulp && ./node_modules/.bin/mocha",
-    "posttest": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
+    "posttest": "babel-istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,8 @@
   "dependencies": {
     "bluebird": "^2.9.34",
     "body-parser": "^1.13.3",
+    "chai": "^3.2.0",
+    "chai-spies": "^0.7.0",
     "checksum": "^0.1.1",
     "codecov.io": "^0.1.6",
     "express": "^4.13.3",
