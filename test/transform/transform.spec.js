@@ -19,7 +19,7 @@ var expect         = Chai.expect;
 
 var Transform       = require('../../src/transform/transform');
 
-describe('core transform', function() {
+describe('core transform', function(done) {
     describe('image', function() {
         it('should transform file if params supplied', function () {
             var doc = {
@@ -30,8 +30,11 @@ describe('core transform', function() {
             };
             var version = '0';
             var request = {scale: 0.1};
-            expect(Transform.transform(doc.mimetype, request,
-                Path.join(process.cwd(), 'test', 'fixture','file.jpeg'), version)).to.eventually.equal('');
+            Transform.transform(doc.mimetype, request,
+                Path.join(process.cwd(), 'test', 'fixture','file.jpeg'), version).
+                should.to.be.fulfilled.then(function (result) {
+                    result.should.equal('/Users/r1cebank/Documents/aas/processed/04942e9b2dc37d052bceda967bb1f0450eb5a947.jpeg');
+                }).should.notify(done);
         });
         it('should redirect file if no request params', function () {
             var doc = {
@@ -101,7 +104,7 @@ describe('core transform', function() {
         //    );
         //});
     });
-    describe('json', function() {
+    describe('json', function(done) {
         it('should redirect file if no request params', function () {
             var doc = {
                 mimetype: 'application/json',
@@ -111,9 +114,28 @@ describe('core transform', function() {
             };
             var version = '0';
             var request = {};
-            expect(Transform.transform(doc.mimetype, request, 'file.json', version)).to.eventually.equal('file.json');
+            Transform.transform(doc.mimetype, request, 'file.json', version).
+                should.to.be.fulfilled.then(function (result) {
+                    result.should.equal('file.json');
+                }).should.notify(done);
         });
-        it('any error should redirect original file', function () {
+        it('any error should redirect original file', function (done) {
+            var doc = {
+                mimetype: 'application/json',
+                versions: [
+                    'test'
+                ]
+            };
+            var version = '0';
+            var request = {
+                query: 'no'
+            };
+            Transform.transform(doc.mimetype, request, 'file.json', version).
+                should.to.be.fulfilled.then(function (result) {
+                    result.should.equal('file.json');
+                }).should.notify(done);
+        });
+        it('should transform if there are options', function (done) {
             var doc = {
                 mimetype: 'application/json',
                 versions: [
@@ -124,22 +146,11 @@ describe('core transform', function() {
             var request = {
                 query: '$[?(@.country=="Japan")]'
             };
-            expect(Transform.transform(doc.mimetype, request, 'file.json', version)).to.eventually.equal('file.json');
-        });
-        it('should transform if there are options', function () {
-            var doc = {
-                mimetype: 'application/json',
-                versions: [
-                    'test'
-                ]
-            };
-            var version = '0';
-            var request = {
-                query: '$[?(@.country=="Japan")]'
-            };
-            expect(Transform.transform(doc.mimetype, request,
-                Path.join(process.cwd(), 'test', 'fixture','data.json'), version)).to.eventually.equal(''
-            );
+            Transform.transform(doc.mimetype, request,
+                Path.join(process.cwd(), 'test', 'fixture','data.json'), version).
+                should.to.be.fulfilled.then(function (result) {
+                    result.should.equal('/Users/r1cebank/Documents/aas/processed/ef6b597119813f30cf37389507c6b6120685c8c5.json');
+                }).should.notify(done);
         });
     });
 });
