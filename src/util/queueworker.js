@@ -17,7 +17,12 @@ import Kue              from 'kue';
 import Routes           from '../routes/routes';
 import Generators       from '../routes/generator/routes';
 
-
+/**
+ * kue worker setup for processing
+ *
+ * @method queueworker
+ * @return {Undefined} Returns nothing
+ */
 function queueworker() {
 
     //  Log tag

@@ -10,7 +10,12 @@ import Promise          from 'bluebird';
 import Encrypter        from 'object-encrypter';
 
 
-
+/**
+ * inject config from environment to singleton
+ *
+ * @method inject
+ * @return {Undefined} Returns nothing
+ */
 function inject() {
 
     //  Log tag

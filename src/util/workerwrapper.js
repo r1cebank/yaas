@@ -12,6 +12,15 @@
 import AppSingleton     from './appsingleton';
 import _                from 'lodash';
 
+/**
+ * wrapper function to create a worker with proper event handlers
+ *
+ * @method wrapper
+ * @param {String} work job identifier
+ * @param {Object} req the express request
+ * @param {Object} res express response
+ * @return {Object} Returns kue job created (already saved to redis)
+ */
 function wrapper(work, req, res) {
 
     //  Log tag

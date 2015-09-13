@@ -25,7 +25,12 @@ import QueueWorker      from './queueworker';
 import Injector         from './injectconfig';
 import MulterCore       from './multercore';
 
-
+/**
+ * bootstrap the entire application
+ *
+ * @method bootstrap
+ * @return {Undefined} Returns nothing
+ */
 function bootstrap () {
 
     //  Log tag

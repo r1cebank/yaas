@@ -13,7 +13,13 @@ import Routes           from '../routes/routes';
 import Generators       from '../routes/generator/routes';
 import Wrapper          from './workerwrapper';
 
-
+/**
+ * startup the application, setting the proper path
+ *
+ * @comment use startup after bootstrap
+ * @method startup
+ * @return {Promise} Returns a promise that will be resolved when startup is complete
+ */
 function startup() {
 
     //  Log tag
