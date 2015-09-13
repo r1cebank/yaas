@@ -33,7 +33,7 @@ describe('core transform', function(done) {
             Transform.transform(doc.mimetype, request,
                 Path.join(process.cwd(), 'test', 'fixture','file.jpeg'), version).
                 should.to.be.fulfilled.then(function (result) {
-                    result.should.equal('/Users/r1cebank/Documents/aas/processed/04942e9b2dc37d052bceda967bb1f0450eb5a947.jpeg');
+                    result.should.equal(Path.join(process.cwd(), 'test', 'fixture' ,'04942e9b2dc37d052bceda967bb1f0450eb5a947.jpeg'));
                 }).should.notify(done);
         });
         it('should redirect file if no request params', function () {
@@ -149,7 +149,7 @@ describe('core transform', function(done) {
             Transform.transform(doc.mimetype, request,
                 Path.join(process.cwd(), 'test', 'fixture','data.json'), version).
                 should.to.be.fulfilled.then(function (result) {
-                    result.should.equal('/Users/r1cebank/Documents/aas/processed/ef6b597119813f30cf37389507c6b6120685c8c5.json');
+                    result.should.equal(Path.join(process.cwd(), 'processed', 'ef6b597119813f30cf37389507c6b6120685c8c5.json'));
                 }).should.notify(done);
         });
     });
