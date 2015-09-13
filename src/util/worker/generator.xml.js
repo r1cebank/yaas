@@ -5,12 +5,16 @@
  * @license MIT
  */
 
-/*!
- *  This is the json generator worker, it generates the random json data in the background and convert them to XML
- */
-
 import Generators        from '../../routes/generator/routes';
 
+/**
+ * kue worker method for generating random xml data
+ *
+ * @method worker
+ * @param {Object} job kue job
+ * @param {Function} done the kue done callback
+ * @return {object} Returns current singleton instance
+ */
 function worker (job, done) {
 
     //  Call generator and send the data back

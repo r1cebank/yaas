@@ -57,14 +57,14 @@ function bootstrap () {
         warn    :   (tag, log) => {sharedInstance.log.warn(`[${tag}] : ${log}`);}
     };
 
-    //  Sign the config
-    var token = sharedInstance.engine.encrypt(Config);
-    sharedInstance.L.verbose(TAG, token);
-
     /*!
      *  Run the config injector, if config is set through environment variables, we will load config from jwt
      */
     Injector();
+
+    //  Sign the config
+    var token = sharedInstance.engine.encrypt(Config);
+    sharedInstance.L.verbose(TAG, token);
 
     sharedInstance.L.verbose(TAG, "current configuration");
     sharedInstance.L.verbose(TAG, `${JSON.stringify(sharedInstance.config)}`);
@@ -76,7 +76,7 @@ function bootstrap () {
     sharedInstance.L.verbose(TAG, 'worker kue created/restored');
 
     //  If path is relative, get absolute path
-    if(sharedInstance.config.server.storage.relative) {
+    if(sharedInstance.config.server.storage.relative === true) {
         sharedInstance.config.server.storage.dest = Path.join(process.cwd(),
             sharedInstance.config.server.storage.dest);
         sharedInstance.config.server.storage.database = Path.join(process.cwd(),

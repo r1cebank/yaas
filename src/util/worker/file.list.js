@@ -5,12 +5,16 @@
  * @license MIT
  */
 
-/*!
- *  This is the worker for listing all file in the bucket
- */
-
 import Routes        from '../../routes/routes';
 
+/**
+ * kue worker method for listing all file in the bucket
+ *
+ * @method worker
+ * @param {Object} job kue job
+ * @param {Function} done the kue done callback
+ * @return {object} Returns current singleton instance
+ */
 function worker (job, done) {
 
     //  Call generator and send the data back

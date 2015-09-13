@@ -5,12 +5,16 @@
  * @license MIT
  */
 
-/*!
- *  This is the lorem generator worker, it generates the lorem string/paragraph in the background
- */
-
 import Generators        from '../../routes/generator/routes';
 
+/**
+ * kue worker method for generating random lorem ipsum
+ *
+ * @method worker
+ * @param {Object} job kue job
+ * @param {Function} done the kue done callback
+ * @return {object} Returns current singleton instance
+ */
 function worker (job, done) {
 
     //  Call generator and send the data back
