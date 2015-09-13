@@ -8,6 +8,7 @@
 import AppSingleton     from './appsingleton';
 import Promise          from 'bluebird';
 import Encrypter        from 'object-encrypter';
+import Path             from 'path';
 
 
 /**
