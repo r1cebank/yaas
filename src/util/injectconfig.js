@@ -49,9 +49,24 @@ function inject() {
     // Other environment variables need to inject to config
 
     //  Replace redis connection settings from environment variables
-    sharedInstance.config.redis.host = process.env.REDIS_PORT_6379_TCP_ADDR || '127.0.0.1';
-    sharedInstance.config.redis.port = process.env.REDIS_PORT_6379_TCP_PORT || 6379;
+    sharedInstance.config.redis.host = process.env.REDIS_PORT_6379_TCP_ADDR || sharedInstance.config.redis.host;
+    sharedInstance.config.redis.port = process.env.REDIS_PORT_6379_TCP_PORT || sharedInstance.config.redis.port;
     sharedInstance.log.transports.console.level = process.env.LOG_LEVEL || sharedInstance.config.loglevel;
+    sharedInstance.config.server.storage.database = process.env.DATABASE_PATH || sharedInstance.config.server.storage.database;
+    sharedInstance.config.server.storage.dest = process.env.DEST_PATH || sharedInstance.config.server.storage.dest;
+    sharedInstance.config.server.storage.processed = process.env.PROCESSED_PATH || sharedInstance.config.server.storage.processed;
+    sharedInstance.config.server.storage.relative = process.env.PATH_RELATIVE || sharedInstance.config.server.storage.relative;
+
+    //  If path is relative, get absolute path
+    if(sharedInstance.config.server.storage.relative === true) {
+        sharedInstance.config.server.storage.dest = Path.join(process.cwd(),
+            sharedInstance.config.server.storage.dest);
+        sharedInstance.config.server.storage.database = Path.join(process.cwd(),
+            sharedInstance.config.server.storage.database);
+        sharedInstance.config.server.storage.processed = Path.join(process.cwd(),
+            sharedInstance.config.server.storage.processed);
+    }
+
 
 }
 

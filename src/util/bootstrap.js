@@ -80,16 +80,6 @@ function bootstrap () {
     });
     sharedInstance.L.verbose(TAG, 'worker kue created/restored');
 
-    //  If path is relative, get absolute path
-    if(sharedInstance.config.server.storage.relative === true) {
-        sharedInstance.config.server.storage.dest = Path.join(process.cwd(),
-            sharedInstance.config.server.storage.dest);
-        sharedInstance.config.server.storage.database = Path.join(process.cwd(),
-            sharedInstance.config.server.storage.database);
-        sharedInstance.config.server.storage.processed = Path.join(process.cwd(),
-            sharedInstance.config.server.storage.processed);
-    }
-
 
     //  Create all the folder needed for this application
     Mkdir(sharedInstance.config.server.storage.database);
