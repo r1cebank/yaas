@@ -8,6 +8,7 @@
 var Sinon           = require('sinon');
 var Chai            = require('chai');
 var Path            = require('path');
+var Fs              = require('fs');
 
 
 Chai.use(require('chai-spies'));
@@ -19,7 +20,23 @@ var expect         = Chai.expect;
 
 var Transform       = require('../../src/transform/transform');
 
+var rmDir = function(dirPath) {
+    try { var files = Fs.readdirSync(dirPath); }
+    catch(e) { return; }
+    if (files.length > 0)
+        for (var i = 0; i < files.length; i++) {
+            var filePath = dirPath + '/' + files[i];
+            if (Fs.statSync(filePath).isFile())
+                Fs.unlinkSync(filePath);
+            else
+                rmDir(filePath);
+        }
+};
+
 describe('core transform', function(done) {
+    beforeEach(function() {
+        rmDir(Path.join(process.cwd(), 'processed'));
+    });
     describe('image', function() {
         it('should transform file if params supplied', function () {
             var doc = {
@@ -33,7 +50,7 @@ describe('core transform', function(done) {
             Transform.transform(doc.mimetype, request,
                 Path.join(process.cwd(), 'test', 'fixture','file.jpeg'), version).
                 should.to.be.fulfilled.then(function (result) {
-                    result.should.equal(Path.join(process.cwd(), 'test', 'fixture' ,'04942e9b2dc37d052bceda967bb1f0450eb5a947.jpeg'));
+                    result.should.equal(Path.join(process.cwd(), 'processed' ,'04942e9b2dc37d052bceda967bb1f0450eb5a947.jpeg'));
                 }).should.notify(done);
         });
         it('should redirect file if no request params', function () {
@@ -70,10 +87,11 @@ describe('core transform', function(done) {
             };
             var version = '0';
             var request = {scale:0.2};
-            expect(Transform.transform(doc.mimetype, request,
-                Path.join(process.cwd(), 'test', 'fixture','file.jpeg'), version)).to.eventually.equal(
-                Path.join(process.cwd(), 'test', 'fixture','file.jpeg')
-            );
+            Transform.transform(doc.mimetype, request,
+                Path.join(process.cwd(), 'test', 'fixture','file.jpeg'), version).
+                should.to.be.fulfilled.then(function (result) {
+                    result.should.equal(Path.join(process.cwd(), 'processed' ,'6fc4aa0018ce4f3bc8f6661ec47ff7ea571cf8a0.jpeg'));
+                }).should.notify(done);
         });
         //it('should crop file', function () {
         //    var doc = {
