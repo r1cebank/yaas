@@ -37,7 +37,7 @@ function upload (request) {
                 if (doc) {
                     file = _.clone(doc);
                     file.versions = _.clone(doc.versions);
-                    file.versions[version] = request.file.path;
+                    file.versions[version] = {path: request.file.path, timestamp: new Date()};
                     file.latestversion = version;
                     bucket.update({originalname: request.file.originalname}, {
                             $set: {
@@ -56,12 +56,13 @@ function upload (request) {
                 else {
                     //  We have a new file, generate a new version code
                     var versions = {};
-                    versions[version] = request.file.path;
+                    versions[version] = {path: request.file.path, timestamp: new Date()};
 
                     //  Clone the file object
                     file = _.clone(request.file);
                     file.versions = versions;
                     file.latestversion = version;
+                    file.uploadtime = new Date();
                     file.url = file.url = UrlJoin(sharedInstance.config.server.host, 'buckets',
                         request.request.bucket, request.file.originalname);
 

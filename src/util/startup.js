@@ -9,9 +9,8 @@
 
 import AppSingleton     from './appsingleton';
 import Promise          from 'bluebird';
-import Routes           from '../routes/routes';
-import Generators       from '../routes/generator/routes';
-import Wrapper          from './workerwrapper';
+import BucketRoute      from './bucket-route.js';
+import GeneratorRoute   from './generator-route.js';
 
 /**
  * startup the application, setting the proper path
@@ -31,58 +30,10 @@ function startup() {
     return new Promise((resolve) => {
 
         //  Setup routes for app
+        BucketRoute();
+        GeneratorRoute();
 
-        //  List all buckets
-        sharedInstance.app.get('/', function (req, res) {
 
-            if(sharedInstance.authority.hasRole(req, res, 'bucket:list')) {
-                Wrapper.wrapper('bucket:list', req, res);
-            }
-        });
-        //  List all files in bucket
-        sharedInstance.app.get('/buckets/:bucket', function (req, res) {
-            if(sharedInstance.authority.hasRole(req, res, 'file:list')) {
-                Wrapper.wrapper('file:list', req, res);
-            }
-        });
-        //  Setup upload
-        sharedInstance.app.post('/buckets/:bucket/upload', sharedInstance.upload.single('file'), function(req, res) {
-            if(sharedInstance.authority.hasRole(req, res, 'bucket:upload')) {
-                Wrapper.wrapper('bucket:upload', req, res);
-            }
-        });
-        //  Get uploaded file
-        sharedInstance.app.get('/buckets/:bucket/:filename', function (req, res) {
-            if(sharedInstance.authority.hasRole(req, res, 'file:get')) {
-                Wrapper.wrapper('file:get', req, res);
-            }
-
-        });
-        //  List all versions for file
-        sharedInstance.app.get('/buckets/:bucket/:filename/versions', function (req, res) {
-            if(sharedInstance.authority.hasRole(req, res, 'version:list')) {
-                Wrapper.wrapper('version:list', req, res);
-            }
-        });
-        /*!
-         *  Generators, random generated assets
-         */
-        sharedInstance.app.get('/generator/lorem', function (req, res) {
-            if(sharedInstance.authority.hasRole(req, res, 'generator:lorem')) {
-                //Generators.lorem(req, res).then().catch().done();
-                Wrapper.wrapper('generator:lorem', req, res);
-            }
-        });
-        sharedInstance.app.get('/generator/json', function (req, res) {
-            if(sharedInstance.authority.hasRole(req, res, 'generator:json')) {
-                Wrapper.wrapper('generator:json', req, res);
-            }
-        });
-        sharedInstance.app.get('/generator/xml', function (req, res) {
-            if(sharedInstance.authority.hasRole(req, res, 'generator:xml')) {
-                Wrapper.wrapper('generator:xml', req, res);
-            }
-        });
         resolve({ });
     });
 
