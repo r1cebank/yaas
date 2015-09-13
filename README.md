@@ -1,4 +1,6 @@
 # YAAS.js (Yet another asset server)
+
+[![Join the chat at https://gitter.im/r1cebank/yaas](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/r1cebank/yaas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![codecov.io](http://codecov.io/github/r1cebank/yaas/coverage.svg?branch=master)](http://codecov.io/github/r1cebank/yaas?branch=master)
 [![Dependencies](https://david-dm.org/r1cebank/yaas.svg)](https://david-dm.org/r1cebank/yaas.svg)
 [![Circle CI](https://circleci.com/gh/r1cebank/yaas.svg?style=svg)](https://circleci.com/gh/r1cebank/yaas)
