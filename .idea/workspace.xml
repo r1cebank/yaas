@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="Dependencies upgrade and test fix">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nw/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nw/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nw/gulpfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nw/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nw/package.json" afterPath="" />
+    <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/supervisord.conf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -49,6 +45,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="injectconfig.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/util/injectconfig.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="transform.spec.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/transform/transform.spec.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -62,8 +68,8 @@
       <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7126697">
-              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.35520363">
+              <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -722,18 +728,6 @@
       <option name="number" value="Default" />
       <updated>1440043790923</updated>
     </task>
-    <task id="LOCAL-00031" summary="Testing 1, file are stored by buckets">
-      <created>1441494125081</created>
-      <option name="number" value="00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1441494125081</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Testing 2, multer tests">
-      <created>1441520493779</created>
-      <option name="number" value="00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1441520493779</updated>
-    </task>
     <task id="LOCAL-00033" summary="Testing 3, transform now returns promise">
       <created>1441524671658</created>
       <option name="number" value="00033" />
@@ -1016,7 +1010,19 @@
       <option name="project" value="LOCAL" />
       <updated>1442135146495</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Dockerfile update">
+      <created>1442136846713</created>
+      <option name="number" value="00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1442136846714</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Dockerfile update">
+      <created>1442139504701</created>
+      <option name="number" value="00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1442139504701</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1058,7 +1064,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Process exit handler" />
     <MESSAGE value="Build configurations" />
     <MESSAGE value="dependencies fix" />
     <MESSAGE value="worker implementation for more functions" />
@@ -1083,7 +1088,8 @@
     <MESSAGE value="test fix" />
     <MESSAGE value="ADDING MISSING FILE" />
     <MESSAGE value="Dependencies upgrade and test fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dependencies upgrade and test fix" />
+    <MESSAGE value="Dockerfile update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dockerfile update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1415,14 +1421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/injectconfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67873305">
-          <caret line="54" column="93" selection-start-line="54" selection-start-column="93" selection-end-line="54" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/route/route-core.spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23755656">
@@ -1485,14 +1483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/transform/transform.spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1501,10 +1491,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/injectconfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7126697">
-          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.35520363">
+          <caret line="14" column="47" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
           <folding />
         </state>
       </provider>

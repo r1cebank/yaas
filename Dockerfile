@@ -11,6 +11,9 @@ MAINTAINER Siyuan Gao <siyuangao@gmail.com>
 # Bundle app source
 COPY . /src
 
+# copy supervisor config
+COPY supervisord.conf /usr/etc/supervisord.conf
+
 # Environment variables
 ENV PORT 3939
 
@@ -24,6 +27,5 @@ RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm \
 ENV NODE_ENV production
 WORKDIR /src
 
-# Start local redis service
-CMD service redis start
-CMD gulp && pm2 start lib/index.js --no-daemon
+# start supervisor
+CMD ["/usr/bin/supervisord"]
