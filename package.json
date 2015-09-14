@@ -39,8 +39,6 @@
   "dependencies": {
     "bluebird": "^2.10.0",
     "body-parser": "^1.13.3",
-    "chai": "^3.2.0",
-    "chai-spies": "^0.7.0",
     "checksum": "^0.1.1",
     "codecov.io": "^0.1.6",
     "express": "^4.13.3",

@@ -29,3 +29,5 @@ WORKDIR /src
 
 # start supervisor
 CMD ["/usr/bin/supervisord"]
+CMD ["gulp && pm2 start lib/index.js --no-daemon"]
+
