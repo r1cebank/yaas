@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="dockerfile update">
+    <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Dockerfile" afterPath="$PROJECT_DIR$/Dockerfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -57,8 +57,8 @@
       <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7220497">
-              <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.69875777">
+              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -748,12 +748,6 @@
       <option name="number" value="Default" />
       <updated>1440043790923</updated>
     </task>
-    <task id="LOCAL-00036" summary="include codeclimate report tool">
-      <created>1441584923277</created>
-      <option name="number" value="00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1441584923277</updated>
-    </task>
     <task id="LOCAL-00037" summary="fix yml">
       <created>1441584962144</created>
       <option name="number" value="00037" />
@@ -1042,7 +1036,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442189981201</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="dockerfile update">
+      <created>1442190842438</created>
+      <option name="number" value="00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1442190842438</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1087,7 +1087,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="worker implementation for more functions" />
     <MESSAGE value="testing fix" />
     <MESSAGE value="fix again" />
     <MESSAGE value="#12 All path now is processed in background" />
@@ -1112,7 +1111,8 @@
     <MESSAGE value="Dockerfile update" />
     <MESSAGE value="Adding supervisor" />
     <MESSAGE value="Circleci hook" />
-    <option name="LAST_COMMIT_MESSAGE" value="Circleci hook" />
+    <MESSAGE value="dockerfile update" />
+    <option name="LAST_COMMIT_MESSAGE" value="dockerfile update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1485,8 +1485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7220497">
-          <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.69875777">
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
           <folding />
         </state>
       </provider>

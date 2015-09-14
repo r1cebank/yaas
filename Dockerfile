@@ -25,9 +25,9 @@ RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm \
 
 
 ENV NODE_ENV production
-WORKDIR /src
 
 # start supervisor
 CMD ["/usr/bin/supervisord"]
+WORKDIR /src
 CMD "gulp && pm2 start lib/index.js --no-daemon"
 
