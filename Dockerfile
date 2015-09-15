@@ -10,6 +10,9 @@ MAINTAINER Siyuan Gao <siyuangao@gmail.com>
 
 # Bundle app source
 COPY . /src
+COPY run.sh /bin/
+
+RUN chmod +x /bin/run.sh
 
 # copy supervisor config
 COPY supervisord.conf /usr/etc/supervisord.conf
@@ -28,6 +31,3 @@ ENV NODE_ENV production
 
 # start supervisor
 CMD ["/usr/bin/supervisord"]
-WORKDIR /src
-CMD gulp && pm2 start lib/index.js --no-daemon
-
