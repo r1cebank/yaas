@@ -21,7 +21,8 @@ function listbucket (req) {
     var sharedInstance = AppSingleton.getInstance();
 
     return new Promise((resolve) => {
-        Fs.readdir(sharedInstance.config.server.database, function(err, files) {
+        console.log(sharedInstance.config);
+        Fs.readdir(sharedInstance.config.server.storage.database, function(err, files) {
             files = files.filter(Junk.not);
             var buckets = files.map(function (filename) {
                 return UrlJoin(sharedInstance.config.server.host, 'buckets', filename);
