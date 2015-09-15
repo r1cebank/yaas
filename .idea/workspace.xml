@@ -57,8 +57,8 @@
       <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Dockerfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69875777">
-              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.7220497">
+              <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -267,7 +267,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="33" />
-    <option name="y" value="24" />
+    <option name="y" value="23" />
     <option name="width" value="1401" />
     <option name="height" value="789" />
   </component>
@@ -748,12 +748,6 @@
       <option name="number" value="Default" />
       <updated>1440043790923</updated>
     </task>
-    <task id="LOCAL-00037" summary="fix yml">
-      <created>1441584962144</created>
-      <option name="number" value="00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1441584962144</updated>
-    </task>
     <task id="LOCAL-00038" summary="xml generator and json generators">
       <created>1441587690104</created>
       <option name="number" value="00038" />
@@ -1042,11 +1036,17 @@
       <option name="project" value="LOCAL" />
       <updated>1442190842438</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="dockerfile update">
+      <created>1442191688593</created>
+      <option name="number" value="00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1442191688593</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="33" y="24" width="1401" height="789" extended-state="0" />
+    <frame x="33" y="23" width="1401" height="789" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1485,8 +1485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69875777">
-          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.7220497">
+          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
           <folding />
         </state>
       </provider>

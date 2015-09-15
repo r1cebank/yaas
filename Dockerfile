@@ -29,5 +29,5 @@ ENV NODE_ENV production
 # start supervisor
 CMD ["/usr/bin/supervisord"]
 WORKDIR /src
-CMD "gulp && pm2 start lib/index.js --no-daemon"
+CMD gulp && pm2 start lib/index.js --no-daemon
 
