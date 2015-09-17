@@ -30,7 +30,7 @@ function wrapper(work, req, res) {
     var sharedInstance = AppSingleton.getInstance();
 
     var job = sharedInstance.queue.create(work, {
-        request: _.extend(req.params || {}, req.query || {}, req.body || {}),
+        request: _.extend(req.params || {}, req.query || {}, req.body || {}, req.headers || {}),
         file: req.file
     });
     job.on('complete', function(result){
