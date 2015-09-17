@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/transform/transform.spec.js" afterPath="$PROJECT_DIR$/test/transform/transform.spec.js" />
+    <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="fix tests">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aas.iws" />
@@ -849,12 +848,6 @@
       <option name="number" value="Default" />
       <updated>1440043790923</updated>
     </task>
-    <task id="LOCAL-00044" summary="Finished testing auth #6">
-      <created>1441680584888</created>
-      <option name="number" value="00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1441680584888</updated>
-    </task>
     <task id="LOCAL-00045" summary="v0.12.1 beta release.">
       <created>1441682993803</created>
       <option name="number" value="00045" />
@@ -1143,7 +1136,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442457945803</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="fix tests">
+      <created>1442461040780</created>
+      <option name="number" value="00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1442461040780</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1188,7 +1187,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Worker loader test" />
     <MESSAGE value="Remove unused dependencies" />
     <MESSAGE value="generator tests" />
     <MESSAGE value="Reaching 100% coverage for generators" />
@@ -1213,7 +1211,8 @@
     <MESSAGE value="removed unused code" />
     <MESSAGE value="Remove the need to define host" />
     <MESSAGE value="Quick fixed for ysql" />
-    <option name="LAST_COMMIT_MESSAGE" value="Quick fixed for ysql" />
+    <MESSAGE value="fix tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

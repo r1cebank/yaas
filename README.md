@@ -8,6 +8,8 @@
 [![Stories in Ready](https://badge.waffle.io/r1cebank/yaas.png?label=ready&title=Ready)](https://waffle.io/r1cebank/yaas)
 ##### Updated for commit [9b1f0b](https://github.com/r1cebank/yaas/commit/9b1f0b86a157cae9fceb67e3a68f86e4a54eebcc)
 
+### Important notice: yaas is using `redis` for job queue, you will have to install `redis` before using yaas.
+
 ##### Updated documentation: [here](http://yaas.readme.io)
 
 0. [Overview](#overview)
