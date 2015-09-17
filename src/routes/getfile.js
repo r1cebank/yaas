@@ -17,7 +17,7 @@ import Transform        from '../transform/transform';
 //  Old require still using require
 var hash = require('json-hash');
 
-function getfile (request) {
+function getfile (request, header) {
 
     //  Log tag
     let TAG = "route:getfile";

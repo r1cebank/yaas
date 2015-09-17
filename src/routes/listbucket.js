@@ -12,7 +12,7 @@ import UrlJoin          from 'url-join';
 import Fs               from 'fs';
 import Junk             from 'junk';
 
-function listbucket (req) {
+function listbucket (request, header) {
 
     //  Log tag
     let TAG = "route:listbucket";
@@ -24,7 +24,7 @@ function listbucket (req) {
         Fs.readdir(sharedInstance.config.server.storage.database, function(err, files) {
             files = files.filter(Junk.not);
             var buckets = files.map(function (filename) {
-                return UrlJoin(sharedInstance.config.server.host, 'buckets', filename);
+                return UrlJoin(header.host, 'buckets', filename);
             });
             resolve({
                 type: 'object',

@@ -24,7 +24,6 @@ var config = {
             updateInterval: 2000 // Optional: Fetches new data every 5000 ms
         },
         autoclean: false,   //  Want to remove the completed task?
-        host:       'http://localhost:3939',
         port:       3939,
         port_ssl:   33939
     },

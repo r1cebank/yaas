@@ -29,8 +29,12 @@ function wrapper(work, req, res) {
     //  This instance is shared across the entire app life-cycle
     var sharedInstance = AppSingleton.getInstance();
 
+    //  We will combine protocol with host so we can use this to return correct urls
+    req.headers.host = `${req.protocol}://${req.headers.host}`;
+
     var job = sharedInstance.queue.create(work, {
-        request: _.extend(req.params || {}, req.query || {}, req.body || {}, req.headers || {}),
+        request: _.extend(req.params || {}, req.query || {}, req.body || {}),
+        header: req.headers,
         file: req.file
     });
     job.on('complete', function(result){

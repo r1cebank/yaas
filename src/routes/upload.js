@@ -11,7 +11,7 @@ import UrlJoin          from 'url-join';
 import _                from 'lodash';
 import Fs               from 'fs';
 
-function upload (request) {
+function upload (request, header) {
 
     //  Log tag
     let TAG = "route:upload";
@@ -63,7 +63,7 @@ function upload (request) {
                     file.versions = versions;
                     file.latestversion = version;
                     file.uploadtime = new Date();
-                    file.url = file.url = UrlJoin(sharedInstance.config.server.host, 'buckets',
+                    file.url = file.url = UrlJoin(header.host, 'buckets',
                         request.request.bucket, request.file.originalname);
 
                     //  Insert the record into bucket

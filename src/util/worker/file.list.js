@@ -21,7 +21,7 @@ function worker (job, done) {
 
 
     //  job.data.params is param passed from express
-    Routes.listfile(job.data.request).then(function (data) {
+    Routes.listfile(job.data.request, job.data.header).then(function (data) {
         done(null, data);
     }).catch(function (e) {done(e);}).done();
 }

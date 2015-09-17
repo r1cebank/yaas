@@ -21,7 +21,7 @@ function worker (job, done) {
 
 
     //  job.data.params is param passed from express
-    Routes.upload(job.data).then(function (data) {  //  Instead of data.request we are using data since we need the file field
+    Routes.upload(job.data, job.data.header).then(function (data) {  //  Instead of data.request we are using data since we need the file field
         done(null, data);
     }).catch(function (e) {done(e);}).done();
 }

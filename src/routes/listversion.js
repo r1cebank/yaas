@@ -12,7 +12,7 @@ import Path             from 'path';
 import UrlJoin          from 'url-join';
 import _                from 'lodash';
 
-function listversion (request) {
+function listversion (request, header) {
 
     //  Log tag
     let TAG = "route:listversion";
@@ -35,7 +35,7 @@ function listversion (request) {
                 var urls = [ ];
                 //  List all versions
                 for(var key of Object.keys(doc.versions)) {
-                    urls.push(UrlJoin(sharedInstance.config.server.host, 'buckets',
+                    urls.push(UrlJoin(header.host, 'buckets',
                         request.bucket, request.filename, `?v=${key}`));
                 }
                 resolve({

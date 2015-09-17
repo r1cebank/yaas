@@ -13,7 +13,7 @@ import Path             from 'path';
 import UrlJoin          from 'url-join';
 import _                from 'lodash';
 
-function listfile (request) {
+function listfile (request, header) {
 
     //  Log tag
     let TAG = "route:listfile";
@@ -32,7 +32,7 @@ function listfile (request) {
             for(let doc of docs) {
 
                 //  All we want is a array of urls back to the client
-                urls.push(UrlJoin(sharedInstance.config.server.host, 'buckets',
+                urls.push(UrlJoin(header.host, 'buckets',
                     request.bucket, doc.originalname));
             }
             resolve({

@@ -20,7 +20,7 @@ function worker (job, done) {
     //  Call generator and send the data back
 
     //  job.data.params is param passed from express
-    Routes.getfile(job.data.request).then(function (data) {
+    Routes.getfile(job.data.request, job.data.header).then(function (data) {
         done(null, data);
     }).catch(function (e) {done(e);}).done();
 }
