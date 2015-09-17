@@ -1,5 +1,5 @@
 /**
- * Created by r1cebank on 9/6/15.
+ * Created by r1cebank on 8/23/15.
  */
 
 /*!
@@ -16,7 +16,7 @@ import _                from 'lodash';
 //  Old require still using require
 var hash = require('json-hash');
 
-function transform(req, file, version) {
+function transform(type, req, file, version) {
 
     let TAG = 'transform:image:png';
 
@@ -27,14 +27,23 @@ function transform(req, file, version) {
         // If no param supplied, resolve
         if(_.isEmpty(req)) {
             sharedInstance.L.info(TAG, "no transform options provided.");
-            resolve(file);
+            resolve({
+                type: 'path',
+                mimetype: type,
+                path: file
+            });
         } else {
             lwip.open(file, function (err, image) {
                 if(err) {
                     //  If there is error, return the original file
                     sharedInstance.L.error(TAG, 'file open error');
-                    resolve(file);
+                    resolve({
+                        type: 'path',
+                        mimetype: type,
+                        path: file
+                    });
                 }
+                sharedInstance.L.verbose(TAG, `file ${file} opened`);
                 var batch = image.batch();
 
                 //  Needed the version number to enforce the files don't collide.
@@ -132,15 +141,27 @@ function transform(req, file, version) {
                         batch.writeFile(filename, function (err) {
                             if(err) {
                                 sharedInstance.L.error(TAG, `error occured: ${err.toString()}`);
-                                resolve(file);
+                                resolve({
+                                    type: 'path',
+                                    mimetype: type,
+                                    path: file
+                                });
                             }
                             else {
-                                resolve(filename);
+                                resolve({
+                                    type: 'path',
+                                    mimetype: type,
+                                    path: filename
+                                });
                             }
                         });
                     } else {
                         sharedInstance.L.info(TAG, 'skip processing since file exists');
-                        resolve(filename);
+                        resolve({
+                            type: 'path',
+                            mimetype: type,
+                            path: filename
+                        });
                     }
                 });
 

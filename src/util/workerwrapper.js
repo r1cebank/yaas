@@ -50,10 +50,13 @@ function wrapper(work, req, res) {
                 sharedInstance.L.verbose(TAG, 'sending result as file');
                 res.type(result.mimetype);
                 res.sendFile(result.path);
-            } else {
+            } else if (result.type == 'error') {
+                sharedInstance.L.error(TAG, `error occurred: ${result.error}`);
+                res.status(400).send({error: result.error.toString()});
+            }
+            else {
                 res.status(500).send({error: 'internal error'});
             }
-
         }
     }).on('failed', function(error){
         sharedInstance.L.verbose(TAG, `job #${job.id} failed`);

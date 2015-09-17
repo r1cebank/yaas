@@ -19,7 +19,7 @@ import QueryBuilder     from './queryBuilder';
 //  Old require still using require
 var hash = require('json-hash');
 
-function transform(req, file, version) {
+function transform(type, req, file, version) {
 
     let TAG = 'transform:yaas:sql';
 
@@ -45,15 +45,24 @@ function transform(req, file, version) {
                 connection.query(query, (err, rows) => {
                     if(err) {
                         sharedInstance.L.error(TAG, `error occurred: ${err.toString()}`);
-                        resolve({error: err.toString()});
+                        resolve({
+                            type: 'error',
+                            error: err.toString()
+                        });
                     }
-                    resolve(rows);
+                    resolve({
+                        type: 'object',
+                        data: rows
+                    });
                     //  Close the connection
                     connection.destroy();
                 });
             } else {
                 sharedInstance.L.error(TAG, `error occurred: ${err.toString()}`);
-                resolve({error : err.toString()});
+                resolve({
+                    type: 'error',
+                    error : err.toString()
+                });
             }
         });
     });

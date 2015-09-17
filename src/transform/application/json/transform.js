@@ -18,7 +18,7 @@ import _                from 'lodash';
 //  Old require still using require
 var hash = require('json-hash');
 
-function transform(req, file, version) {
+function transform(type, req, file, version) {
 
     let TAG = 'transform:application:json';
 
@@ -29,7 +29,11 @@ function transform(req, file, version) {
         // If no param supplied, resolve
         if(_.isEmpty(req)) {
             sharedInstance.L.info(TAG, "no transform options provided.");
-            resolve(file);
+            resolve({
+                type: 'path',
+                mimetype: type,
+                path: file
+            });
         } else {
             //  Needed the version number to enforce the files don't collide.
             req.v = version;
@@ -57,20 +61,36 @@ function transform(req, file, version) {
                             //  Finally write the file
                             JsonFile.writeFile(filename, result, function (err) {
                                 if(!err) {
-                                    resolve(filename);
+                                    resolve({
+                                        type: 'path',
+                                        mimetype: type,
+                                        path: filename
+                                    });
                                 } else {
                                     sharedInstance.L.error(TAG, `error occured: ${err.toString()}`);
-                                    resolve(file);
+                                    resolve({
+                                        type: 'path',
+                                        mimetype: type,
+                                        path: file
+                                    });
                                 }
                             });
                         } else {
                             sharedInstance.L.error(TAG, `error occured: ${err.toString()}`);
-                            resolve(file);
+                            resolve({
+                                type: 'path',
+                                mimetype: type,
+                                path: file
+                            });
                         }
                     });
                 } else {
                     sharedInstance.L.info(TAG, 'skip processing since file exists');
-                    resolve(filename);
+                    resolve({
+                        type: 'path',
+                        mimetype: type,
+                        path: file
+                    });
                 }
             });
         }

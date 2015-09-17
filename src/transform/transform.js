@@ -32,7 +32,7 @@ function transform (type, req, file, version) {
             if(!err) {
 
                 //  Call the transformation file and get the final processed file.
-                require(transformFile)(req, file, version).then((file) => {
+                require(transformFile)(type, req, file, version).then((file) => {
                     sharedInstance.L.verbose(TAG, 'file processed');
                     //  After processing, the output can be two types, JSON or filepath
                     resolve(file);
