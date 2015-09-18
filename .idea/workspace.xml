@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/circle.yml" afterPath="$PROJECT_DIR$/circle.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/install.js" afterPath="$PROJECT_DIR$/install.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+    <list default="true" id="73acc745-6101-4c57-8a52-091d24e0f35c" name="Default" comment="fix circleci">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="aas.iws" />
@@ -669,12 +667,6 @@
       <option name="number" value="Default" />
       <updated>1440043790923</updated>
     </task>
-    <task id="LOCAL-00054" summary="better worker error handling">
-      <created>1441857319799</created>
-      <option name="number" value="00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1441857319799</updated>
-    </task>
     <task id="LOCAL-00055" summary="Process exit handler">
       <created>1441861554594</created>
       <option name="number" value="00055" />
@@ -963,7 +955,13 @@
       <option name="project" value="LOCAL" />
       <updated>1442558432734</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="fix circleci">
+      <created>1442558878095</created>
+      <option name="number" value="00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1442558878095</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1008,7 +1006,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="documentation for util" />
     <MESSAGE value="Storage stores time of creation" />
     <MESSAGE value="Storage path now can be set by environment vars" />
     <MESSAGE value="Add missing dependencies" />
@@ -1033,7 +1030,8 @@
     <MESSAGE value="fix dependencies" />
     <MESSAGE value="moved dependencies" />
     <MESSAGE value="fix test" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix test" />
+    <MESSAGE value="fix circleci" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix circleci" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
