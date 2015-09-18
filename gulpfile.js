@@ -16,17 +16,38 @@ var istanbul       = require('gulp-istanbul');
 var sourcemaps     = require('gulp-sourcemaps');
 var del            = require('del');
 var bump           = require('gulp-bump');
+var runSequence    = require('run-sequence');
 
 /*!
  * Aliases
  */
-gulp.task('patch', ['clean','build', 'bump']);
 
-gulp.task('default', ['clean','build']);
+gulp.task('default', function(callback) {
+    runSequence('clean',
+        ['build', 'copy config'],
+        callback);
+});
 
-gulp.task('major', ['clean','build', 'bumpmajor']);
+gulp.task('patch', function(callback) {
+    runSequence('clean',
+        ['build', 'copy config'],
+        'bump',
+        callback);
+});
 
-gulp.task('minor', ['clean','build', 'bumpminor']);
+gulp.task('major', function(callback) {
+    runSequence('clean',
+        ['build', 'copy config'],
+        'bumpmajor',
+        callback);
+});
+
+gulp.task('minor', function(callback) {
+    runSequence('clean',
+        ['build', 'copy config'],
+        'bumpminor',
+        callback);
+});
 /*!
  * Builds script files.
  * Ignore fixtures
@@ -39,6 +60,13 @@ gulp.task('build', function() {
             auxiliaryCommentBefore: 'istanbul ignore next'
         }))
         .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('lib'));
+
+});
+
+gulp.task('copy config', function() {
+
+    gulp.src(['src/**/*.json'], { base: 'src' })
         .pipe(gulp.dest('lib'));
 
 });

@@ -22,7 +22,7 @@ import UI               from 'kue-ui';
 import AppSingleton     from './util/appsingleton';
 import Bootstrap        from './util/bootstrap';
 import Startup          from './util/startup';
-import Config           from './config/config';
+import Config           from './config/config.json';
 
 //  Log TAG
 var TAG = "index";

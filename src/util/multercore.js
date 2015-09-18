@@ -2,7 +2,7 @@
  * Created by r1cebank on 9/5/15.
  */
 
-import Config           from '../config/config.js';
+import Config           from '../config/config.json';
 import Shortid          from 'shortid';
 import Path             from 'path';
 import Mkdir            from 'mkdirp';

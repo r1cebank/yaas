@@ -20,7 +20,7 @@ import Encrypter        from 'object-encrypter';
 //  Libraries
 import AppSingleton     from './appsingleton';
 import Authority        from '../auth/authority';
-import Config           from '../config/config';
+import Config           from '../config/config.json';
 import QueueWorker      from './queueworker';
 import Injector         from './injectconfig';
 import MulterCore       from './multercore';
