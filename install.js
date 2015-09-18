@@ -137,6 +137,9 @@ var configurations = [
         type: 'input',
         name: 'concurrency',
         message: 'please choose # of concurrent task can run in background:',
+        filter: function (str) {
+            return parseInt(str);
+        },
         validate: function (value) {
             if(value.match(/[0-9]+/)) {
                 return true;
@@ -178,6 +181,9 @@ var configurations = [
         type: 'input',
         name: 'max',
         message: 'please choose max # of objects user can generate at a time:',
+        filter: function (str) {
+            return parseInt(str);
+        },
         validate: function (value) {
             if(value.match(/[0-9]+/)) {
                 return true;
@@ -194,7 +200,10 @@ var configurations = [
         type: 'input',
         name: 'redis_port',
         default: 6379,
-        message: 'what is the port for your redis server:',
+        filter: function (str) {
+            return parseInt(str);
+        },
+        message: 'what is the port for your redis server:'
     },
     {
         type: 'confirm',
@@ -206,6 +215,9 @@ var configurations = [
         type: 'input',
         name: 'port',
         message: 'which port do you want yaas to run on?',
+        filter: function (str) {
+            return parseInt(str);
+        },
         validate: function (value) {
             if(value.match(/[0-9]+/)) {
                 return true;
