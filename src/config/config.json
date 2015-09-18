@@ -2,7 +2,7 @@
     "HMACSecret": "b06c028320f8720a9963fd61d1a4914cd9482d0c",
     "concurrency": "12",
     "generator": {
-        "max": "10000"
+        "max": 10000
     },
     "loglevel": "verbose",
     "redis": {

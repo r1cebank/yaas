@@ -273,6 +273,7 @@ inquirer.prompt(question, function(answer) {
             config.auth.overwrites = overwrites;
             jsonfile.writeFileSync('./lib/config/config.json', config, {spaces: 4});
             console.log("Configuration Complete");
+            console.log("your apikey is:", answers.apikey);
             inquirer.prompt([{type: 'confirm', name:'run', default: true,
                 message: 'ready to launch yaas?'}], function(answer) {
                 if(answer.run) {
