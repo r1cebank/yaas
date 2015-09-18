@@ -218,7 +218,7 @@ var configurations = [
 inquirer.prompt(question, function(answer) {
     if(answer.startnow) {
         console.log("WARNING: running yaas in default settings.");
-        shell.exec('npm start');
+        shell.exec('npm run afterinstall');
     } else {
         inquirer.prompt(configurations, function(answers) {
             if(answers.generateHMAC) {
@@ -271,13 +271,13 @@ inquirer.prompt(question, function(answer) {
                 }
             }
             config.auth.overwrites = overwrites;
-            jsonfile.writeFileSync('./src/config/config.json', config, {spaces: 4});
+            jsonfile.writeFileSync('./lib/config/config.json', config, {spaces: 4});
             console.log("Configuration Complete");
             inquirer.prompt([{type: 'confirm', name:'run', default: true,
                 message: 'ready to launch yaas?'}], function(answer) {
                 if(answer.run) {
                     console.log('starting yaas....');
-                    shell.exec('npm start');
+                    shell.exec('npm run afterinstall');
                 } else {
                     console.log("you can re-configure by reinstalling [npm i yaas]");
                 }

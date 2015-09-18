@@ -16,3 +16,6 @@ notify:
     # A list of hook hashes, containing the url field
     # gitter hook
     - url: https://webhooks.gitter.im/e/e72c734c64d6f078e90f
+dependencies:
+  override:
+    - npm install --ignore-scripts
