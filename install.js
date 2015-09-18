@@ -5,12 +5,11 @@
  * @license MIT
  */
 
-var replace     = require('replace');
 var fs          = require('fs.extra');
 var inquirer    = require("inquirer");
 var shell       = require('shelljs');
 var crypto      = require('crypto');
-var jsonfile    = require('jsonfile')
+var jsonfile    = require('jsonfile');
 
 function moveFile() {
     // Move final folder to root

@@ -1,14 +1,13 @@
 {
   "name": "yaas",
-  "version": "0.17.0",
+  "version": "0.20.0",
   "description": "Yet Another Asset Server",
   "main": "lib/index.js",
   "scripts": {
     "start": "gulp && node .",
     "test": "gulp && ./node_modules/.bin/mocha",
-    "install": "node ./node_modules/yaas/install.js",
     "posttest": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js",
-    "postinstall": "npm run install"
+    "postinstall": "node ./install.js"
   },
   "repository": {
     "type": "git",
