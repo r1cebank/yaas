@@ -24,6 +24,9 @@ import Bootstrap        from './util/bootstrap';
 import Startup          from './util/startup';
 import Config           from './config/config.json';
 
+//  Update checker
+import Checker          from './checkupdate';
+
 //  Log TAG
 var TAG = "index";
 

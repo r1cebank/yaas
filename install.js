@@ -5,22 +5,34 @@
  * @license MIT
  */
 
-var fs          = require('fs.extra');
 var inquirer    = require("inquirer");
 var shell       = require('shelljs');
 var crypto      = require('crypto');
 var jsonfile    = require('jsonfile');
 
-function moveFile() {
-    // Move final folder to root
-}
-
 var question = [
+    {
+        type: 'list',
+        name: 'exist',
+        message: 'existing config file found:',
+        choices: ['overwrite', 'keep'],
+        when: function () {
+            var config = require('./lib/config/config.json');
+            if(config) {
+                return config.custom;
+            } else {
+                return false;
+            }
+        }
+    },
     {
         type: 'confirm',
         name: 'startnow',
         default: false,
-        message: 'do you want to start server with default settings?'
+        message: 'do you want to start the server now?',
+        when: function (answers) {
+            return answers.exist == 'keep';
+        }
     }
 ];
 
@@ -240,6 +252,7 @@ inquirer.prompt(question, function(answer) {
                 answers.apikey = crypto.randomBytes(20).toString('hex');
             }
             var config = {
+                custom: true,
                 HMACSecret: answers.HMAC,
                 concurrency: answers.concurrency,
                 generator: {
