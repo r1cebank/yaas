@@ -41,6 +41,7 @@ function queueworker() {
     sharedInstance.queue.process('file:get', sharedInstance.config.concurrency, require('./worker/file.get.js'));
     sharedInstance.queue.process('bucket:list', sharedInstance.config.concurrency, require('./worker/bucket.list.js'));
     sharedInstance.queue.process('file:list', sharedInstance.config.concurrency, require('./worker/file.list.js'));
+    sharedInstance.queue.process('bucket:delete', sharedInstance.config.concurrency, require('./worker/bucket.delete.js'));
     sharedInstance.queue.process('bucket:upload', sharedInstance.config.concurrency, require('./worker/bucket.upload.js'));
 
     //  Generators

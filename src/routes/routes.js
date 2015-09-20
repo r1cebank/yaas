@@ -11,6 +11,7 @@ import getfile      from    './getfile';
 import listfile     from    './listfile';
 import listbucket   from    './listbucket';
 import listversion  from    './listversion';
+import deletebucket  from    './deletebucket';
 
 /*!
  *  Export all the routes
@@ -21,5 +22,6 @@ export default {
     getfile,
     listfile,
     listbucket,
-    listversion
+    listversion,
+    deletebucket
 };

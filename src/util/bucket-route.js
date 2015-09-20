@@ -38,6 +38,12 @@ function bucketroute() {
             Wrapper.wrapper('file:list', req, res);
         }
     });
+    //  Delete a bucket
+    sharedInstance.app.post('/buckets/:bucket/delete', function (req, res) {
+        if(sharedInstance.authority.hasRole(req, res, 'bucket:delete')) {
+            Wrapper.wrapper('bucket:delete', req, res);
+        }
+    });
     //  Setup upload
     sharedInstance.app.post('/buckets/:bucket/upload', sharedInstance.upload.single('file'), function(req, res) {
         if(sharedInstance.authority.hasRole(req, res, 'bucket:upload')) {

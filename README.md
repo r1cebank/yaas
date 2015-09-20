@@ -9,6 +9,8 @@
 
 ### Important notice: yaas is using `redis` for job queue, you will have to install `redis` before using yaas.
 
+### [Detailed Documentation on readme.io](https://yaas.readme.io/docs)
+
 0. [Overview](#overview)
 	0. [Installation](#installation)
 	1. [Build and Run](#build-and-run)
@@ -22,7 +24,7 @@
 
 YAAS is a complete ready-to-use asset server that support file versioning as well as data manipulation
 
-##### Example `http://localhost:3939/rai/261671.jpeg?scale=0.5&crop=[200,200]`
+##### Example `http://localhost:3939/buckets/rai/261671.jpeg?scale=0.5&crop=[200,200]`
 (this will get the jpeg named `261671` and apply 0.5 scale and crop 200x200 pixels from the center)
 
 **There are no external runtime dependencies**, you don't need to install anything extra to use this.
@@ -63,7 +65,7 @@ I am Siyuan Gao, a Mobile application developer, full-stack developer, designer 
 
 0. Make the project more stuctured, (no more big source files)
 1. Make adding transformation easier
-2. Allow user to config authentication [*](#authentication)
+2. Allow user to config authentication
 3. HTTPS support
 4. Better manage disk space
 5. More Mocha tests (**sorry, need to write more tests)
