@@ -1,2 +1,2 @@
---compilers js:mocha-babel
+--compilers js:babel-core/register
 -R nyan

@@ -57,6 +57,7 @@ gulp.task('build', function() {
   gulp.src(['src/**/*.js'], { base: 'src' })
         .pipe(sourcemaps.init())
         .pipe(babel({
+            presets: ['es2015'],
             auxiliaryCommentBefore: 'istanbul ignore next'
         }))
         .pipe(sourcemaps.write('./'))

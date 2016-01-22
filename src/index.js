@@ -5,7 +5,7 @@
  * @license MIT
  */
 
-require("babel/polyfill"); //   Needed for some babel functions, remove after ES6
+// require("babel/polyfill"); //   Needed for some babel functions, remove after ES6
 
 //  NPM packages
 import Express          from 'express';
