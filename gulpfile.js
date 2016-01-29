@@ -58,6 +58,7 @@ gulp.task('build', function() {
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['es2015'],
+            plugins: ['add-module-exports'],
             auxiliaryCommentBefore: 'istanbul ignore next'
         }))
         .pipe(sourcemaps.write('./'))
@@ -174,4 +175,3 @@ gulp.task('bumpminor', function(){
         .pipe(bump({type:'minor'}))
         .pipe(gulp.dest('./'));
 });
-

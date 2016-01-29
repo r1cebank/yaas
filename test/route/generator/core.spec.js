@@ -18,9 +18,9 @@ Chai.use(require('chai-as-promised'));
 var expect         = Chai.expect;
 
 var Config         = require('../../../src/config/config');
-var Lorem          = require('../../../src/routes/generator/lorem.js').default;
-var JsonData       = require('../../../src/routes/generator/jsondata.js').default;
-var XMLData        = require('../../../src/routes/generator/xmldata.js').default;
+var Lorem          = require('../../../src/routes/generator/lorem.js');
+var JsonData       = require('../../../src/routes/generator/jsondata.js');
+var XMLData        = require('../../../src/routes/generator/xmldata.js');
 
 var req = {
     count: 2
