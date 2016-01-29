@@ -1,4 +1,6 @@
 machine:
+  node:
+    version: 4.2.1
   environment:
     CODECLIMATE_REPO_TOKEN: 1300a17b65ba1c518cc32a5c7e439466770fbecad7ce372ef42ff0c9c3e133d2
 test:
