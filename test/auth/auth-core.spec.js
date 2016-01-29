@@ -6,7 +6,7 @@
  */
 
 var Chai           = require('chai');
-var Authority      = require('../../src/auth/authority');
+var Authority      = require('../../src/auth/authority').default;
 
 Chai.use(require('sinon-chai'));
 Chai.use(require('chai-as-promised'));

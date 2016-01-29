@@ -7,14 +7,14 @@
 
 var Sinon                 = require('sinon');
 var Chai                  = require('chai');
-var BucketList            = require('../../src/util/worker/bucket.list.js');
-var BucketUpload          = require('../../src/util/worker/bucket.upload.js');
-var FileGet               = require('../../src/util/worker/file.get.js');
-var FileList              = require('../../src/util/worker/file.list.js');
-var GeneratorJson         = require('../../src/util/worker/generator.json.js');
-var GeneratorXML          = require('../../src/util/worker/generator.xml.js');
-var GeneratorLorem        = require('../../src/util/worker/generator.lorem.js');
-var VersionList           = require('../../src/util/worker/version.list.js');
+var BucketList            = require('../../src/util/worker/bucket.list.js').default;
+var BucketUpload          = require('../../src/util/worker/bucket.upload.js').default;
+var FileGet               = require('../../src/util/worker/file.get.js').default;
+var FileList              = require('../../src/util/worker/file.list.js').default;
+var GeneratorJson         = require('../../src/util/worker/generator.json.js').default;
+var GeneratorXML          = require('../../src/util/worker/generator.xml.js').default;
+var GeneratorLorem        = require('../../src/util/worker/generator.lorem.js').default;
+var VersionList           = require('../../src/util/worker/version.list.js').default;
 
 Chai.use(require('sinon-chai'));
 Chai.use(require('chai-as-promised'));

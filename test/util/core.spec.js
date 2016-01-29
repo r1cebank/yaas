@@ -18,7 +18,7 @@ Chai.use(require('chai-as-promised'));
 var expect         = Chai.expect;
 
 
-var MulterCore     = require('../../src/util/multercore');
+var MulterCore     = require('../../src/util/multercore').default;
 var Config         = require('../../src/config/config');
 
 
