@@ -1,88 +1,22 @@
 {
   "name": "yaas",
-  "version": "1.1.3",
-  "description": "Yet Another Asset Server",
-  "main": "lib/index.js",
-  "scripts": {
-    "start": "gulp && node .",
-    "test": "gulp && ./node_modules/.bin/mocha",
-    "posttest": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js",
-    "prepublish": "gulp patch",
-    "postinstall": "gulp && node ./install.js",
-    "afterinstall": "node ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:r1cebank/yaas.git"
-  },
-  "devDependencies": {
-    "babel-plugin-add-module-exports": "^0.1.2",
-    "babel-preset-es2015": "^6.3.13",
-    "chai": "^3.4.1",
-    "chai-as-promised": "^5.2.0",
-    "chai-spies": "^0.7.1",
-    "del": "^2.2.0",
-    "gulp": "^3.9.0",
-    "gulp-babel": "^6.1.1",
-    "gulp-bump": "^1.0.0",
-    "gulp-istanbul": "^0.10.3",
-    "gulp-jscs": "^3.0.2",
-    "gulp-jscs-stylish": "^1.3.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-mocha": "^2.2.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "jshint-stylish": "^2.1.0",
-    "mocha": "^2.3.4",
-    "node-xml-lite": "0.0.6",
-    "run-sequence": "^1.1.5",
-    "sinon": "^1.17.2",
-    "sinon-chai": "^2.8.0"
-  },
-  "dependencies": {
-    "babel": "^6.3.26",
-    "babel-core": "^6.4.5",
-    "babel-runtime": "^6.3.19",
-    "bluebird": "^3.1.1",
-    "body-parser": "^1.14.2",
-    "check-update": "0.0.8",
-    "checksum": "^0.1.1",
-    "codecov.io": "^0.1.6",
-    "express": "^4.13.4",
-    "inquirer": "^0.11.3",
-    "js2xmlparser": "^1.0.0",
-    "json-hash": "^1.1.0",
-    "json-schema-faker": "^0.2.6",
-    "jsonfile": "^2.2.3",
-    "jsonpath": "^0.2.2",
-    "jsonwebtoken": "^5.5.4",
-    "junk": "^1.0.2",
-    "kue": "^0.10.5",
-    "kue-ui": "^0.1.0",
-    "localeval": "^15.2.3",
-    "lodash": "^4.0.0",
-    "lorem-ipsum": "^1.0.3",
-    "lwip": "0.0.8",
-    "mkdirp": "^0.5.1",
-    "multer": "^1.1.0",
-    "mysql": "^2.10.2",
-    "node-info": "^1.0.2",
-    "object-encrypter": "^0.1.2",
-    "passport": "^0.3.2",
-    "shelljs": "^0.5.3",
-    "shortid": "^2.2.4",
-    "source-map-support": "^0.4.0",
-    "tingodb": "^0.4.2",
-    "url-join": "0.0.1",
-    "winston": "^2.1.1"
-  },
-  "author": "Siyuan Gao",
-  "license": "MIT",
+  "version": "2.0.0",
+  "description": "Yet another asset server",
+  "main": "index.js",
   "directories": {
     "test": "test"
   },
-  "keywords": [
-    "asset",
-    "asset-server",
-    "server"
-  ]
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r1cebank/yaas.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/r1cebank/yaas/issues"
+  },
+  "homepage": "https://github.com/r1cebank/yaas#readme"
 }

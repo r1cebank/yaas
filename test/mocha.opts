@@ -1,3 +1,0 @@
---compilers js:babel-core/register
--R nyan
---timeout 5000
