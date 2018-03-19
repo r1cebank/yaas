@@ -9,6 +9,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "yaas": "./src/yaas.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/r1cebank/yaas.git"
@@ -18,5 +21,9 @@
   "bugs": {
     "url": "https://github.com/r1cebank/yaas/issues"
   },
-  "homepage": "https://github.com/r1cebank/yaas#readme"
+  "homepage": "https://github.com/r1cebank/yaas#readme",
+  "dependencies": {
+    "commander": "^2.15.0",
+    "eslint-config-r1cebank": "0.0.6"
+  }
 }
