@@ -12,6 +12,9 @@
   "bin": {
     "yaas": "./bin/yaas.js"
   },
+  "engines": {
+    "node": ">=8.9"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/r1cebank/yaas.git"
@@ -24,6 +27,9 @@
   "homepage": "https://github.com/r1cebank/yaas#readme",
   "dependencies": {
     "commander": "^2.15.0",
-    "eslint-config-r1cebank": "0.0.6"
+    "eslint-config-r1cebank": "0.0.6",
+    "express": "^4.16.3",
+    "express-list-routes": "^0.1.4",
+    "winston": "^3.0.0-rc4"
   }
 }
