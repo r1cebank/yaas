@@ -5,5 +5,8 @@
 
 class YaasServer {
     constructor(options) {
+        this.options = options;
     }
 }
+
+module.exports = YaasServer;

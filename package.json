@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "yaas": "./src/yaas.js"
+    "yaas": "./bin/yaas.js"
   },
   "repository": {
     "type": "git",
