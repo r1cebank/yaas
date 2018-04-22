@@ -32,7 +32,11 @@
     "eslint-config-r1cebank": "0.0.6",
     "express": "^4.16.3",
     "express-list-routes": "^0.1.4",
+    "fs-extra": "^5.0.0",
     "lorem-ipsum": "^1.0.4",
+    "mkdirp": "^0.5.1",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2",
     "winston": "^3.0.0-rc4"
   }
 }

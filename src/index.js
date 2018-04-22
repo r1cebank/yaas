@@ -4,11 +4,21 @@
  */
 const expressListRoutes = require('express-list-routes');
 const bodyParser = require('body-parser');
+const Singleton = require('./singleton');
+const mkdir = require('mkdirp');
+const path = require('path');
 
+const sharedInstance = Singleton.getInstance();
 
 class YaasServer {
-    constructor(options = {}) {
+    constructor(options = {}, logger) {
         this.urlPrefix = options.urlPrefix || '/api/v1/yaas';
+        this.dataDir = options.dataDir || 'files';
+        // Create data dir
+        mkdir(this.dataDir);
+
+        sharedInstance.yaasServer = this;
+        sharedInstance.logger = logger;
     }
     bindDefault(app, router) {
         // parse application/x-www-form-urlencoded
@@ -33,6 +43,11 @@ class YaasServer {
         router.get('/lorem/paragraphs', require('./routes/lorem/paragraphs'));
         // JSON
         router.post('/json/fromRequest', require('./routes/json/fromRequest'));
+        // Alias
+        // Create data dir
+        mkdir(path.join(this.dataDir, 'alias'));
+        router.post('/alias/create', require('./routes/alias/create'));
+        router.get('/alias/invoke/:alias', require('./routes/alias/invoke'));
 
         expressListRoutes({ prefix: this.urlPrefix }, 'API:', router);
     }

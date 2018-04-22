@@ -38,8 +38,14 @@ program
     .option('-p, --port <port>', 'Port number yaas will run on', parseInt)
     .parse(process.argv);
 
+const requestLogger = function(req, res, next) {
+    logger.info(`${req.method} ${req.originalUrl}`);
+    next();
+};
+
 const app = express();
-const yaasServer = new yaas();
+app.use(requestLogger);
+const yaasServer = new yaas({}, logger);
 
 // Hookup yaas server middleware
 logger.info('Registered the following routes:');
