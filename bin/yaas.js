@@ -35,7 +35,7 @@ const logger = createLogger({
 program
     .description(pkg.description)
     .version(pkg.version, '-v, --version')
-    .option('-p, --port <n>', 'Port number yaas will run on', parseInt)
+    .option('-p, --port <port>', 'Port number yaas will run on', parseInt)
     .parse(process.argv);
 
 const app = express();
