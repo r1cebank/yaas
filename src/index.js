@@ -21,6 +21,8 @@ class YaasServer {
         sharedInstance.logger = logger;
     }
     bindDefault(app, router) {
+        sharedInstance.app = app;
+        sharedInstance.router = router;
         // parse application/x-www-form-urlencoded
         app.use(bodyParser.urlencoded({ extended: false }));
 
